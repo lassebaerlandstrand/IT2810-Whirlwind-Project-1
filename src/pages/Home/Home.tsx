@@ -1,8 +1,11 @@
+import Button from '../../components/Button/Button';
+
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
-      <p>This is the home page.</p>
+      <h1>43 °C</h1>
+      <h1>🔥😰🔥</h1>
+      <Button text="Press me to do absolutely nothing" />
     </div>
   );
 };
