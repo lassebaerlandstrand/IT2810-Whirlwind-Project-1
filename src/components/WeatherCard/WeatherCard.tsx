@@ -1,7 +1,7 @@
 import {IconCloudFilled, IconSunFilled} from '@tabler/icons-react';
 import {Location} from '../../types/api-types';
 import styles from './WeatherCard.module.css';
-import getWeatherInfo from '../../utils/WeatherUtils';
+import getWeatherInfo from '../../utils/weatherUtils';
 
 const WeatherCard = (location: Location) => {
   const data = getWeatherInfo(location);
