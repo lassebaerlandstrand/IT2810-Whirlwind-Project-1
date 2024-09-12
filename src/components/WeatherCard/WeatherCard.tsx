@@ -11,7 +11,7 @@ const WeatherCard = (location: Location) => {
         {data.city}, {data.country}
       </p>
       <p className={styles.temperature}>{data.air_temperature}°C</p>
-      <p>{'Partially cloudy'}</p>
+      <p>{data.cloud_area_fraction > 0.5 ? 'Cloudy' : 'Sunny'}</p>
     </div>
   );
 };
