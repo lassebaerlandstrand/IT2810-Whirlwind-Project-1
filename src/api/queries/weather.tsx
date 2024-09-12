@@ -4,7 +4,7 @@ import {fetchWeather} from '../clients/weatherClient';
 // Custom hook using the query key
 export const useWeatherQuery = (lat: string, lon: string) => {
   return useQuery({
-    queryKey: [lat, lon], // Query key for caching and invalidation
+    queryKey: [lat, lon], // Query key for caching
     queryFn: () =>
       fetchWeather(lat, lon).then((data) => ({
         air_pressure_at_sea_level: data.properties.timeseries[0].data.instant.details.air_pressure_at_sea_level,

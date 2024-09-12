@@ -3,10 +3,6 @@ import {fetchWeather} from './weatherClient';
 
 describe('Testing that fetchWeather mocks properly', () => {
   it('should return mocked weather data', async () => {
-    //These mock values be whatever as it does not affect anything
-    const mockLat = '60.10';
-    const mockLon = '9.58';
-
     const mockResponse = {
       properties: {
         timeseries: [
@@ -33,7 +29,7 @@ describe('Testing that fetchWeather mocks properly', () => {
       },
     };
 
-    const result = await fetchWeather(mockLat, mockLon);
+    const result = await fetchWeather('10.10', '10.10');
 
     // Assert
     expect(result).toEqual(mockResponse);
