@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import WeatherCard from './WeatherCard';
-import getWeatherInfo from '../../utils/WeatherUtils'; // Adjust path to where `getWeatherInfo` is located
+import getWeatherInfo from '../../utils/weatherUtils'; // Adjust path to where `getWeatherInfo` is located
 import { Location } from '../../types/api-types';
 
 // Mock getWeatherInfo
