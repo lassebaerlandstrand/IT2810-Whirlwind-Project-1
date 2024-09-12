@@ -1,8 +1,7 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import WeatherCard from './WeatherCard';
-import * as weatherUtils from '../../utils/weatherUtils'; // Adjust path to where `getWeatherInfo` is located
+import getWeatherInfo from '../../utils/WeatherUtils'; // Adjust path to where `getWeatherInfo` is located
 import { Location } from '../../types/api-types';
 
 // Mock getWeatherInfo
@@ -11,7 +10,7 @@ jest.mock('../../utils/weatherUtils', () => ({
 }));
 
 describe('WeatherCard', () => {
-  const mockGetWeatherInfo = weatherUtils.getWeatherInfo as jest.Mock;
+  const mockGetWeatherInfo = getWeatherInfo as jest.Mock;
 
   const location: Location = {
     city_name: 'New York',
