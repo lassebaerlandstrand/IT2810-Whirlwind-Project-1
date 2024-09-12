@@ -1,26 +1,18 @@
 import {IconCloudFilled, IconSunFilled} from '@tabler/icons-react';
+import {Location} from '../../types/api-types';
 import styles from './WeatherCard.module.css';
+import getWeatherInfo from '../../utils/WeatherUtils';
 
-type dummyType = {
-  temp: number;
-  cloudiness: GLfloat;
-  city: string;
-  country: string;
-  humidity: number;
-  pressure: number;
-  windStrength: number;
-  windDirection: string;
-};
-
-const WeatherCard = (data: dummyType) => {
+const WeatherCard = (location: Location) => {
+  const data = getWeatherInfo(location);
   return (
     <div className={styles.card}>
-      {data.cloudiness > 0.5 ? <IconCloudFilled /> : <IconSunFilled />}
+      {data.cloud_area_fraction > 0.5 ? <IconCloudFilled /> : <IconSunFilled />}
       <p className={styles.city}>
-        {data.city}, {data.country}
+        {location.city_name}, {location.country_name}
       </p>
-      <p className={styles.temperature}>{data.temp}°C</p>
-      <p>{'Partially cloudy'}</p>
+      <p className={styles.temperature}>{data.air_temperature}°C</p>
+      <p>{data.cloud_area_fraction > 0.5 ? 'Cloudy' : 'Sunny'}</p>
     </div>
   );
 };
