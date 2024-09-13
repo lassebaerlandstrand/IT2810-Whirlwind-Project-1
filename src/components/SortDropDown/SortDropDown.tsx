@@ -1,6 +1,6 @@
-import {IconChevronDown} from '@tabler/icons-react';
-import {useState} from 'react';
-import {Location} from '../../types/api-types';
+import { IconChevronDown } from '@tabler/icons-react';
+import { useState } from 'react';
+import { Location } from '../../types/api-types';
 import styles from './SortDropDown.module.css';
 
 const options = {
@@ -11,7 +11,7 @@ type DropDownContentProps = {
   open: boolean;
 };
 
-const DropDownContent = ({open}: DropDownContentProps) => {
+const DropDownContent = ({ open }: DropDownContentProps) => {
   return <p>Hello World</p>;
 };
 
@@ -21,7 +21,7 @@ type DropDownButtonProps = {
   selectedOption: string;
 };
 
-const DropDownButton = ({open, selectedOption}: DropDownButtonProps) => {
+const DropDownButton = ({ open, selectedOption }: DropDownButtonProps) => {
   return (
     <button className={styles.dropDownButton}>
       {selectedOption} <span className={styles.iconSpan}>{<IconChevronDown />}</span>
