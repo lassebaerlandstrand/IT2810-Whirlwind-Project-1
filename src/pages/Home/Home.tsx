@@ -1,16 +1,15 @@
-import {useState} from 'react';
-import Button from '../../components/Button/Button';
-import SearchBar from '../../components/SearchBar/Searchbar';
+import { useState } from 'react';
+import SearchBar from '../../components/SearchBar/SearchBar';
 
 const Home = () => {
-  const [cities, setCities] = useState<{name: string}[]>([
-    {name: 'Trondheim'},
-    {name: 'Oslo'},
-    {name: 'Stavanger'},
-    {name: 'Ålesund'},
-    {name: 'Gjøvik'},
-    {name: 'Tønsberg'},
-    {name: 'Osen'},
+  const [cities] = useState<{ name: string }[]>([
+    { name: 'Trondheim' },
+    { name: 'Oslo' },
+    { name: 'Stavanger' },
+    { name: 'Ålesund' },
+    { name: 'Gjøvik' },
+    { name: 'Tønsberg' },
+    { name: 'Osen' },
   ]); // Dummy data, to be changed
   const [filteredCities, setFilteredCities] = useState(cities);
 
@@ -27,7 +26,6 @@ const Home = () => {
     <div>
       <h1>43 °C</h1>
       <h1>🔥😰🔥</h1>
-      <Button text="Press me to do absolutely nothing" />
       <SearchBar onSearch={handleSearch} />
       <ul>
         {filteredCities.map((city, index) => (
