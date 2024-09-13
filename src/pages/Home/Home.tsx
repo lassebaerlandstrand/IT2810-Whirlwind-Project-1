@@ -3,6 +3,7 @@ import Example from '../../components/Example/Example';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import SortDropDown from '../../components/SortDropDown/SortDropDown';
 import type { Location } from '../../types/api-types';
+import styles from './Home.module.css';
 
 const Home = () => {
   const [cities] = useState<Location[]>([
@@ -31,8 +32,10 @@ const Home = () => {
       <h1>43 °C</h1>
       <h1>🔥😰🔥</h1>
       <Example />
-      <SortDropDown onSort={handleSort} />
-      <SearchBar onSearch={handleSearch} />
+      <nav className={styles.navbar}>
+        <SearchBar onSearch={handleSearch} />
+        <SortDropDown onSort={handleSort} />
+      </nav>
       <ul>
         {filteredCities.map((city, index) => (
           <li key={index}>{city.city_name}</li>

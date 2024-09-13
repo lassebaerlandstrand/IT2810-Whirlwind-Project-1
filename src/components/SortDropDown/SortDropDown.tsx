@@ -41,6 +41,7 @@ type DropDownProps = {
   setSelectedOption: (option: string) => void;
 };
 
+/** General drop-down component */
 export const DropDown = ({ selectedOption, options, setSelectedOption }: DropDownProps) => {
   const [open, setOpen] = useState<boolean>(false);
   const toggleOpen = () => setOpen(!open);
@@ -64,15 +65,18 @@ type OptionsType = {
   [key: string]: (a: Location, b: Location) => number;
 };
 
+// TODO: Add more sorting options
 const options: OptionsType = {
   Name: (a: Location, b: Location) => a.city_name.localeCompare(b.city_name),
-  Random: (a: Location, b: Location) => Math.random() - 0.5,
+  Random: () => Math.random() - 0.5,
+  Random2: () => Math.random() - 0.5,
 };
 
 type SortDropDownProps = {
   onSort: (sortCondition: (a: Location, b: Location) => number) => void;
 };
 
+/** Specialized drop-down with sorting in mind */
 const SortDropDown = ({ onSort }: SortDropDownProps) => {
   const [selectedOption, setSelectedOption] = useState<string>(Object.keys(options)[0]); // TODO: Use sessionstorage
   const optionList = Object.keys(options);

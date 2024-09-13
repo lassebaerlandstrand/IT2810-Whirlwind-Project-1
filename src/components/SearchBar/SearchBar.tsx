@@ -5,6 +5,7 @@ type SearchBarProps = {
   onSearch: (searchQuery: string) => void;
 };
 
+// TODO: Use sessionstorage
 const SearchBar = ({ onSearch }: SearchBarProps) => {
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const searchQuery = event.target.value;
