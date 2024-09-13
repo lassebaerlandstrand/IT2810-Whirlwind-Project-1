@@ -12,10 +12,12 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
   };
 
   return (
-    <search className={styles.searchBarContainer}>
-      <span className={styles.searchIcon}>{<IconSearch />}</span>
+    <div className={styles.searchBarContainer} role="search">
+      <span className={styles.searchIcon} data-testid="search-icon">
+        {<IconSearch />}
+      </span>
       <input type="text" placeholder="Search here..." onChange={handleSearch} className={styles.searchInput} />
-    </search>
+    </div>
   );
 };
 
