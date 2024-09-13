@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import {vi} from 'vitest';
+import { vi } from 'vitest';
 
 // Mock the useWeatherQuery hook globally
 vi.mock('../api/clients/weatherClient', () => ({
