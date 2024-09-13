@@ -3,7 +3,7 @@
   align-items: center;
   max-width: 200px;
   border: 1px solid #dddddd;
-  border-radius: 0.5rem;
+  border-radius: 0.4rem;
   background-color: #ffffff;
   padding: 0.5rem 0.75rem;
   box-sizing: border-box;
@@ -19,12 +19,10 @@
   color: #333333;
 }
 
-/* Placeholder text */
 .searchInput::placeholder {
   color: #999999;
 }
 
-/* Icon styling */
 .searchIcon {
   display: flex;
   justify-content: center;

@@ -1,15 +1,12 @@
 import { useState } from 'react';
 import SearchBar from '../../components/SearchBar/SearchBar';
+import type { Location } from '../../types/api-types';
 
 const Home = () => {
-  const [cities] = useState<{ name: string }[]>([
-    { name: 'Trondheim' },
-    { name: 'Oslo' },
-    { name: 'Stavanger' },
-    { name: 'Ålesund' },
-    { name: 'Gjøvik' },
-    { name: 'Tønsberg' },
-    { name: 'Osen' },
+  const [cities] = useState<Location[]>([
+    { city_name: 'New York', country_name: 'USA', latitude: 40.7128, longitude: -74.006 },
+    { city_name: 'London', country_name: 'UK', latitude: 51.5074, longitude: -0.1278 },
+    { city_name: 'Tokyo', country_name: 'Japan', latitude: 35.6895, longitude: 139.6917 },
   ]); // Dummy data, to be changed
   const [filteredCities, setFilteredCities] = useState(cities);
 
@@ -17,7 +14,7 @@ const Home = () => {
     if (searchQuery === '') {
       setFilteredCities(cities);
     } else {
-      const filteredData = cities.filter((city) => city.name.toLowerCase().includes(searchQuery.toLowerCase()));
+      const filteredData = cities.filter((city) => city.city_name.toLowerCase().includes(searchQuery.toLowerCase()));
       setFilteredCities(filteredData);
     }
   };
@@ -29,7 +26,7 @@ const Home = () => {
       <SearchBar onSearch={handleSearch} />
       <ul>
         {filteredCities.map((city, index) => (
-          <li key={index}>{city.name}</li>
+          <li key={index}>{city.city_name}</li>
         ))}
       </ul>
     </div>
