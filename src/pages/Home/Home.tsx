@@ -31,13 +31,13 @@ const Home = () => {
       <h1>43 °C</h1>
       <h1>🔥😰🔥</h1>
       <Example />
+      <SortDropDown onSort={handleSort} />
       <SearchBar onSearch={handleSearch} />
       <ul>
         {filteredCities.map((city, index) => (
           <li key={index}>{city.city_name}</li>
         ))}
       </ul>
-      <SortDropDown />
     </div>
   );
 };
