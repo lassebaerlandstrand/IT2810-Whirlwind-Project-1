@@ -1,5 +1,6 @@
 import {useQuery} from '@tanstack/react-query';
-import {WeatherInfo} from '../../types/weather-info';
+import {WeatherInfo} from '../../types/api-types';
+
 import {fetchWeather} from '../clients/weatherClient';
 
 // Custom hook using the query key
