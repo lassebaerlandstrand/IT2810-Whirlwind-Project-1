@@ -13,6 +13,6 @@ export type WeatherInfo = {
 export type Location = {
   city_name: string;
   country_name: string;
-  latitude: number;
-  longitude: number;
+  latitude: string;
+  longitude: string;
 };
