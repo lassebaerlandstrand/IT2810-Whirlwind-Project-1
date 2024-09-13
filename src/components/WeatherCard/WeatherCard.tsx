@@ -4,7 +4,7 @@ import {Location} from '../../types/api-types';
 import styles from './WeatherCard.module.css';
 
 const WeatherCard = (location: Location) => {
-  const {data, error, isLoading} = useWeather(location);
+  const {data} = useWeather(location);
   return (
     <div className={styles.card}>
       {data ? (
