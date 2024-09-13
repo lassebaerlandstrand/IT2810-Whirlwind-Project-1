@@ -1,12 +1,12 @@
-import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import WeatherCard from './WeatherCard';
+import {render, screen} from '@testing-library/react';
+import {Location} from '../../types/api-types';
 import getWeatherInfo from '../../utils/weatherUtils'; // Adjust path to where `getWeatherInfo` is located
-import { Location } from '../../types/api-types';
+import WeatherCard from './WeatherCard';
 
 // Mock getWeatherInfo
 jest.mock('../../utils/weatherUtils', () => ({
-  getWeatherInfo: jest.fn()
+  getWeatherInfo: jest.fn(),
 }));
 
 describe('WeatherCard', () => {
@@ -16,17 +16,17 @@ describe('WeatherCard', () => {
     city_name: 'New York',
     country_name: 'USA',
     latitude: 40.7128,
-    longitude: -74.0060
+    longitude: -74.006,
   };
 
   it('should render cloud icon if cloud_area_fraction > 0.5', () => {
     mockGetWeatherInfo.mockReturnValue({
-        air_pressure_at_sea_level: 1000,
-        air_temperature: 22,
-        cloud_area_fraction: 0.7,
-        relative_humidity: 0.2,
-        wind_from_direction: 190,
-        wind_speed: 2
+      air_pressure_at_sea_level: 1000,
+      air_temperature: 22,
+      cloud_area_fraction: 0.7,
+      relative_humidity: 0.2,
+      wind_from_direction: 190,
+      wind_speed: 2,
     });
 
     render(<WeatherCard {...location} />);
@@ -38,12 +38,12 @@ describe('WeatherCard', () => {
 
   it('should render sun icon if cloud_area_fraction <= 0.5', () => {
     mockGetWeatherInfo.mockReturnValue({
-        air_pressure_at_sea_level: 1000,
-        air_temperature: 22,
-        cloud_area_fraction: 0.3,
-        relative_humidity: 0.2,
-        wind_from_direction: 190,
-        wind_speed: 2
+      air_pressure_at_sea_level: 1000,
+      air_temperature: 22,
+      cloud_area_fraction: 0.3,
+      relative_humidity: 0.2,
+      wind_from_direction: 190,
+      wind_speed: 2,
     });
 
     render(<WeatherCard {...location} />);
@@ -55,12 +55,12 @@ describe('WeatherCard', () => {
 
   it('should display correct temperature and city info', () => {
     mockGetWeatherInfo.mockReturnValue({
-        air_pressure_at_sea_level: 1000,
-        air_temperature: 22,
-        cloud_area_fraction: 0.3,
-        relative_humidity: 0.2,
-        wind_from_direction: 190,
-        wind_speed: 2
+      air_pressure_at_sea_level: 1000,
+      air_temperature: 22,
+      cloud_area_fraction: 0.3,
+      relative_humidity: 0.2,
+      wind_from_direction: 190,
+      wind_speed: 2,
     });
 
     render(<WeatherCard {...location} />);
