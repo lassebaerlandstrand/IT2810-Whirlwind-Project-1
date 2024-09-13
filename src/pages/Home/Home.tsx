@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Example from '../../components/Example/Example';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import type { Location } from '../../types/api-types';
 
@@ -23,6 +24,7 @@ const Home = () => {
     <div>
       <h1>43 °C</h1>
       <h1>🔥😰🔥</h1>
+      <Example />
       <SearchBar onSearch={handleSearch} />
       <ul>
         {filteredCities.map((city, index) => (
