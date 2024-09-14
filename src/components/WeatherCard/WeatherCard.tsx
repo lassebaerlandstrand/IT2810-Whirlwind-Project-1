@@ -1,18 +1,26 @@
-import {IconCloudFilled, IconSunFilled} from '@tabler/icons-react';
+import {IconCloudFilled, IconRotateClockwise, IconSunFilled} from '@tabler/icons-react';
+import {useWeather} from '../../hooks/useWeather';
 import {Location} from '../../types/api-types';
 import styles from './WeatherCard.module.css';
-import getWeatherInfo from '../../utils/weatherUtils';
 
 const WeatherCard = (location: Location) => {
-  const data = getWeatherInfo(location);
+  const {data} = useWeather(location);
   return (
     <div className={styles.card}>
-      {data.cloud_area_fraction > 0.5 ? <IconCloudFilled /> : <IconSunFilled />}
+      {data ? (
+        data.cloud_area_fraction > 0.5 ? (
+          <IconCloudFilled />
+        ) : (
+          <IconSunFilled />
+        )
+      ) : (
+        <IconRotateClockwise className={styles.rotating} />
+      )}
       <p className={styles.city}>
         {location.city_name}, {location.country_name}
       </p>
-      <p className={styles.temperature}>{data.air_temperature}°C</p>
-      <p>{data.cloud_area_fraction > 0.5 ? 'Cloudy' : 'Sunny'}</p>
+      <p className={styles.temperature}>{data ? data.air_temperature : '---'}°C</p>
+      <p>{data ? (data.cloud_area_fraction > 0.5 ? 'Cloudy' : 'Sunny') : 'Loading...'}</p>
     </div>
   );
 };

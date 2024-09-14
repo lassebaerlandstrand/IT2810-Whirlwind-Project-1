@@ -1,10 +1,10 @@
-import {useWeatherQuery} from '../api/queries/weather';
-import {WeatherInfo} from '../types/weather-info';
+import { useWeatherQuery } from '../api/queries/weather';
+import { Location, WeatherInfo } from '../types/api-types';
 
 export const useWeather = (
-  lat: string,
-  lon: string,
-): {data: WeatherInfo | undefined; error: Error | unknown; isLoading: boolean} => {
-  const {data, error, isLoading} = useWeatherQuery(lat, lon);
-  return {data, error, isLoading};
+  location: Location,
+): { data: WeatherInfo | undefined; error: Error | unknown; isLoading: boolean } => {
+  const { data, error, isLoading } = useWeatherQuery(location.latitude, location.longitude);
+
+  return { data, error, isLoading };
 };
