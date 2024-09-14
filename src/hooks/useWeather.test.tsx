@@ -1,6 +1,7 @@
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {renderHook, waitFor} from '@testing-library/react';
 import {useWeather} from './useWeather'; // Adjust the path accordingly
+import LOCATIONS from '../utils/locations';
 
 // Helper to create a wrapper for the QueryClientProvider
 const createQueryClientWrapper = () => {
@@ -12,12 +13,9 @@ const createQueryClientWrapper = () => {
 
 describe('useWeather', () => {
   it('should return weather data successfully', async () => {
-    // Mock coordinates for the test
-    const lat = '59.911491';
-    const lon = '10.757933';
 
     // Render the hook within a QueryClientProvider
-    const {result} = renderHook(() => useWeather(lat, lon), {
+    const {result} = renderHook(() => useWeather(LOCATIONS[0]), {
       wrapper: createQueryClientWrapper(),
     });
 

@@ -1,13 +1,12 @@
 import {useWeather} from '../../hooks/useWeather';
 import {WeatherInfo} from '../../types/api-types';
+import LOCATIONS from '../../utils/locations';
 
 //Example on how to use API
 function Example() {
-  const lon: string = '10.42';
-  const lat: string = '63.45';
 
   const {data, error, isLoading}: {data: WeatherInfo | undefined; error: Error | unknown; isLoading: boolean} =
-    useWeather(lat, lon);
+    useWeather(LOCATIONS[0]);
 
   if (isLoading) return 'Fetching data...';
 
