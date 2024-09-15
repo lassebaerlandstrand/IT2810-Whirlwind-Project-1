@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { useState } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import type { Location } from '../../types/api-types';
@@ -11,6 +11,10 @@ const dummyData: Location[] = [
 ];
 
 describe('SearchBar Component', () => {
+  beforeEach(() => {
+    sessionStorage.clear();
+  });
+
   it('should render the search input and icon', () => {
     const onSearchMock = vi.fn();
     render(<SearchBar onSearch={onSearchMock} />);
@@ -27,9 +31,9 @@ describe('SearchBar Component', () => {
     render(<SearchBar onSearch={onSearchMock} />);
 
     const searchInput = screen.getByPlaceholderText('Search here...');
-    fireEvent.change(searchInput, { target: { value: 'test query' } });
+    fireEvent.change(searchInput, { target: { value: 'test' } });
 
-    expect(onSearchMock).toHaveBeenCalledWith('test query');
+    expect(onSearchMock).toHaveBeenCalledWith('test');
   });
 
   it('should call onSearch with an empty string when input is cleared', () => {
@@ -37,10 +41,28 @@ describe('SearchBar Component', () => {
     render(<SearchBar onSearch={onSearchMock} />);
 
     const searchInput = screen.getByPlaceholderText('Search here...');
-    fireEvent.change(searchInput, { target: { value: 'test query' } });
+    fireEvent.change(searchInput, { target: { value: 'test' } });
     fireEvent.change(searchInput, { target: { value: '' } });
 
     expect(onSearchMock).toHaveBeenCalledWith('');
+  });
+
+  it('should save the selected search query in session storage', () => {
+    expect(sessionStorage.getItem('SearchQuery')).toBe(null);
+
+    const onSearchMock = vi.fn();
+    render(<SearchBar onSearch={onSearchMock} />);
+
+    const searchInput = screen.getByRole('textbox');
+    fireEvent.change(searchInput, { target: { value: 'test' } });
+    expect(sessionStorage.getItem('SearchQuery')).toBe('test');
+
+    cleanup();
+    render(<SearchBar onSearch={onSearchMock} />);
+
+    expect(sessionStorage.getItem('SearchQuery')).toBe('test');
+    const newSearchInput = screen.getByRole('textbox');
+    expect(newSearchInput).toHaveValue('test');
   });
 });
 

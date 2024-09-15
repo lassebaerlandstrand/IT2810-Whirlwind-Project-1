@@ -44,6 +44,8 @@ describe('SortDropDown Component', () => {
   });
 
   it('should save the selected sorting method in session storage', () => {
+    expect(sessionStorage.getItem('SortingOption')).toBe(null);
+
     const onSortMock = vi.fn();
     render(<SortDropDown setSortCondition={onSortMock} />);
 
@@ -93,7 +95,7 @@ const SortDropDownWithState = () => {
   );
 };
 
-describe('SearchBar Component with filtered cities', () => {
+describe('SortDropDown should sort based on selection', () => {
   beforeEach(() => {
     sessionStorage.clear();
   });
@@ -107,6 +109,16 @@ describe('SearchBar Component with filtered cities', () => {
     expect(cities[1]).toHaveTextContent('New York');
     expect(cities[2]).toHaveTextContent('Tokyo');
 
-    // TODO: Add more tests when we add more sorting options
+    const button = screen.getByTestId('dropdown-button');
+    fireEvent.click(button);
+
+    const countryOption = screen.getByText('Country');
+    fireEvent.click(countryOption);
+
+    // Expect all cities to be in country order
+    const newCities = screen.getAllByTestId('cities');
+    expect(newCities[0]).toHaveTextContent('Tokyo');
+    expect(newCities[1]).toHaveTextContent('London');
+    expect(newCities[2]).toHaveTextContent('New York');
   });
 });
