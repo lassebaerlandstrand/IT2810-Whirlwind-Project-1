@@ -1,19 +1,10 @@
-import { IconWind } from '@tabler/icons-react';
-import InfoDisplay from '../InfoDisplay/InfoDisplay';
+import { useWeather } from '../../hooks/useWeather';
+import { WeatherInfo } from '../../types/api-types';
 
 //Example on how to use API
 function Example() {
-  const lon: string = '10.42';
-  const lat: string = '63.45';
-
-  //const { data, error, isLoading }: { data: WeatherInfo | undefined; error: Error | unknown; isLoading: boolean } =
-  //  useWeather(lat, lon);
-
-  return (
-    <div>
-      <InfoDisplay icon={<IconWind />} infoText="Wind" amount={12.3} unit="m/s" />
-    </div>
-  );
+  const { data, error, isLoading }: { data: WeatherInfo | undefined; error: Error | unknown; isLoading: boolean } =
+    useWeather(LOCATIONS[0]);
 
   if (isLoading) return 'Fetching data...';
 
