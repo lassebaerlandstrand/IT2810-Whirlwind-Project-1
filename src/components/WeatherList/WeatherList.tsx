@@ -13,7 +13,7 @@ interface WeatherListProps {
   weatherData: WeatherData[];
 }
 
-const WeatherList: React.FC<WeatherListProps> = ({weatherData}) => {
+const WeatherList: React.FC<WeatherListProps> = ({ weatherData }) => {
   return (
     <div className={styles.weatherList}>
       {weatherData.map((weather, index) => (

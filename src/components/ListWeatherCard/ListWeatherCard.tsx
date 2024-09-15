@@ -1,3 +1,4 @@
+import { IconCloud, IconCloudRain, IconCloudStorm, IconSun } from '@tabler/icons-react';
 import React from 'react';
 import styles from './ListWeatherCard.module.css';
 
@@ -14,15 +15,34 @@ const ListWeatherCard: React.FC<ListWeatherCardProps> = ({
   air_temperature,
   weather_description,
 }) => {
+  const renderWeatherIcon = (description: string) => {
+    switch (description.toLowerCase()) {
+      case 'clear':
+        return <IconSun className={styles.weatherIcon} />;
+      case 'cloudy':
+        return <IconCloud className={styles.weatherIcon} />;
+      case 'thunder':
+        return <IconCloudStorm className={styles.weatherIcon} />;
+      case 'mostly sunny':
+        return <IconSun className={styles.weatherIcon} />;
+      default:
+        return <IconCloudRain className={styles.weatherIcon} />;
+    }
+  };
+
   return (
     <div className={styles.weatherCard}>
       <div className={styles.weatherTop}>
-        <h3>
-          {city_name}, {country_name}
-        </h3>
-        <span className={styles.temperature}>{air_temperature}°C</span>
+        <div className={styles.locationInfo}>
+          <h3>{country_name}</h3>
+          <h2>{city_name}</h2>
+        </div>
+        {renderWeatherIcon(weather_description)}
       </div>
-      <p className={styles.weatherDescription}>{weather_description}</p>
+      <div className={styles.weatherBottom}>
+        <span className={styles.temperature}>{air_temperature}°C</span>
+        <p className={styles.weatherDescription}>{weather_description}</p>
+      </div>
     </div>
   );
 };
