@@ -1,5 +1,6 @@
 import { useWeather } from '../../hooks/useWeather';
 import { WeatherInfo } from '../../types/api-types';
+import LOCATIONS from '../../utils/locations';
 
 //Example on how to use API
 function Example() {
