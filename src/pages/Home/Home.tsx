@@ -18,7 +18,7 @@ const Home = () => {
 
   const handleSearch = useCallback(
     (searchQuery: string) => {
-      if (searchQuery === '') {
+      if (searchQuery === '' || searchQuery === null) {
         setFilteredCities(cities);
       } else {
         const filteredData = cities.filter((city) => city.city_name.toLowerCase().includes(searchQuery.toLowerCase()));

@@ -2,6 +2,7 @@ import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
 import { Location } from '../../types/api-types';
 import styles from './SortDropDown.module.css';
+import { options } from './SortingOptions';
 
 type DropDownContentProps = {
   open: boolean;
@@ -71,16 +72,7 @@ export const DropDown = ({ selectedOption, options, setSelectedOption }: DropDow
   );
 };
 
-type OptionsType = {
-  [key: string]: (a: Location, b: Location) => number;
-};
-
 // TODO: Add more sorting options
-export const options: OptionsType = {
-  Alphabetically: (a: Location, b: Location) => a.city_name.localeCompare(b.city_name),
-  Country: (a: Location, b: Location) => a.country_name.localeCompare(b.country_name),
-};
-
 type SortDropDownProps = {
   setSortCondition: (sortCondition: () => (a: Location, b: Location) => number) => void;
 };
@@ -95,8 +87,7 @@ const SortDropDown = ({ setSortCondition }: SortDropDownProps) => {
     sessionStorage.setItem('SortingOption', selectedOption);
     const sortingMethod = options[selectedOption];
     setSortCondition(() => sortingMethod);
-    // onSort(sortingMethod);
-  }, [selectedOption]);
+  }, [selectedOption, setSortCondition]);
 
   const optionList = Object.keys(options);
 

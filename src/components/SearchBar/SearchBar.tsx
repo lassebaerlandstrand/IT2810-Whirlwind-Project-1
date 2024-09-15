@@ -12,7 +12,7 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
   useEffect(() => {
     sessionStorage.setItem('SearchQuery', searchQuery);
     onSearch(searchQuery);
-  }, [searchQuery]);
+  }, [searchQuery, onSearch]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);

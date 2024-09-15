@@ -2,7 +2,8 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { useEffect, useState } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import type { Location } from '../../types/api-types';
-import SortDropDown, { options } from './SortDropDown';
+import SortDropDown from './SortDropDown';
+import { options } from './SortingOptions';
 
 const dummyData: Location[] = [
   { city_name: 'New York', country_name: 'USA', latitude: '40.7128', longitude: '-74.006' },
