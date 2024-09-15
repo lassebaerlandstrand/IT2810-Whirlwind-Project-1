@@ -51,7 +51,7 @@ type DropDownProps = {
   setSelectedOption: (option: string) => void;
 };
 
-/** General drop-down component */
+/** General drop-down component. Could also extract this to its own separate component */
 export const DropDown = ({ selectedOption, options, setSelectedOption }: DropDownProps) => {
   const [open, setOpen] = useState<boolean>(false);
   const toggleOpen = () => setOpen(!open);
@@ -76,18 +76,17 @@ type OptionsType = {
 };
 
 // TODO: Add more sorting options
-const options: OptionsType = {
+export const options: OptionsType = {
   Alphabetically: (a: Location, b: Location) => a.city_name.localeCompare(b.city_name),
-  Random: () => Math.random() - 0.5,
-  Random2: () => Math.random() - 0.5,
+  Country: (a: Location, b: Location) => a.country_name.localeCompare(b.country_name),
 };
 
 type SortDropDownProps = {
-  onSort: (sortCondition: (a: Location, b: Location) => number) => void;
+  setSortCondition: (sortCondition: () => (a: Location, b: Location) => number) => void;
 };
 
 /** Specialized drop-down with sorting in mind */
-const SortDropDown = ({ onSort }: SortDropDownProps) => {
+const SortDropDown = ({ setSortCondition }: SortDropDownProps) => {
   const [selectedOption, setSelectedOption] = useState<string>(
     () => sessionStorage.getItem('SortingOption') || Object.keys(options)[0],
   );
@@ -95,7 +94,8 @@ const SortDropDown = ({ onSort }: SortDropDownProps) => {
   useEffect(() => {
     sessionStorage.setItem('SortingOption', selectedOption);
     const sortingMethod = options[selectedOption];
-    onSort(sortingMethod);
+    setSortCondition(() => sortingMethod);
+    // onSort(sortingMethod);
   }, [selectedOption]);
 
   const optionList = Object.keys(options);

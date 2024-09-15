@@ -1,14 +1,16 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import type { Location } from '../../types/api-types';
-import SortDropDown from './SortDropDown';
+import SortDropDown, { options } from './SortDropDown';
 
 const dummyData: Location[] = [
   { city_name: 'New York', country_name: 'USA', latitude: '40.7128', longitude: '-74.006' },
   { city_name: 'London', country_name: 'UK', latitude: '51.5074', longitude: '-0.1278' },
   { city_name: 'Tokyo', country_name: 'Japan', latitude: '35.6895', longitude: '139.6917' },
 ];
+
+const optionsKeys = Object.keys(options);
 
 describe('SortDropDown Component', () => {
   beforeEach(() => {
@@ -17,7 +19,7 @@ describe('SortDropDown Component', () => {
 
   it('should render correctly with default sorting option', () => {
     const onSortMock = vi.fn();
-    render(<SortDropDown onSort={onSortMock} />);
+    render(<SortDropDown setSortCondition={onSortMock} />);
 
     // Default sorting option is alphabetically
     const button = screen.getByRole('button', { name: 'Alphabetically' });
@@ -30,7 +32,7 @@ describe('SortDropDown Component', () => {
 
   it('should open and close the dropdown when the button is clicked', () => {
     const onSortMock = vi.fn();
-    render(<SortDropDown onSort={onSortMock} />);
+    render(<SortDropDown setSortCondition={onSortMock} />);
 
     const button = screen.getByRole('button', { name: 'Alphabetically' });
 
@@ -43,25 +45,25 @@ describe('SortDropDown Component', () => {
 
   it('should save the selected sorting method in session storage', () => {
     const onSortMock = vi.fn();
-    render(<SortDropDown onSort={onSortMock} />);
+    render(<SortDropDown setSortCondition={onSortMock} />);
 
     const button = screen.getByTestId('dropdown-button');
-    expect(button).not.toHaveTextContent('Random');
+    expect(button).not.toHaveTextContent(optionsKeys[1]);
 
     fireEvent.click(button);
 
-    const randomOption = screen.getByText('Random');
-    fireEvent.click(randomOption);
+    const otherOption = screen.getByText(optionsKeys[1]);
+    fireEvent.click(otherOption);
 
     fireEvent.click(button);
 
     cleanup();
-    render(<SortDropDown onSort={onSortMock} />);
+    render(<SortDropDown setSortCondition={onSortMock} />);
 
     // Expect the random option to be selected
-    expect(sessionStorage.getItem('SortingOption')).toBe('Random');
+    expect(sessionStorage.getItem('SortingOption')).toBe(optionsKeys[1]);
     const newButton = screen.getByTestId('dropdown-button');
-    expect(newButton).toHaveTextContent('Random');
+    expect(newButton).toHaveTextContent(optionsKeys[1]);
     expect(newButton).toBeInTheDocument();
   });
 });
@@ -69,15 +71,17 @@ describe('SortDropDown Component', () => {
 const SortDropDownWithState = () => {
   const [cities] = useState<Location[]>(dummyData);
   const [filteredCities, setFilteredCities] = useState(cities);
+  const [sortCondition, setSortCondition] = useState<((a: Location, b: Location) => number) | null>(null);
 
-  const handleSort = (sortCondition: (a: Location, b: Location) => number) => {
-    const sortedData = [...filteredCities].sort(sortCondition);
-    setFilteredCities(sortedData);
-  };
+  useEffect(() => {
+    if (sortCondition) {
+      setFilteredCities((prevCities) => [...prevCities].sort(sortCondition));
+    }
+  }, [sortCondition]);
 
   return (
     <>
-      <SortDropDown onSort={handleSort} />
+      <SortDropDown setSortCondition={setSortCondition} />
       <ul data-testid="filtered-cities">
         {filteredCities.map((city, index) => (
           <li key={index} data-testid="cities">

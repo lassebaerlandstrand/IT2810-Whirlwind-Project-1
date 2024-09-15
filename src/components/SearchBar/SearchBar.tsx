@@ -1,15 +1,21 @@
 import { IconSearch } from '@tabler/icons-react';
+import { useEffect, useState } from 'react';
 import styles from './SearchBar.module.css';
 
 type SearchBarProps = {
   onSearch: (searchQuery: string) => void;
 };
 
-// TODO: Use sessionstorage
 const SearchBar = ({ onSearch }: SearchBarProps) => {
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const searchQuery = event.target.value;
+  const [searchQuery, setSearchQuery] = useState<string>(() => sessionStorage.getItem('SearchQuery') || '');
+
+  useEffect(() => {
+    sessionStorage.setItem('SearchQuery', searchQuery);
     onSearch(searchQuery);
+  }, [searchQuery]);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value);
   };
 
   return (
@@ -17,7 +23,13 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
       <span className={styles.searchIcon} data-testid="search-icon">
         {<IconSearch />}
       </span>
-      <input type="text" placeholder="Search here..." onChange={handleSearch} className={styles.searchInput} />
+      <input
+        type="text"
+        placeholder="Search here..."
+        value={searchQuery}
+        onChange={handleChange}
+        className={styles.searchInput}
+      />
     </div>
   );
 };

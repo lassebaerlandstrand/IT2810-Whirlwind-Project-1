@@ -12,7 +12,8 @@ const dummyData: Location[] = [
 
 describe('SearchBar Component', () => {
   it('should render the search input and icon', () => {
-    render(<SearchBar onSearch={vi.fn()} />);
+    const onSearchMock = vi.fn();
+    render(<SearchBar onSearch={onSearchMock} />);
 
     const searchInput = screen.getByPlaceholderText('Search here...');
     const searchIcon = screen.getByTestId('search-icon');

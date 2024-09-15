@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Example from '../../components/Example/Example';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import SortDropDown from '../../components/SortDropDown/SortDropDown';
@@ -11,21 +11,30 @@ const Home = () => {
     { city_name: 'London', country_name: 'UK', latitude: '51.5074', longitude: '-0.1278' },
     { city_name: 'Tokyo', country_name: 'Japan', latitude: '35.6895', longitude: '139.6917' },
   ]); // Dummy data, to be changed
+
   const [filteredCities, setFilteredCities] = useState(cities);
+  const [invalidateSort, setInvalidateSort] = useState(false);
+  const [sortCondition, setSortCondition] = useState<((a: Location, b: Location) => number) | null>(null);
 
-  const handleSearch = (searchQuery: string) => {
-    if (searchQuery === '') {
-      setFilteredCities(cities);
-    } else {
-      const filteredData = cities.filter((city) => city.city_name.toLowerCase().includes(searchQuery.toLowerCase()));
-      setFilteredCities(filteredData);
+  const handleSearch = useCallback(
+    (searchQuery: string) => {
+      if (searchQuery === '') {
+        setFilteredCities(cities);
+      } else {
+        const filteredData = cities.filter((city) => city.city_name.toLowerCase().includes(searchQuery.toLowerCase()));
+        setFilteredCities(filteredData);
+      }
+      setInvalidateSort(true);
+    },
+    [cities],
+  );
+
+  useEffect(() => {
+    if (sortCondition) {
+      setFilteredCities((prevCities) => [...prevCities].sort(sortCondition));
+      setInvalidateSort(false);
     }
-  };
-
-  const handleSort = (sortCondition: (a: Location, b: Location) => number) => {
-    const sortedData = [...filteredCities].sort(sortCondition);
-    setFilteredCities(sortedData);
-  };
+  }, [sortCondition, invalidateSort]);
 
   return (
     <div>
@@ -34,7 +43,7 @@ const Home = () => {
       <Example />
       <div role="search" className={styles.searchContainer}>
         <SearchBar onSearch={handleSearch} />
-        <SortDropDown onSort={handleSort} />
+        <SortDropDown setSortCondition={setSortCondition} />
       </div>
       <ul>
         {filteredCities.map((city, index) => (
