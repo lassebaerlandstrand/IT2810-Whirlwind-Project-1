@@ -72,7 +72,6 @@ export const DropDown = ({ selectedOption, options, setSelectedOption }: DropDow
   );
 };
 
-// TODO: Add more sorting options
 type SortDropDownProps = {
   setSortCondition: (sortCondition: () => (a: Location, b: Location) => number) => void;
 };

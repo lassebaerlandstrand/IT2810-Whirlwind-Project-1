@@ -76,7 +76,7 @@ const SearchBarWithState = () => {
         setFilteredCities(cities);
       } else {
         const filteredData = cities.filter((city) => city.city_name.toLowerCase().includes(searchQuery.toLowerCase()));
-        setFilteredCities(filteredData); // This line causes the test to go into an infinite loop
+        setFilteredCities(filteredData);
       }
     },
     [cities],

@@ -63,7 +63,7 @@ describe('SortDropDown Component', () => {
     cleanup();
     render(<SortDropDown setSortCondition={onSortMock} />);
 
-    // Expect the random option to be selected
+    // Expect the other option to be selected
     expect(sessionStorage.getItem('SortingOption')).toBe(optionsKeys[1]);
     const newButton = screen.getByTestId('dropdown-button');
     expect(newButton).toHaveTextContent(optionsKeys[1]);
@@ -118,8 +118,8 @@ describe('SortDropDown should sort based on selection', () => {
 
     // Expect all cities to be in country order
     const newCities = screen.getAllByTestId('cities');
-    expect(newCities[0]).toHaveTextContent('Tokyo');
-    expect(newCities[1]).toHaveTextContent('London');
-    expect(newCities[2]).toHaveTextContent('New York');
+    expect(newCities[0]).toHaveTextContent('Tokyo'); // Japan
+    expect(newCities[1]).toHaveTextContent('London'); // UK
+    expect(newCities[2]).toHaveTextContent('New York'); // USA
   });
 });
