@@ -1,5 +1,5 @@
 import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Location } from '../../types/api-types';
 import styles from './SortDropDown.module.css';
 import { options } from './SortingOptions';
@@ -56,22 +56,27 @@ type DropDownProps = {
 /** General drop-down component. Could also extract this to its own separate component */
 export const DropDown = ({ selectedOption, options, setSelectedOption, label }: DropDownProps) => {
   const [open, setOpen] = useState<boolean>(false);
-  const toggleOpen = () => setOpen(!open);
-
-  const updateSelectedOption = (option: string) => {
-    setSelectedOption(option);
-    setOpen(false);
-  };
-
+  const toggleOpen = () => setOpen((open) => !open);
+  const dropDownRef = useRef<HTMLMenuElement>(null);
   const optionsLabels = options.filter((option) => option !== selectedOption);
 
+  useEffect(() => {
+    const handleClick = (event: MouseEvent) => {
+      if (dropDownRef.current && !dropDownRef.current.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener('click', handleClick);
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  }, []);
+
   return (
-    <menu className={styles.container}>
-      <label className={styles.label}>
-        {label} {/* Implicit label association */}
-        <DropDownButton open={open} toggleOpen={toggleOpen} selectedOption={selectedOption} />
-        <DropDownContent open={open} options={optionsLabels} onSelected={updateSelectedOption} />
-      </label>
+    <menu className={styles.container} ref={dropDownRef}>
+      <label className={styles.label}>{label}</label> {/* Only for descriptive text */}
+      <DropDownButton open={open} toggleOpen={toggleOpen} selectedOption={selectedOption} />
+      <DropDownContent open={open} options={optionsLabels} onSelected={setSelectedOption} />
     </menu>
   );
 };
