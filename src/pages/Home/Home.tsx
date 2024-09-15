@@ -37,7 +37,6 @@ const Home: React.FC = () => {
       <h1>🔥😰🔥</h1>
       <Button text="Press me to do absolutely nothing" />
 
-      {/* WeatherList with mock data */}
       <WeatherList weatherData={weatherData} />
     </div>
   );
