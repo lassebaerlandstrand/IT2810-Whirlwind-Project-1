@@ -10,10 +10,14 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+
   --primary-color: #2c434e;
   --secondary-color: #fffcfd;
   --tertiary-color: #aed2db;
+
+  --inactive-border: #dddddd;
+  --active-border: #b9b9b9;
+  --active-border-blue: #007bff;
 }
 
 body {
