@@ -19,18 +19,21 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
   };
 
   return (
-    <div className={styles.searchBarContainer} role="search">
-      <span className={styles.searchIcon} data-testid="search-icon">
-        {<IconSearch />}
-      </span>
-      <input
-        type="text"
-        placeholder="Search here..."
-        value={searchQuery}
-        onChange={handleChange}
-        className={styles.searchInput}
-      />
-    </div>
+    <label className={styles.label}>
+      Search:
+      <div className={styles.searchBarContainer} role="search">
+        <span className={styles.searchIcon} data-testid="search-icon">
+          {<IconSearch />}
+        </span>
+        <input
+          type="text"
+          placeholder="Search here..."
+          value={searchQuery}
+          onChange={handleChange}
+          className={styles.searchInput}
+        />
+      </div>
+    </label>
   );
 };
 

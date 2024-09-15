@@ -50,10 +50,11 @@ type DropDownProps = {
   options: string[];
   selectedOption: string;
   setSelectedOption: (option: string) => void;
+  label: string;
 };
 
 /** General drop-down component. Could also extract this to its own separate component */
-export const DropDown = ({ selectedOption, options, setSelectedOption }: DropDownProps) => {
+export const DropDown = ({ selectedOption, options, setSelectedOption, label }: DropDownProps) => {
   const [open, setOpen] = useState<boolean>(false);
   const toggleOpen = () => setOpen(!open);
 
@@ -66,8 +67,11 @@ export const DropDown = ({ selectedOption, options, setSelectedOption }: DropDow
 
   return (
     <menu className={styles.container}>
-      <DropDownButton open={open} toggleOpen={toggleOpen} selectedOption={selectedOption} />
-      <DropDownContent open={open} options={optionsLabels} onSelected={updateSelectedOption} />
+      <label className={styles.label}>
+        {label} {/* Implicit label association */}
+        <DropDownButton open={open} toggleOpen={toggleOpen} selectedOption={selectedOption} />
+        <DropDownContent open={open} options={optionsLabels} onSelected={updateSelectedOption} />
+      </label>
     </menu>
   );
 };
@@ -90,7 +94,14 @@ const SortDropDown = ({ setSortCondition }: SortDropDownProps) => {
 
   const optionList = Object.keys(options);
 
-  return <DropDown options={optionList} selectedOption={selectedOption} setSelectedOption={setSelectedOption} />;
+  return (
+    <DropDown
+      options={optionList}
+      selectedOption={selectedOption}
+      setSelectedOption={setSelectedOption}
+      label="Sort by:"
+    />
+  );
 };
 
 export default SortDropDown;
