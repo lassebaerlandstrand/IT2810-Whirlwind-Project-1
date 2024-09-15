@@ -18,7 +18,7 @@ const DropDownContent = ({ open, options, onSelected }: DropDownContentProps) =>
       aria-controls="dropdown-button"
     >
       {options.map((option) => (
-        <li key={option} className={styles.dropDownItem} onClick={() => onSelected(option)}>
+        <li key={option} className={styles.dropDownItem} onClick={() => onSelected(option)} role="button">
           {option}
         </li>
       ))}
@@ -38,6 +38,7 @@ const DropDownButton = ({ open, toggleOpen, selectedOption }: DropDownButtonProp
       className={`${styles.dropDownButton} ${open ? styles.buttonOpen : ''}`}
       onClick={toggleOpen}
       aria-describedby="dropdown-button"
+      data-testid="dropdown-button"
     >
       {selectedOption} <span className={styles.iconSpan}>{open ? <IconChevronUp /> : <IconChevronDown />}</span>
     </button>

@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { useState } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import type { Location } from '../../types/api-types';
@@ -20,7 +20,7 @@ describe('SortDropDown Component', () => {
     render(<SortDropDown onSort={onSortMock} />);
 
     // Default sorting option is alphabetically
-    const button = screen.getByRole('button', { name: /Alphabetically/i });
+    const button = screen.getByRole('button', { name: 'Alphabetically' });
     expect(button).toBeInTheDocument();
 
     // Dropdown is closed by default
@@ -32,15 +32,37 @@ describe('SortDropDown Component', () => {
     const onSortMock = vi.fn();
     render(<SortDropDown onSort={onSortMock} />);
 
-    const button = screen.getByRole('button', { name: /Alphabetically/i });
+    const button = screen.getByRole('button', { name: 'Alphabetically' });
 
-    // Click to open
     fireEvent.click(button);
     expect(screen.getByTestId('dropdown-content')).toHaveAttribute('aria-expanded', 'true');
 
-    // Click again to close
     fireEvent.click(button);
     expect(screen.getByTestId('dropdown-content')).toHaveAttribute('aria-expanded', 'false');
+  });
+
+  it('should save the selected sorting method in session storage', () => {
+    const onSortMock = vi.fn();
+    render(<SortDropDown onSort={onSortMock} />);
+
+    const button = screen.getByTestId('dropdown-button');
+    expect(button).not.toHaveTextContent('Random');
+
+    fireEvent.click(button);
+
+    const randomOption = screen.getByText('Random');
+    fireEvent.click(randomOption);
+
+    fireEvent.click(button);
+
+    cleanup();
+    render(<SortDropDown onSort={onSortMock} />);
+
+    // Expect the random option to be selected
+    expect(sessionStorage.getItem('SortingOption')).toBe('Random');
+    const newButton = screen.getByTestId('dropdown-button');
+    expect(newButton).toHaveTextContent('Random');
+    expect(newButton).toBeInTheDocument();
   });
 });
 
