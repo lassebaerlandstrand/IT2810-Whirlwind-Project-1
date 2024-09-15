@@ -22,8 +22,8 @@ describe('SortDropDown Component', () => {
     const onSortMock = vi.fn();
     render(<SortDropDown setSortCondition={onSortMock} />);
 
-    // Default sorting option is alphabetically
-    const button = screen.getByRole('button', { name: 'Alphabetically' });
+    // Default sorting option is by city name
+    const button = screen.getByRole('button', { name: 'City Name' });
     expect(button).toBeInTheDocument();
 
     // Dropdown is closed by default
@@ -35,7 +35,7 @@ describe('SortDropDown Component', () => {
     const onSortMock = vi.fn();
     render(<SortDropDown setSortCondition={onSortMock} />);
 
-    const button = screen.getByRole('button', { name: 'Alphabetically' });
+    const button = screen.getByRole('button', { name: 'City Name' });
 
     fireEvent.click(button);
     expect(screen.getByTestId('dropdown-content')).toHaveAttribute('aria-expanded', 'true');
@@ -113,7 +113,7 @@ describe('SortDropDown should sort based on selection', () => {
     const button = screen.getByTestId('dropdown-button');
     fireEvent.click(button);
 
-    const countryOption = screen.getByText('Country');
+    const countryOption = screen.getByText('Country Name');
     fireEvent.click(countryOption);
 
     // Expect all cities to be in country order

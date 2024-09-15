@@ -7,6 +7,6 @@ type OptionsType = {
 
 // TODO: Add more sorting options
 export const options: OptionsType = {
-  Alphabetically: (a: Location, b: Location) => a.city_name.localeCompare(b.city_name),
-  Country: (a: Location, b: Location) => a.country_name.localeCompare(b.country_name),
+  'City Name': (a: Location, b: Location) => a.city_name.localeCompare(b.city_name),
+  'Country Name': (a: Location, b: Location) => a.country_name.localeCompare(b.country_name),
 };
