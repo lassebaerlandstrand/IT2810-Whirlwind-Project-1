@@ -47,7 +47,6 @@
   margin-top: 0.25rem;
   border: 0.1rem var(--inactive-border) solid;
   border-radius: 0.3rem;
-  /* animation: hideDropDown 100ms ease-in-out; */
 }
 
 .dropDownContent::-webkit-scrollbar {
@@ -72,28 +71,4 @@
 
 .contentOpen {
   display: flex;
-  /* animation: showDropDown 100ms ease-in-out; */
 }
-
-/* Looked better without animations */
-/* @keyframes showDropDown {
-  from {
-    opacity: 0;
-    display: none;
-  }
-  to {
-    opacity: 1;
-    display: flex;
-  }
-}
-
-@keyframes hideDropDown {
-  from {
-    opacity: 1;
-    display: flex;
-  }
-  to {
-    opacity: 0;
-    display: none;
-  }
-} */
