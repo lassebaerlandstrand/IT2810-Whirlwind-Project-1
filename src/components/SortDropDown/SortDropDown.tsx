@@ -11,7 +11,12 @@ type DropDownContentProps = {
 
 const DropDownContent = ({ open, options, onSelected }: DropDownContentProps) => {
   return (
-    <ul className={`${styles.dropDownContent} ${open ? styles.contentOpen : ''}`}>
+    <ul
+      className={`${styles.dropDownContent} ${open ? styles.contentOpen : ''}`}
+      data-testid="dropdown-content"
+      aria-expanded={open}
+      aria-controls="dropdown-button"
+    >
       {options.map((option) => (
         <li key={option} className={styles.dropDownItem} onClick={() => onSelected(option)}>
           {option}
@@ -29,7 +34,11 @@ type DropDownButtonProps = {
 
 const DropDownButton = ({ open, toggleOpen, selectedOption }: DropDownButtonProps) => {
   return (
-    <button className={`${styles.dropDownButton} ${open ? styles.buttonOpen : ''}`} onClick={toggleOpen}>
+    <button
+      className={`${styles.dropDownButton} ${open ? styles.buttonOpen : ''}`}
+      onClick={toggleOpen}
+      aria-describedby="dropdown-button"
+    >
       {selectedOption} <span className={styles.iconSpan}>{open ? <IconChevronUp /> : <IconChevronDown />}</span>
     </button>
   );
