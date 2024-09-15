@@ -101,7 +101,7 @@ describe('SortDropDown should sort based on selection', () => {
     sessionStorage.clear();
   });
 
-  it('should filter the cities based on the search query', () => {
+  it('should order the cities based on the selected sorting option', () => {
     render(<SortDropDownWithState />);
 
     // Expect all cities to be in alphabetical order
