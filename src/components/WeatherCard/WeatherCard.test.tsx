@@ -54,6 +54,17 @@ describe('WeatherCard', () => {
     expect(screen.getByText('15°C')).toBeInTheDocument();
   });
 
+  it('renders rainy weather', () => {
+    // Mock rainy weather
+    mockUseWeather({air_temperature: 10, cloud_area_fraction: 0.8, precipitation_amount: 0.5});
+
+    render(<WeatherCard {...location} />);
+
+    // Check if rainy icon and text are displayed
+    expect(screen.getByText('Rainy')).toBeInTheDocument();
+    expect(screen.getByText('10°C')).toBeInTheDocument();
+  });
+
   it('handles API error', () => {
     // Mock an error state
     mockUseWeather(null, true);
