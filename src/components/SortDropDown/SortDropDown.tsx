@@ -1,5 +1,5 @@
 import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Location } from '../../types/api-types';
 import styles from './SortDropDown.module.css';
 
@@ -78,16 +78,19 @@ type SortDropDownProps = {
 
 /** Specialized drop-down with sorting in mind */
 const SortDropDown = ({ onSort }: SortDropDownProps) => {
-  const [selectedOption, setSelectedOption] = useState<string>(Object.keys(options)[0]); // TODO: Use sessionstorage
+  const [selectedOption, setSelectedOption] = useState<string>(
+    () => sessionStorage.getItem('SortingOption') || Object.keys(options)[0],
+  );
+
+  useEffect(() => {
+    sessionStorage.setItem('SortingOption', selectedOption);
+    const sortingMethod = options[selectedOption];
+    onSort(sortingMethod);
+  }, [selectedOption]);
+
   const optionList = Object.keys(options);
 
-  const updateSelectedOption = (option: string) => {
-    const sortingMethod = options[option];
-    onSort(sortingMethod);
-    setSelectedOption(option);
-  };
-
-  return <DropDown options={optionList} selectedOption={selectedOption} setSelectedOption={updateSelectedOption} />;
+  return <DropDown options={optionList} selectedOption={selectedOption} setSelectedOption={setSelectedOption} />;
 };
 
 export default SortDropDown;
