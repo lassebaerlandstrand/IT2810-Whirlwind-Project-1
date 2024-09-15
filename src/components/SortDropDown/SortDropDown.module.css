@@ -3,15 +3,15 @@
   margin-block-start: 0;
   margin-block-end: 0;
   padding-inline-start: 0;
-  max-width: 8rem;
+  /* max-width: 8rem; */
 }
 
 .dropDownButton {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  /* width: fit-content; */
+  width: fit-content;
+  min-width: 11rem;
   padding: 0.5rem;
   background-color: white;
   border-radius: 0.3rem;
@@ -26,7 +26,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 1rem;
+  padding-left: 1rem;
   color: #999999;
 }
 
@@ -37,9 +37,7 @@
   position: absolute;
   min-width: 100%;
   padding: 0;
-
   background-color: white;
-  /* border-radius: 0.5rem; */
   max-height: 20vh;
   overflow-y: scroll;
   scrollbar-width: none;
@@ -48,9 +46,9 @@
   list-style-type: none;
   user-select: none;
   margin-top: 0.25rem;
-  /* margin-top: 0; */
   border: 0.1rem var(--inactive-border) solid;
   border-radius: 0.3rem;
+  /* animation: hideDropDown 100ms ease-in-out; */
 }
 
 .dropDownContent::-webkit-scrollbar {
@@ -75,4 +73,28 @@
 
 .contentOpen {
   display: flex;
+  /* animation: showDropDown 100ms ease-in-out; */
 }
+
+/* Looked better without animations */
+/* @keyframes showDropDown {
+  from {
+    opacity: 0;
+    display: none;
+  }
+  to {
+    opacity: 1;
+    display: flex;
+  }
+}
+
+@keyframes hideDropDown {
+  from {
+    opacity: 1;
+    display: flex;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+} */

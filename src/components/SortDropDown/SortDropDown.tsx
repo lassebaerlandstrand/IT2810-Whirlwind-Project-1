@@ -9,7 +9,7 @@ type DropDownContentProps = {
   onSelected: (option: string) => void;
 };
 
-export const DropDownContent = ({ open, options, onSelected }: DropDownContentProps) => {
+const DropDownContent = ({ open, options, onSelected }: DropDownContentProps) => {
   return (
     <ul className={`${styles.dropDownContent} ${open ? styles.contentOpen : ''}`}>
       {options.map((option) => (
@@ -27,7 +27,7 @@ type DropDownButtonProps = {
   selectedOption: string;
 };
 
-export const DropDownButton = ({ open, toggleOpen, selectedOption }: DropDownButtonProps) => {
+const DropDownButton = ({ open, toggleOpen, selectedOption }: DropDownButtonProps) => {
   return (
     <button className={`${styles.dropDownButton} ${open ? styles.buttonOpen : ''}`} onClick={toggleOpen}>
       {selectedOption} <span className={styles.iconSpan}>{open ? <IconChevronUp /> : <IconChevronDown />}</span>
@@ -67,7 +67,7 @@ type OptionsType = {
 
 // TODO: Add more sorting options
 const options: OptionsType = {
-  Name: (a: Location, b: Location) => a.city_name.localeCompare(b.city_name),
+  Alphabetically: (a: Location, b: Location) => a.city_name.localeCompare(b.city_name),
   Random: () => Math.random() - 0.5,
   Random2: () => Math.random() - 0.5,
 };

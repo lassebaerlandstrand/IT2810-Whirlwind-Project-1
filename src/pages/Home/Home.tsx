@@ -32,10 +32,10 @@ const Home = () => {
       <h1>43 °C</h1>
       <h1>🔥😰🔥</h1>
       <Example />
-      <nav className={styles.navbar}>
+      <div role="search" className={styles.searchContainer}>
         <SearchBar onSearch={handleSearch} />
         <SortDropDown onSort={handleSort} />
-      </nav>
+      </div>
       <ul>
         {filteredCities.map((city, index) => (
           <li key={index}>{city.city_name}</li>
