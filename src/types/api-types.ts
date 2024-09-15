@@ -7,11 +7,12 @@ export type WeatherInfo = {
   relative_humidity: number;
   wind_from_direction: number;
   wind_speed: number;
+  precipitation_amount: number;
 };
 
 export type Location = {
   city_name: string;
   country_name: string;
-  latitude: number;
-  longitude: number;
-}
+  latitude: string;
+  longitude: string;
+};
