@@ -12,7 +12,8 @@ export const DropDown: React.FC<DropDownProps> = ({ selectedOption, options, set
   const [open, setOpen] = useState<boolean>(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
 
-  const toggleOpen = () => setOpen((prev) => !prev);
+  const toggleOpen = () => setOpen(!open);
+
   const handleOptionSelect = (option: string) => {
     setSelectedOption(option);
     setOpen(false);
@@ -33,9 +34,11 @@ export const DropDown: React.FC<DropDownProps> = ({ selectedOption, options, set
       <label className={styles.label}>{label}</label>
       <button className={styles.dropDownButton} onClick={toggleOpen} aria-expanded={open} aria-haspopup="listbox">
         {selectedOption}
+        <span className={styles.iconSpan}>▼</span>
       </button>
+
       {open && (
-        <ul className={styles.dropDownContent} role="listbox">
+        <ul className={`${styles.dropDownContent}`} role="listbox">
           {options.map((option) => (
             <li
               key={option}

@@ -1,13 +1,72 @@
 .container {
   width: 100%;
   position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .dropDownButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.75rem 1rem;
   background-color: white;
-  border-radius: 0.3rem;
+  border-radius: 0.5rem;
   border: 1px solid var(--inactive-border);
   cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dropDownButton:hover,
+.dropDownButton:focus {
+  background-color: #f0f0f0;
+  border-color: var(--active-border-blue);
+}
+
+.dropDownButton:active {
+  background-color: #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.iconSpan {
+  margin-left: 0.5rem;
+  color: #999999;
+}
+
+.dropDownContent {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid var(--inactive-border);
+  border-radius: 0.5rem;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  display: block;
+}
+
+.dropDownItem {
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropDownItem:hover {
+  background-color: #f4f4f4;
+}
+
+.label {
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  display: block;
 }
