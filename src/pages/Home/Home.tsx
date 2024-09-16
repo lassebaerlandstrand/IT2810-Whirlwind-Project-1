@@ -8,7 +8,7 @@ import styles from './Home.module.css';
 
 const Home: React.FC = () => {
   const [filteredCities, setFilteredCities] = useState<Location[]>(LOCATIONS);
-  const [sortCondition, setSortCondition] = useState<(a: Location, b: Location) => number | null>(null);
+  const [sortCondition, setSortCondition] = useState<((a: Location, b: Location) => number) | null>(null);
 
   const handleSearch = useCallback(
     (searchQuery: string) => {

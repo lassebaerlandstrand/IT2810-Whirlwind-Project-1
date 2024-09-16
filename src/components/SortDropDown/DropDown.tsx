@@ -10,7 +10,7 @@ type DropDownProps = {
 
 export const DropDown: React.FC<DropDownProps> = ({ selectedOption, options, setSelectedOption, label }) => {
   const [open, setOpen] = useState<boolean>(false);
-  const dropDownRef = useRef<HTMLMenuElement>(null);
+  const dropDownRef = useRef<HTMLDivElement>(null);
 
   const toggleOpen = () => setOpen((prev) => !prev);
   const handleOptionSelect = (option: string) => {
