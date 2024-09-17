@@ -38,7 +38,7 @@ export const DropDown: React.FC<DropDownProps> = ({ selectedOption, options, set
       </button>
 
       {open && (
-        <ul className={`${styles.dropDownContent}`} role="listbox">
+        <ul className={`${styles.dropDownContent} ${open ? styles.contentOpen : ''}`} role="listbox">
           {options.map((option) => (
             <li
               key={option}

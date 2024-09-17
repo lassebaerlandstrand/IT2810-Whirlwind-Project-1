@@ -53,7 +53,7 @@ const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
   };
 
   return (
-    <div className={styles.weatherCard} onClick={handleCardClick} style={{ cursor: 'pointer' }}>
+    <div className={styles.weatherCard} onClick={handleCardClick} style={{ cursor: 'pointer' }} role="button">
       <div className={styles.weatherTop}>
         <div className={styles.locationInfo}>
           <h3>{location.country_name}</h3>

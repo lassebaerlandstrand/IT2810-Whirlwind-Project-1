@@ -9,7 +9,7 @@ interface WeatherListProps {
 
 const WeatherList: React.FC<WeatherListProps> = ({ locations }) => {
   return (
-    <div className={styles.weatherList}>
+    <div className={styles.weatherList} data-testid="weather-list">
       {locations.map((location, index) => (
         <ListWeatherCard key={index} location={location} />
       ))}
