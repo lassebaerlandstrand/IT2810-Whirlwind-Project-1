@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "prettier": "npx prettier --write .",
-    "test": "vitest"
+    "test": "vitest",
+    "update-test": "vitest -u"
   },
   "dependencies": {
     "@tabler/icons-react": "^3.16.0",
