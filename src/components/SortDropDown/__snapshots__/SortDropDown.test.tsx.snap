@@ -1,0 +1,56 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SortDropDown Component > should match snapshot 1`] = `
+<DocumentFragment>
+  <menu
+    class="_container_c8499b"
+  >
+    <label
+      class="_label_c8499b"
+    >
+      Sort by:
+    </label>
+     
+    <button
+      aria-describedby="dropdown-button"
+      class="_dropDownButton_c8499b "
+      data-testid="dropdown-button"
+    >
+      City Name 
+      <span
+        class="_iconSpan_c8499b"
+      >
+        <svg
+          class="tabler-icon tabler-icon-chevron-down "
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 9l6 6l6 -6"
+          />
+        </svg>
+      </span>
+    </button>
+    <ul
+      aria-controls="dropdown-button"
+      aria-expanded="false"
+      class="_dropDownContent_c8499b "
+      data-testid="dropdown-content"
+    >
+      <li
+        class="_dropDownItem_c8499b"
+        role="button"
+      >
+        Country Name
+      </li>
+    </ul>
+  </menu>
+</DocumentFragment>
+`;

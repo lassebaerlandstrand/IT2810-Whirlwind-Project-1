@@ -1,8 +1,8 @@
-import {render, screen} from '@testing-library/react';
-import {vi} from 'vitest'; // Vite's version of mocking
-import {useWeather} from '../../hooks/useWeather';
-import WeatherCard from './WeatherCard';
+import { render, screen } from '@testing-library/react';
+import { vi } from 'vitest'; // Vite's version of mocking
+import { useWeather } from '../../hooks/useWeather';
 import LOCATIONS from '../../utils/locations';
+import WeatherCard from './WeatherCard';
 
 // Mock the useWeather hook
 vi.mock('../../hooks/useWeather');
@@ -34,7 +34,7 @@ describe('WeatherCard', () => {
 
   it('renders sunny weather', () => {
     // Mock sunny weather
-    mockUseWeather({air_temperature: 25, cloud_area_fraction: 0.3});
+    mockUseWeather({ air_temperature: 25, cloud_area_fraction: 0.3 });
 
     render(<WeatherCard {...location} />);
 
@@ -45,7 +45,7 @@ describe('WeatherCard', () => {
 
   it('renders cloudy weather', () => {
     // Mock cloudy weather
-    mockUseWeather({air_temperature: 15, cloud_area_fraction: 0.7});
+    mockUseWeather({ air_temperature: 15, cloud_area_fraction: 0.7 });
 
     render(<WeatherCard {...location} />);
 
@@ -56,7 +56,7 @@ describe('WeatherCard', () => {
 
   it('renders rainy weather', () => {
     // Mock rainy weather
-    mockUseWeather({air_temperature: 10, cloud_area_fraction: 0.8, precipitation_amount: 0.5});
+    mockUseWeather({ air_temperature: 10, cloud_area_fraction: 0.8, precipitation_amount: 0.5 });
 
     render(<WeatherCard {...location} />);
 
@@ -73,5 +73,11 @@ describe('WeatherCard', () => {
 
     // Check if loading state is still displayed due to error
     expect(screen.getByText('Loading...')).toBeInTheDocument();
+  });
+
+  it('should match snapshot', () => {
+    mockUseWeather({ air_temperature: 25, cloud_area_fraction: 0.3 });
+    const { asFragment } = render(<WeatherCard {...location} />);
+    expect(asFragment()).toMatchSnapshot();
   });
 });

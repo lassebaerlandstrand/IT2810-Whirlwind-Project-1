@@ -69,6 +69,11 @@ describe('SortDropDown Component', () => {
     expect(newButton).toHaveTextContent(optionsKeys[1]);
     expect(newButton).toBeInTheDocument();
   });
+
+  it('should match snapshot', () => {
+    const { asFragment } = render(<SortDropDown setSortCondition={vi.fn()} />);
+    expect(asFragment()).toMatchSnapshot();
+  });
 });
 
 const SortDropDownWithState = () => {
