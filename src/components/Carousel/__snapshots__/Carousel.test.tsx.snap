@@ -50,7 +50,7 @@ exports[`Carousel > should match snapshot 1`] = `
     <p
       class="_temperature_8ab24e"
     >
-      °C
+      25°C
     </p>
     <p>
       Sunny

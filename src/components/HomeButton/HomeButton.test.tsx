@@ -7,7 +7,7 @@ describe('HomeButton', () => {
     const { getByText } = render(
       <Router>
         <HomeButton />
-      </Router>
+      </Router>,
     );
     expect(getByText('Go back to list')).toBeInTheDocument();
   });
@@ -16,7 +16,7 @@ describe('HomeButton', () => {
     const { getByRole } = render(
       <Router>
         <HomeButton />
-      </Router>
+      </Router>,
     );
     const link = getByRole('link');
     expect(link).toHaveAttribute('href', '/');
@@ -26,7 +26,7 @@ describe('HomeButton', () => {
     const { container } = render(
       <Router>
         <HomeButton />
-      </Router>
+      </Router>,
     );
     const icon = container.querySelector('svg');
     expect(icon).toBeInTheDocument();

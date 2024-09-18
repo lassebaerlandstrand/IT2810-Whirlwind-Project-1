@@ -18,3 +18,8 @@
   max-width: 20rem;
   margin: 0 auto;
 }
+
+.additionalInfo {
+  flex-wrap: wrap;
+  display: flex;
+}
