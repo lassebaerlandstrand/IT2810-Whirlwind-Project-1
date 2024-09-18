@@ -1,21 +1,20 @@
-import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
-import {renderHook, waitFor} from '@testing-library/react';
-import {useWeather} from './useWeather'; // Adjust the path accordingly
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { renderHook, waitFor } from '@testing-library/react';
 import LOCATIONS from '../utils/locations';
+import { useWeather } from './useWeather'; // Adjust the path accordingly
 
 // Helper to create a wrapper for the QueryClientProvider
 const createQueryClientWrapper = () => {
   const queryClient = new QueryClient();
-  return ({children}: {children: React.ReactNode}) => (
+  return ({ children }: { children: React.ReactNode }) => (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );
 };
 
 describe('useWeather', () => {
   it('should return weather data successfully', async () => {
-
     // Render the hook within a QueryClientProvider
-    const {result} = renderHook(() => useWeather(LOCATIONS[0]), {
+    const { result } = renderHook(() => useWeather(LOCATIONS[0]), {
       wrapper: createQueryClientWrapper(),
     });
 

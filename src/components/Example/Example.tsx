@@ -4,7 +4,7 @@ import LOCATIONS from '../../utils/locations';
 
 //Example on how to use API
 function Example() {
-  const { data, error, isLoading }: { data: WeatherInfo | undefined; error: Error | unknown; isLoading: boolean } =
+  const { data, error, isLoading }: { data: WeatherInfo | null; error: Error | unknown; isLoading: boolean } =
     useWeather(LOCATIONS[0]);
 
   if (isLoading) return 'Fetching data...';

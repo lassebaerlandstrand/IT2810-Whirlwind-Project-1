@@ -1,5 +1,6 @@
 import { IconArrowLeft, IconArrowRight } from '@tabler/icons-react';
-import { Link, WeatherInfo } from '../../types/api-types';
+import { Link } from 'react-router-dom';
+import { WeatherInfo } from '../../types/api-types';
 import LOCATIONS from '../../utils/locations';
 import WeatherCard from '../WeatherCard/WeatherCard';
 import styles from './Carousel.module.css';
