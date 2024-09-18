@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import { DropDown } from './DropDown';
+import DropDown from './DropDown';
 
 describe('DropDown Component', () => {
   const options = ['Option 1', 'Option 2', 'Option 3'];

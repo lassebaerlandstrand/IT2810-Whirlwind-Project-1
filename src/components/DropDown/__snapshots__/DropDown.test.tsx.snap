@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`SortDropDown Component > should match snapshot 1`] = `
+exports[`DropDown Component > should match snapshot 1`] = `
 <DocumentFragment>
   <div
     class="_container_20b9ed"
@@ -15,7 +15,7 @@ exports[`SortDropDown Component > should match snapshot 1`] = `
       aria-haspopup="listbox"
       class="_dropDownButton_20b9ed"
     >
-      City Name
+      Option 1
       <span
         class="_iconSpan_20b9ed"
       >
