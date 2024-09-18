@@ -4,7 +4,7 @@
   min-width: 20rem;
   max-width: 20rem;
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: var(--secondary-color);
   border-radius: 1rem;
   flex-wrap: wrap;
   padding: 0.5rem 0.5rem 3rem 0.5rem;
@@ -17,7 +17,7 @@
   width: 2rem;
   height: 2rem;
   border-radius: 100%;
-  background-color: #a4d3dc;
+  background-color: var(--tertiary-color);
   /*color: #ffffff;  */
   svg {
     stroke: #ffffff;
@@ -45,7 +45,7 @@
   width: 10rem;
   height: 10rem;
 
-  background-color: #25444f;
+  background-color: var(--primary-color);
   border-radius: 100%;
 
   flex-wrap: wrap;
@@ -53,7 +53,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: var(--secondary-color);
   gap: 0.5rem;
 }
 

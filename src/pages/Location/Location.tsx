@@ -10,15 +10,7 @@ import LOCATIONS from '../../utils/locations';
 import styles from './Location.module.css';
 
 const translateDirection = (windDirection: number) => {
-  if (windDirection >= 337.5 || windDirection < 22.5) return 'N';
-  if (windDirection >= 22.5 && windDirection < 67.5) return 'NE';
-  if (windDirection >= 67.5 && windDirection < 112.5) return 'E';
-  if (windDirection >= 112.5 && windDirection < 157.5) return 'SE';
-  if (windDirection >= 157.5 && windDirection < 202.5) return 'S';
-  if (windDirection >= 202.5 && windDirection < 247.5) return 'SW';
-  if (windDirection >= 247.5 && windDirection < 292.5) return 'W';
-  if (windDirection >= 292.5 && windDirection < 337.5) return 'NW';
-  return 'NA';
+  return ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'][Math.floor(((windDirection + 22.5) % 360) / 45)];
 };
 
 const updateInfos = (data: WeatherInfo | null) => {
@@ -50,6 +42,8 @@ const Location = () => {
   const { data, isLoading, error } = useWeather(LOCATIONS[currentIndex]);
 
   const [infos, setInfos] = useState(updateInfos(data));
+
+  if (error) return <p>Couldnt find API data</p>;
 
   useEffect(() => {
     setInfos(updateInfos(data));

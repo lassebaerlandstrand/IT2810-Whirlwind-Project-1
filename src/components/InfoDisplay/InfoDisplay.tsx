@@ -32,5 +32,3 @@ const InfoDisplay: React.FC<InfoDisplayProps> = ({ icon, infoText, amount, unit,
 };
 
 export default InfoDisplay;
-//{data.cloud_area_fraction > 0.5 ? <IconCloudFilled /> : <IconSunFilled />}
-//className={styles.card}
