@@ -5,4 +5,4 @@ npm install
 npm run build
 mkdir dist/project1
 mv dist/assets dist/project1/assets
-sudo mv dist /var/www/html/project1
+sudo rsync -a dist /var/www/html/project1
