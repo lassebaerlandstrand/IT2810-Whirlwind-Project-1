@@ -27,21 +27,21 @@ describe('Carousel', () => {
   });
 
   test('renders the previous city link correctly', () => {
-    render(<Carousel currentIndex={0} data={undefined} />);
+    render(<Carousel currentIndex={0} data={null} />);
 
     const prevCity = LOCATIONS[LOCATIONS.length - 1].city_name;
     expect(screen.getByText(prevCity)).toBeInTheDocument();
   });
 
   test('renders the next city link correctly', () => {
-    render(<Carousel currentIndex={0} data={undefined} />);
+    render(<Carousel currentIndex={0} data={null} />);
 
     const nextCity = LOCATIONS[1].city_name;
     expect(screen.getByText(nextCity)).toBeInTheDocument();
   });
 
   test('renders the first city’s previous link correctly (wraps around)', () => {
-    render(<Carousel currentIndex={LOCATIONS.length - 1} data={undefined} />);
+    render(<Carousel currentIndex={LOCATIONS.length - 1} data={null} />);
 
     const prevCity = LOCATIONS[0].city_name;
     expect(screen.getByText(prevCity)).toBeInTheDocument();

@@ -4,7 +4,7 @@ import styles from './WeatherCard.module.css';
 
 interface WeatherCardProps {
   location: Location;
-  data: WeatherInfo | undefined;
+  data: WeatherInfo | null;
 }
 const WeatherCard: React.FC<WeatherCardProps> = ({ location, data }) => {
   return (

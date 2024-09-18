@@ -20,7 +20,7 @@ const translateDirection = (windDirection: number) => {
   return 'NA';
 };
 
-const updateInfos = (data: WeatherInfo | undefined) => {
+const updateInfos = (data: WeatherInfo | null) => {
   return [
     {
       icon: <IconWind />,

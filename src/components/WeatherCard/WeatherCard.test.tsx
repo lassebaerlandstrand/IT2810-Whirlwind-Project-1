@@ -5,7 +5,7 @@ import WeatherCard from './WeatherCard';
 
 describe('WeatherCard', () => {
   it('renders loading state', () => {
-    render(<WeatherCard location={LOCATIONS[0]} data={undefined} />);
+    render(<WeatherCard location={LOCATIONS[0]} data={null} />);
 
     // Check if loading spinner is displayed
     expect(screen.getByText('Loading...')).toBeInTheDocument();

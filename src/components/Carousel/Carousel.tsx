@@ -20,7 +20,7 @@ const getNextCity = (currentIndex: number) => {
 
 interface CarouselProps {
   currentIndex: number;
-  data: WeatherInfo | undefined;
+  data: WeatherInfo | null;
 }
 
 const Carousel: React.FC<CarouselProps> = ({ currentIndex, data }) => {
