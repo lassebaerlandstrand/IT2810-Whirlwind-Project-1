@@ -54,7 +54,7 @@ const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
   };
 
   return (
-    <Link to={`/location/${location.city_name}`} className={styles.weatherCard}>
+    <Link to={`/location/${location.city_name}`} className={styles.weatherCard} data-testid="link-button">
       <div className={styles.weatherTop}>
         <div className={styles.locationInfo}>
           <h2>{location.city_name}</h2>

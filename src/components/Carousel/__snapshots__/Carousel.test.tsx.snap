@@ -6,7 +6,7 @@ exports[`Carousel > should match snapshot 1`] = `
     class="_card_8ab24e"
   >
     <svg
-      class="tabler-icon tabler-icon-sun-filled "
+      class="tabler-icon tabler-icon-sun-filled _svg_8ab24e"
       fill="currentColor"
       height="24"
       stroke="none"
@@ -64,7 +64,7 @@ exports[`Carousel > should match snapshot 1`] = `
       href="/location/Bergen"
     >
       <svg
-        class="tabler-icon tabler-icon-arrow-left "
+        class="tabler-icon tabler-icon-arrow-left _svg_cc4f54"
         fill="none"
         height="24"
         stroke="currentColor"
@@ -92,7 +92,7 @@ exports[`Carousel > should match snapshot 1`] = `
       href="/location/London"
     >
       <svg
-        class="tabler-icon tabler-icon-arrow-right "
+        class="tabler-icon tabler-icon-arrow-right _svg_cc4f54"
         fill="none"
         height="24"
         stroke="currentColor"
