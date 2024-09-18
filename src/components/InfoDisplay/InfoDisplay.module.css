@@ -1,6 +1,7 @@
 .container {
   display: flex;
   justify-content: center;
+  min-width: 20rem;
   max-width: 20rem;
   margin: 0 auto;
   background-color: #ffffff;

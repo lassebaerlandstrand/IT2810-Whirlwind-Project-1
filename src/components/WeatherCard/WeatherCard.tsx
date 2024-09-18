@@ -1,10 +1,12 @@
-import {IconCloudFilled, IconRotateClockwise, IconSunFilled} from '@tabler/icons-react';
-import {useWeather} from '../../hooks/useWeather';
-import {Location} from '../../types/api-types';
+import { IconCloudFilled, IconRotateClockwise, IconSunFilled } from '@tabler/icons-react';
+import { Location, WeatherInfo } from '../../types/api-types';
 import styles from './WeatherCard.module.css';
 
-const WeatherCard = (location: Location) => {
-  const {data} = useWeather(location);
+interface WeatherCardProps {
+  location: Location;
+  data: WeatherInfo | undefined;
+}
+const WeatherCard: React.FC<WeatherCardProps> = ({ location, data }) => {
   return (
     <div className={styles.card}>
       {data ? (

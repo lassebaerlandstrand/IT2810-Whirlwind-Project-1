@@ -1,6 +1,6 @@
 .weatherDetailsContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   max-width: 44rem;
   margin: 3rem auto;
   flex-wrap: wrap;
@@ -9,4 +9,9 @@
   gap: 1rem;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
+  list-style: none;
+
+  li {
+    width: auto;
+  }
 }

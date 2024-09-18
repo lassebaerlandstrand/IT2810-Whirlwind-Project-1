@@ -42,7 +42,9 @@ const updateInfos = (data: WeatherInfo | undefined) => {
 
 const Location = () => {
   const { locationName } = useParams();
-  const currentIndex = LOCATIONS.findIndex((location) => location.city_name === locationName);
+  const currentIndex = LOCATIONS.findIndex(
+    (location) => location.city_name?.toLowerCase() === locationName?.toLowerCase(),
+  );
 
   const { data, isLoading, error } = useWeather(LOCATIONS[currentIndex]);
 
@@ -54,19 +56,21 @@ const Location = () => {
 
   return (
     <>
-      <Carousel />
-      <div className={styles.weatherDetailsContainer}>
+      <Carousel currentIndex={currentIndex} data={data} />
+      <ul className={styles.weatherDetailsContainer}>
         {infos.map((item, index) => (
-          <InfoDisplay
-            icon={item.icon}
-            infoText={item.infoText}
-            amount={item.amount}
-            unit={item.unit}
-            rotation={item.rotation}
-            key={index}
-          />
+          <li key={index}>
+            <InfoDisplay
+              icon={item.icon}
+              infoText={item.infoText}
+              amount={item.amount}
+              unit={item.unit}
+              rotation={item.rotation}
+              key={index}
+            />
+          </li>
         ))}
-      </div>
+      </ul>
     </>
   );
 };
