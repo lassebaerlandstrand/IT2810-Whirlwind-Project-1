@@ -27,11 +27,11 @@ const Carousel = () => {
       <WeatherCard {...LOCATIONS[currentIndex]} />
       <div className={styles.buttonContainer}>
         <Link className={styles.a} to={'/location/' + getPreviousCity(currentIndex).city_name}>
-          <IconArrowLeft />
+          <IconArrowLeft className={styles.svg} />
           {getPreviousCity(currentIndex).city_name}
         </Link>
         <Link className={styles.a} to={'/location/' + getNextCity(currentIndex).city_name}>
-          <IconArrowRight />
+          <IconArrowRight className={styles.svg} />
           {getNextCity(currentIndex).city_name}
         </Link>
       </div>

@@ -1,4 +1,10 @@
-import { IconCloudFilled, IconCloudRain, IconRotateClockwise, IconSunFilled } from '@tabler/icons-react';
+import {
+  IconArrowRight,
+  IconCloudFilled,
+  IconCloudRain,
+  IconRotateClockwise,
+  IconSunFilled,
+} from '@tabler/icons-react';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useWeather } from '../../hooks/useWeather';
@@ -56,14 +62,17 @@ const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
     <div className={styles.weatherCard} onClick={handleCardClick} role="button">
       <div className={styles.weatherTop}>
         <div className={styles.locationInfo}>
-          <h3>{location.country_name}</h3>
           <h2>{location.city_name}</h2>
+          <h3>{location.country_name}</h3>
         </div>
         {data ? renderWeatherIcon(weatherDescription) : <IconRotateClockwise className={styles.rotating} />}
       </div>
       <div className={styles.weatherBottom}>
-        <span className={styles.temperature}>{data ? data.air_temperature : '--'}°C</span>
-        <p className={styles.weatherDescription}>{weatherDescription}</p>
+        <div>
+          <span className={styles.temperature}>{data ? data.air_temperature : '--'}°C</span>
+          <p className={styles.weatherDescription}>{weatherDescription}</p>
+        </div>
+        <IconArrowRight />
       </div>
     </div>
   );

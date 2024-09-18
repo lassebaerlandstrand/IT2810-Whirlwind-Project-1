@@ -5,19 +5,19 @@ import styles from './WeatherCard.module.css';
 
 const determineWeather = (data: WeatherInfo) => {
   if (data.precipitation_amount > 0) {
-    return [<IconCloudRain />, 'Rainy'];
+    return [<IconCloudRain className={styles.svg} />, 'Rainy'];
   }
   if (data.cloud_area_fraction > 0.5) {
-    return [<IconCloudFilled />, 'Cloudy'];
+    return [<IconCloudFilled className={styles.svg} />, 'Cloudy'];
   }
-  return [<IconSunFilled />, 'Sunny'];
+  return [<IconSunFilled className={styles.svg} />, 'Sunny'];
 };
 
 const WeatherCard = (location: Location) => {
   const { data } = useWeather(location);
   return (
     <div className={styles.card}>
-      {data ? determineWeather(data)[0] : <IconRotateClockwise className={styles.rotating} />}
+      {data ? determineWeather(data)[0] : <IconRotateClockwise className={`${styles.rotating} ${styles.svg}`} />}
       <p className={styles.city}>
         {location.city_name}, {location.country_name}
       </p>

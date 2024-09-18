@@ -11,6 +11,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1200px;
+
   --primary-color: #2c434e;
   --secondary-color: #fffcfd;
   --tertiary-color: #aed2db;
@@ -20,6 +24,8 @@
   --active-border-blue: #007bff;
 }
 
-body {
+body,
+html {
   margin: 0;
+  padding: 0;
 }
