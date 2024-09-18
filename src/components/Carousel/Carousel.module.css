@@ -1,4 +1,6 @@
-.a {
+.link {
+  display: flex;
+  flex-direction: column;
   color: var(--primary-color);
   background-color: var(--secondary-color);
   border: none;
@@ -6,17 +8,33 @@
   padding: 0.5rem 1rem;
   cursor: pointer;
   font-size: 1rem;
-  width: 5rem;
-  height: 5rem;
   text-align: center;
   text-decoration: none;
+
+  h3 {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  svg {
+    transition: transform 0.2s;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  &.leftLink:hover svg {
+    transform: translateX(-0.2rem);
+  }
+
+  &.rightLink:hover svg {
+    transform: translateX(0.2rem);
+  }
 }
 
 .buttonContainer {
   display: flex;
-  justify-content: space-between;
-  max-width: 20rem;
-  margin: 0 auto;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .additionalInfo {
@@ -27,4 +45,10 @@
 .svg {
   width: 100%;
   height: 100%;
+}
+
+/* Cannot use CSS variables in media query. Therefore have to specify --breakpoint-md explicitly */
+@media screen and (min-width: 768px) {
+  .link {
+  }
 }

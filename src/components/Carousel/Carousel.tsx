@@ -29,13 +29,16 @@ const Carousel: React.FC<CarouselProps> = ({ currentIndex, data }) => {
     <>
       <WeatherCard location={LOCATIONS[currentIndex]} data={data} />
       <div className={styles.buttonContainer}>
-        <Link className={styles.a} to={'/location/' + getPreviousCity(currentIndex).city_name}>
+        <Link
+          className={`${styles.link} ${styles.leftLink}`}
+          to={'/location/' + getPreviousCity(currentIndex).city_name}
+        >
           <IconArrowLeft className={styles.svg} />
-          {getPreviousCity(currentIndex).city_name}
+          <h3>{getPreviousCity(currentIndex).city_name}</h3>
         </Link>
-        <Link className={styles.a} to={'/location/' + getNextCity(currentIndex).city_name}>
+        <Link className={`${styles.link} ${styles.rightLink}`} to={'/location/' + getNextCity(currentIndex).city_name}>
           <IconArrowRight className={styles.svg} />
-          {getNextCity(currentIndex).city_name}
+          <h3>{getNextCity(currentIndex).city_name}</h3>
         </Link>
       </div>
     </>

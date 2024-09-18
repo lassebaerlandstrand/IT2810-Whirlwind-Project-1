@@ -1,13 +1,4 @@
-.icon {
-  width: 2rem;
-  height: 2rem;
-  padding: 0.5rem;
-  border-radius: 50%;
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-}
-
-.a {
+.link {
   color: var(--primary-color);
   background-color: var(--secondary-color);
   border: none;
@@ -22,13 +13,19 @@
   align-items: center;
   gap: 0.5rem;
   max-width: fit-content;
+
+  &:hover {
+    transform: translateY(-0.1rem);
+  }
+
+  transition: transform 0.1s;
 }
 
-.a svg {
-  transition: transform 0.2s;
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
 }
-
-.a:hover svg {
-  transform: scale(1.1);
-}
-

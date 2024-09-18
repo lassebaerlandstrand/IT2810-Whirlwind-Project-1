@@ -1,10 +1,26 @@
+.weatherDetailsContainer {
+  display: flex;
+  justify-content: space-around;
+  margin: 3rem auto;
+  flex-wrap: wrap;
+  padding: 1rem;
+  gap: 1rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  list-style: none;
+}
+
+.listItemContainer {
+  flex: 1 1 12rem;
+  min-width: 12rem;
+  max-width: 20rem;
+}
+
 .container {
   display: flex;
   justify-content: center;
-  min-width: 20rem;
-  max-width: 20rem;
   margin: 0 auto;
-  background-color: var(--secondary-color);
+  background-color: var(--background-highlight);
   border-radius: 1rem;
   flex-wrap: wrap;
   padding: 0.5rem 0.5rem 3rem 0.5rem;

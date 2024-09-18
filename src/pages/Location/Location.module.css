@@ -1,13 +1,13 @@
-.weatherDetailsContainer {
+.locationContainer {
   display: flex;
-  justify-content: space-around;
-  max-width: 44rem;
-  margin: 3rem auto;
-  flex-wrap: wrap;
-  background-color: #f7f6fc;
-  padding: 1rem;
+  flex-direction: column;
+  padding: 1.5rem;
+  max-width: var(--breakpoint-md);
+  margin: auto;
   gap: 1rem;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  list-style: none;
+  align-items: center;
+}
+
+/* Cannot use CSS variables in media query. Therefore have to specify --breakpoint-md explicitly */
+@media screen and (min-width: 768px) {
 }

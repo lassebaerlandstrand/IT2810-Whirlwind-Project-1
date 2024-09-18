@@ -34,14 +34,14 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className={styles.homeContainer}>
+    <main className={styles.homeContainer}>
       <Header />
       <div className={styles.searchSortContainer}>
         <SearchBar onSearch={handleSearch} />
         <SortDropDown setSortCondition={handleSort} />
       </div>
       <WeatherList locations={filteredCities} />
-    </div>
+    </main>
   );
 };
 
