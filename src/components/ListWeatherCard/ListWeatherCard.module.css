@@ -1,0 +1,84 @@
+.weatherCard {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: 1rem;
+  padding: 0.75rem;
+  width: 18.75rem;
+  height: 9.375rem;
+  text-align: left;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.weatherTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.weatherIcon {
+  font-size: 1.5rem;
+  max-width: 3.75rem;
+  max-height: 3.75rem;
+  color: white;
+}
+
+.locationInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.locationInfo h3 {
+  margin: 0;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.locationInfo h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.temperature {
+  font-size: 1.2rem;
+  font-weight: bold;
+  align-self: flex-start;
+}
+
+.weatherDescription {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  opacity: 0.8;
+  align-self: flex-start;
+}
+
+.rotating {
+  animation: rotating 2s linear infinite;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error {
+  color: red;
+  font-size: 0.9rem;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
