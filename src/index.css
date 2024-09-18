@@ -24,8 +24,11 @@
   --active-border-blue: #007bff;
 }
 
-body,
-html {
+body {
   margin: 0;
   padding: 0;
+}
+
+html {
+  scrollbar-gutter: stable;
 }
