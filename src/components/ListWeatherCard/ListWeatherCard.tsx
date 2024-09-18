@@ -6,7 +6,7 @@ import {
   IconSunFilled,
 } from '@tabler/icons-react';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useWeather } from '../../hooks/useWeather';
 import { Location } from '../../types/api-types';
 import styles from './ListWeatherCard.module.css';
@@ -17,7 +17,6 @@ interface ListWeatherCardProps {
 
 const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
   const { data, isLoading, error } = useWeather(location);
-  const navigate = useNavigate();
 
   if (isLoading) {
     return (
@@ -54,12 +53,8 @@ const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
     }
   };
 
-  const handleCardClick = () => {
-    navigate(`/location/${location.city_name}`);
-  };
-
   return (
-    <div className={styles.weatherCard} onClick={handleCardClick} role="button">
+    <Link to={`/location/${location.city_name}`} className={styles.weatherCard}>
       <div className={styles.weatherTop}>
         <div className={styles.locationInfo}>
           <h2>{location.city_name}</h2>
@@ -74,7 +69,7 @@ const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
         </div>
         <IconArrowRight />
       </div>
-    </div>
+    </Link>
   );
 };
 

@@ -47,11 +47,11 @@
   margin-top: 0.25rem;
   border: 0.1rem var(--inactive-border) solid;
   border-radius: 0.3rem;
-}
 
-.dropDownList::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
 }
 
 .dropDownItem {
@@ -59,10 +59,10 @@
   padding: 0.5rem;
   cursor: pointer;
   box-sizing: border-box;
-}
 
-.dropDownItem:hover {
-  background-color: #f4f4f4;
+  &:hover {
+    background-color: #f4f4f4;
+  }
 }
 
 .buttonOpen {
