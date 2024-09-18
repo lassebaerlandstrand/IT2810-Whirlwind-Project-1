@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DropDown Component > should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="_container_bfe205"
+  >
+    <label
+      class="_label_bfe205"
+    >
+      Sort by:
+    </label>
+    <button
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      class="_dropDownButton_bfe205"
+    >
+      Option 1
+      <span
+        class="_iconSpan_bfe205"
+      >
+        ▼
+      </span>
+    </button>
+  </div>
+</DocumentFragment>
+`;

@@ -64,6 +64,11 @@ describe('SearchBar Component', () => {
     const newSearchInput = screen.getByRole('textbox');
     expect(newSearchInput).toHaveValue('test');
   });
+
+  it('should match snapshot', () => {
+    const { asFragment } = render(<SearchBar onSearch={vi.fn()} />);
+    expect(asFragment()).toMatchSnapshot();
+  });
 });
 
 const SearchBarWithState = () => {

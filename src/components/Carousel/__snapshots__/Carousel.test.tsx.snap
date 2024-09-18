@@ -1,0 +1,120 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Carousel > should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="_card_8ab24e"
+  >
+    <svg
+      class="tabler-icon tabler-icon-sun-filled "
+      fill="currentColor"
+      height="24"
+      stroke="none"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12 19a1 1 0 0 1 .993 .883l.007 .117v1a1 1 0 0 1 -1.993 .117l-.007 -.117v-1a1 1 0 0 1 1 -1z"
+      />
+      <path
+        d="M18.313 16.91l.094 .083l.7 .7a1 1 0 0 1 -1.32 1.497l-.094 -.083l-.7 -.7a1 1 0 0 1 1.218 -1.567l.102 .07z"
+      />
+      <path
+        d="M7.007 16.993a1 1 0 0 1 .083 1.32l-.083 .094l-.7 .7a1 1 0 0 1 -1.497 -1.32l.083 -.094l.7 -.7a1 1 0 0 1 1.414 0z"
+      />
+      <path
+        d="M4 11a1 1 0 0 1 .117 1.993l-.117 .007h-1a1 1 0 0 1 -.117 -1.993l.117 -.007h1z"
+      />
+      <path
+        d="M21 11a1 1 0 0 1 .117 1.993l-.117 .007h-1a1 1 0 0 1 -.117 -1.993l.117 -.007h1z"
+      />
+      <path
+        d="M6.213 4.81l.094 .083l.7 .7a1 1 0 0 1 -1.32 1.497l-.094 -.083l-.7 -.7a1 1 0 0 1 1.217 -1.567l.102 .07z"
+      />
+      <path
+        d="M19.107 4.893a1 1 0 0 1 .083 1.32l-.083 .094l-.7 .7a1 1 0 0 1 -1.497 -1.32l.083 -.094l.7 -.7a1 1 0 0 1 1.414 0z"
+      />
+      <path
+        d="M12 2a1 1 0 0 1 .993 .883l.007 .117v1a1 1 0 0 1 -1.993 .117l-.007 -.117v-1a1 1 0 0 1 1 -1z"
+      />
+      <path
+        d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z"
+      />
+    </svg>
+    <p
+      class="_city_8ab24e"
+    >
+      New York, USA
+    </p>
+    <p
+      class="_temperature_8ab24e"
+    >
+      25°C
+    </p>
+    <p>
+      Sunny
+    </p>
+  </div>
+  <div
+    class="_buttonContainer_cc4f54"
+  >
+    <a
+      class="_a_cc4f54"
+      href="/location/Bergen"
+    >
+      <svg
+        class="tabler-icon tabler-icon-arrow-left "
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5 12l14 0"
+        />
+        <path
+          d="M5 12l6 6"
+        />
+        <path
+          d="M5 12l6 -6"
+        />
+      </svg>
+      Bergen
+    </a>
+    <a
+      class="_a_cc4f54"
+      href="/location/London"
+    >
+      <svg
+        class="tabler-icon tabler-icon-arrow-right "
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5 12l14 0"
+        />
+        <path
+          d="M13 18l6 -6"
+        />
+        <path
+          d="M13 6l6 6"
+        />
+      </svg>
+      London
+    </a>
+  </div>
+</DocumentFragment>
+`;

@@ -81,4 +81,22 @@ describe('WeatherCard', () => {
     // Check if loading state is still displayed due to error
     expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
+
+  it('should match snapshot', () => {
+    const { asFragment } = render(
+      <WeatherCard
+        location={LOCATIONS[0]}
+        data={{
+          air_pressure_at_sea_level: 0,
+          air_temperature: 25,
+          cloud_area_fraction: 0.3,
+          relative_humidity: 0,
+          wind_from_direction: 0,
+          wind_speed: 0,
+          precipitation_amount: 0,
+        }}
+      />,
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
 });
