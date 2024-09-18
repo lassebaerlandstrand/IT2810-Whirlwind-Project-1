@@ -1,7 +1,7 @@
-import {useQuery} from '@tanstack/react-query';
-import {render} from '@testing-library/react';
-import {MemoryRouter, Route, Routes} from 'react-router-dom';
-import {vi} from 'vitest';
+import { useQuery } from '@tanstack/react-query';
+import { render } from '@testing-library/react';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { vi } from 'vitest';
 import LOCATIONS from '../../utils/locations';
 import Carousel from './Carousel';
 
@@ -14,14 +14,14 @@ describe('Carousel', () => {
   beforeEach(() => {
     // Mock useQuery before each test case
     (useQuery as jest.Mock).mockReturnValue({
-      data: {locationName: LOCATIONS[0].city_name},
+      data: { locationName: LOCATIONS[0].city_name },
       isLoading: false,
       isError: false,
     });
   });
 
   test('renders the current location based on the URL parameter', () => {
-    const {getByText} = render(
+    const { getByText } = render(
       <MemoryRouter initialEntries={['/location/' + LOCATIONS[0].city_name]}>
         <Routes>
           <Route path="/location/:locationName" element={<Carousel />} />
@@ -32,7 +32,7 @@ describe('Carousel', () => {
   });
 
   test('renders the previous city link correctly', () => {
-    const {getByText} = render(
+    const { getByText } = render(
       <MemoryRouter initialEntries={['/location/' + LOCATIONS[0].city_name]}>
         <Routes>
           <Route path="/location/:locationName" element={<Carousel />} />
@@ -44,7 +44,7 @@ describe('Carousel', () => {
   });
 
   test('renders the next city link correctly', () => {
-    const {getByText} = render(
+    const { getByText } = render(
       <MemoryRouter initialEntries={['/location/' + LOCATIONS[0].city_name]}>
         <Routes>
           <Route path="/location/:locationName" element={<Carousel />} />
@@ -56,7 +56,7 @@ describe('Carousel', () => {
   });
 
   test('renders the first city’s previous link correctly (wraps around)', () => {
-    const {getByText} = render(
+    const { getByText } = render(
       <MemoryRouter initialEntries={['/location/' + LOCATIONS[0].city_name]}>
         <Routes>
           <Route path="/location/:locationName" element={<Carousel />} />
@@ -68,7 +68,7 @@ describe('Carousel', () => {
   });
 
   test('renders the last city’s next link correctly (wraps around)', () => {
-    const {getByText} = render(
+    const { getByText } = render(
       <MemoryRouter initialEntries={['/location/' + LOCATIONS[LOCATIONS.length - 1].city_name]}>
         <Routes>
           <Route path="/location/:locationName" element={<Carousel />} />
@@ -80,7 +80,7 @@ describe('Carousel', () => {
   });
 
   test('renders WeatherCard with correct location data', () => {
-    const {getByText} = render(
+    const { getByText } = render(
       <MemoryRouter initialEntries={['/location/' + LOCATIONS[0].city_name]}>
         <Routes>
           <Route path="/location/:locationName" element={<Carousel />} />
@@ -97,7 +97,7 @@ describe('Carousel', () => {
       isError: false,
     });
 
-    const {getByText} = render(
+    const { getByText } = render(
       <MemoryRouter initialEntries={['/location/' + LOCATIONS[0].city_name]}>
         <Routes>
           <Route path="/location/:locationName" element={<Carousel />} />
