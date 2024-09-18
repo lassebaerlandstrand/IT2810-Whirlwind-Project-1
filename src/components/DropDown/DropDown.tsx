@@ -1,5 +1,51 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './DropDown.module.css';
+
+type DropDownListProps = {
+  open: boolean;
+  options: string[];
+  onSelected: (option: string) => void;
+};
+
+const DropDownList = ({ open, options, onSelected }: DropDownListProps) => {
+  return (
+    open && (
+      <ul
+        className={`${styles.dropDownList} ${open ? styles.listOpen : ''}`}
+        aria-expanded={open}
+        aria-controls="dropdown-button"
+        role="listbox"
+      >
+        {options.map((option) => (
+          <li key={option} className={styles.dropDownItem} onClick={() => onSelected(option)} role="option">
+            {option}
+          </li>
+        ))}
+      </ul>
+    )
+  );
+};
+
+type DropDownButtonProps = {
+  open: boolean;
+  toggleOpen: () => void;
+  selectedOption: string;
+};
+
+const DropDownButton = ({ open, toggleOpen, selectedOption }: DropDownButtonProps) => {
+  return (
+    <button
+      className={`${styles.dropDownButton} ${open ? styles.buttonOpen : ''}`}
+      onClick={toggleOpen}
+      aria-expanded={open}
+      aria-describedby="dropdown-button"
+      data-testid="dropdown-button"
+    >
+      {selectedOption} <span className={styles.iconSpan}>{open ? <IconChevronUp /> : <IconChevronDown />}</span>
+    </button>
+  );
+};
 
 type DropDownProps = {
   options: string[];
@@ -8,13 +54,13 @@ type DropDownProps = {
   label: string;
 };
 
-const DropDown: React.FC<DropDownProps> = ({ selectedOption, options, setSelectedOption, label }) => {
+const DropDown = ({ selectedOption, options, setSelectedOption, label }: DropDownProps) => {
   const [open, setOpen] = useState<boolean>(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
 
   const toggleOpen = () => setOpen(!open);
 
-  const handleOptionSelect = (option: string) => {
+  const handleSelectedOption = (option: string) => {
     setSelectedOption(option);
     setOpen(false);
   };
@@ -30,29 +76,15 @@ const DropDown: React.FC<DropDownProps> = ({ selectedOption, options, setSelecte
   }, []);
 
   return (
-    <div className={styles.container} ref={dropDownRef}>
+    <menu className={styles.container} ref={dropDownRef}>
       <label className={styles.label}>{label}</label>
-      <button className={styles.dropDownButton} onClick={toggleOpen} aria-expanded={open} aria-haspopup="listbox">
-        {selectedOption}
-        <span className={styles.iconSpan}>▼</span>
-      </button>
-
-      {open && (
-        <ul className={`${styles.dropDownContent} ${open ? styles.contentOpen : ''}`} role="listbox">
-          {options.map((option) => (
-            <li
-              key={option}
-              className={styles.dropDownItem}
-              onClick={() => handleOptionSelect(option)}
-              role="option"
-              aria-selected={option === selectedOption}
-            >
-              {option}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+      <DropDownButton open={open} toggleOpen={toggleOpen} selectedOption={selectedOption} />
+      <DropDownList
+        open={open}
+        options={options.filter((option) => option !== selectedOption)}
+        onSelected={handleSelectedOption}
+      />
+    </menu>
   );
 };
 

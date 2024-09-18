@@ -2,7 +2,7 @@
 
 exports[`DropDown Component > should match snapshot 1`] = `
 <DocumentFragment>
-  <div
+  <menu
     class="_container_20b9ed"
   >
     <label
@@ -11,17 +11,33 @@ exports[`DropDown Component > should match snapshot 1`] = `
       Sort by:
     </label>
     <button
+      aria-describedby="dropdown-button"
       aria-expanded="false"
-      aria-haspopup="listbox"
-      class="_dropDownButton_20b9ed"
+      class="_dropDownButton_20b9ed "
+      data-testid="dropdown-button"
     >
-      Option 1
+      Option 1 
       <span
         class="_iconSpan_20b9ed"
       >
-        ▼
+        <svg
+          class="tabler-icon tabler-icon-chevron-down "
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 9l6 6l6 -6"
+          />
+        </svg>
       </span>
     </button>
-  </div>
+  </menu>
 </DocumentFragment>
 `;
