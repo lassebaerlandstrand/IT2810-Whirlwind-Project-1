@@ -55,4 +55,11 @@ describe('DropDown Component', () => {
     fireEvent.click(document.body);
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
   });
+
+  it('should match snapshot', () => {
+    const { asFragment } = render(
+      <DropDown selectedOption="Option 1" options={options} setSelectedOption={vi.fn()} label={label} />,
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
 });
