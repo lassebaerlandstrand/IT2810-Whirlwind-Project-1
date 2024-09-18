@@ -39,7 +39,7 @@ const Location = () => {
     (location) => location.city_name?.toLowerCase() === locationName?.toLowerCase(),
   );
 
-  const { data, isLoading, error } = useWeather(LOCATIONS[currentIndex]);
+  const { data, error } = useWeather(LOCATIONS[currentIndex]);
 
   const [infos, setInfos] = useState(updateInfos(data));
 
