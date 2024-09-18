@@ -53,13 +53,13 @@ const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
   };
 
   return (
-    <div className={styles.weatherCard} onClick={handleCardClick} style={{ cursor: 'pointer' }} role="button">
+    <div className={styles.weatherCard} onClick={handleCardClick} role="button">
       <div className={styles.weatherTop}>
         <div className={styles.locationInfo}>
           <h3>{location.country_name}</h3>
           <h2>{location.city_name}</h2>
         </div>
-        {data ? renderWeatherIcon(weatherDescription) : <IconRotateClockwise />}
+        {data ? renderWeatherIcon(weatherDescription) : <IconRotateClockwise className={styles.rotating} />}
       </div>
       <div className={styles.weatherBottom}>
         <span className={styles.temperature}>{data ? data.air_temperature : '--'}°C</span>
