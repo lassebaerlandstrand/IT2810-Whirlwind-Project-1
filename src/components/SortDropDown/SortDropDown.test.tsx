@@ -47,4 +47,9 @@ describe('SortDropDown Component', () => {
     fireEvent.click(button);
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
   });
+
+  it('should match snapshot', () => {
+    const { asFragment } = render(<SortDropDown setSortCondition={vi.fn()} />);
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

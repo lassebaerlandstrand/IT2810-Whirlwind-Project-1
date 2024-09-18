@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Location } from '../../types/api-types';
-import { DropDown } from './DropDown';
+import DropDown from '../DropDown/DropDown';
 import { options } from './SortingOptions';
 
 type SortDropDownProps = {

@@ -106,4 +106,15 @@ describe('Carousel', () => {
     );
     expect(getByText('Loading...')).toBeInTheDocument(); // Assuming you have a loading state
   });
+
+  test('should match snapshot', () => {
+    const { asFragment } = render(
+      <MemoryRouter initialEntries={['/location/' + LOCATIONS[0].city_name]}>
+        <Routes>
+          <Route path="/location/:locationName" element={<Carousel />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

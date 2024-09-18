@@ -8,7 +8,7 @@ type DropDownProps = {
   label: string;
 };
 
-export const DropDown: React.FC<DropDownProps> = ({ selectedOption, options, setSelectedOption, label }) => {
+const DropDown: React.FC<DropDownProps> = ({ selectedOption, options, setSelectedOption, label }) => {
   const [open, setOpen] = useState<boolean>(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
 
@@ -55,3 +55,5 @@ export const DropDown: React.FC<DropDownProps> = ({ selectedOption, options, set
     </div>
   );
 };
+
+export default DropDown;
