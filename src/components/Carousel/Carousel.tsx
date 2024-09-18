@@ -1,5 +1,6 @@
 import { IconArrowLeft, IconArrowRight } from '@tabler/icons-react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { WeatherInfo } from '../../types/api-types';
 import LOCATIONS from '../../utils/locations';
 import WeatherCard from '../WeatherCard/WeatherCard';
 import styles from './Carousel.module.css';
@@ -18,13 +19,15 @@ const getNextCity = (currentIndex: number) => {
   return LOCATIONS[currentIndex + 1];
 };
 
-const Carousel = () => {
-  const { locationName } = useParams();
-  const currentIndex = LOCATIONS.findIndex((location) => location.city_name === locationName);
+interface CarouselProps {
+  currentIndex: number;
+  data: WeatherInfo | null;
+}
 
+const Carousel: React.FC<CarouselProps> = ({ currentIndex, data }) => {
   return (
     <>
-      <WeatherCard {...LOCATIONS[currentIndex]} />
+      <WeatherCard location={LOCATIONS[currentIndex]} data={data} />
       <div className={styles.buttonContainer}>
         <Link className={styles.a} to={'/location/' + getPreviousCity(currentIndex).city_name}>
           <IconArrowLeft className={styles.svg} />

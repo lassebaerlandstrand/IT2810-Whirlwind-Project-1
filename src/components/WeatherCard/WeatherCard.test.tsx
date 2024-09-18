@@ -1,30 +1,11 @@
+import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { vi } from 'vitest'; // Vite's version of mocking
-import { useWeather } from '../../hooks/useWeather';
 import LOCATIONS from '../../utils/locations';
 import WeatherCard from './WeatherCard';
 
-// Mock the useWeather hook
-vi.mock('../../hooks/useWeather');
-
-// Sample location data for the test
-const location = LOCATIONS[0];
-
-// Helper to mock the return values of useWeather
-const mockUseWeather = (data: unknown, error: boolean = false, isLoading: boolean = false) => {
-  (useWeather as jest.Mock).mockReturnValue({
-    data,
-    error,
-    isLoading,
-  });
-};
-
 describe('WeatherCard', () => {
   it('renders loading state', () => {
-    // Mock loading state
-    mockUseWeather(null, false, true);
-
-    render(<WeatherCard {...location} />);
+    render(<WeatherCard location={LOCATIONS[0]} data={null} />);
 
     // Check if loading spinner is displayed
     expect(screen.getByText('Loading...')).toBeInTheDocument();
@@ -33,10 +14,20 @@ describe('WeatherCard', () => {
   });
 
   it('renders sunny weather', () => {
-    // Mock sunny weather
-    mockUseWeather({ air_temperature: 25, cloud_area_fraction: 0.3 });
-
-    render(<WeatherCard {...location} />);
+    render(
+      <WeatherCard
+        location={LOCATIONS[0]}
+        data={{
+          air_pressure_at_sea_level: 0,
+          air_temperature: 25,
+          cloud_area_fraction: 0.3,
+          relative_humidity: 0,
+          wind_from_direction: 0,
+          wind_speed: 0,
+          precipitation_amount: 0,
+        }}
+      />,
+    );
 
     // Check if sunny icon and text are displayed
     expect(screen.getByText('Sunny')).toBeInTheDocument();
@@ -44,10 +35,20 @@ describe('WeatherCard', () => {
   });
 
   it('renders cloudy weather', () => {
-    // Mock cloudy weather
-    mockUseWeather({ air_temperature: 15, cloud_area_fraction: 0.7 });
-
-    render(<WeatherCard {...location} />);
+    render(
+      <WeatherCard
+        location={LOCATIONS[0]}
+        data={{
+          air_pressure_at_sea_level: 0,
+          air_temperature: 15,
+          cloud_area_fraction: 0.7,
+          relative_humidity: 0,
+          wind_from_direction: 0,
+          wind_speed: 0,
+          precipitation_amount: 0,
+        }}
+      />,
+    );
 
     // Check if cloudy icon and text are displayed
     expect(screen.getByText('Cloudy')).toBeInTheDocument();
@@ -55,10 +56,20 @@ describe('WeatherCard', () => {
   });
 
   it('renders rainy weather', () => {
-    // Mock rainy weather
-    mockUseWeather({ air_temperature: 10, cloud_area_fraction: 0.8, precipitation_amount: 0.5 });
-
-    render(<WeatherCard {...location} />);
+    render(
+      <WeatherCard
+        location={LOCATIONS[0]}
+        data={{
+          air_pressure_at_sea_level: 0,
+          air_temperature: 10,
+          cloud_area_fraction: 0.8,
+          relative_humidity: 0,
+          wind_from_direction: 0,
+          wind_speed: 0,
+          precipitation_amount: 0.5,
+        }}
+      />,
+    );
 
     // Check if rainy icon and text are displayed
     expect(screen.getByText('Rainy')).toBeInTheDocument();
@@ -66,18 +77,26 @@ describe('WeatherCard', () => {
   });
 
   it('handles API error', () => {
-    // Mock an error state
-    mockUseWeather(null, true);
-
-    render(<WeatherCard {...location} />);
-
+    render(<WeatherCard location={LOCATIONS[0]} data={null} />);
     // Check if loading state is still displayed due to error
     expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
 
   it('should match snapshot', () => {
-    mockUseWeather({ air_temperature: 25, cloud_area_fraction: 0.3 });
-    const { asFragment } = render(<WeatherCard {...location} />);
+    const { asFragment } = render(
+      <WeatherCard
+        location={LOCATIONS[0]}
+        data={{
+          air_pressure_at_sea_level: 0,
+          air_temperature: 25,
+          cloud_area_fraction: 0.3,
+          relative_humidity: 0,
+          wind_from_direction: 0,
+          wind_speed: 0,
+          precipitation_amount: 0,
+        }}
+      />,
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });

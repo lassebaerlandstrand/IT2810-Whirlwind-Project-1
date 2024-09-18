@@ -19,6 +19,11 @@
   margin: 0 auto;
 }
 
+.additionalInfo {
+  flex-wrap: wrap;
+  display: flex;
+}
+
 .svg {
   width: 100%;
   height: 100%;

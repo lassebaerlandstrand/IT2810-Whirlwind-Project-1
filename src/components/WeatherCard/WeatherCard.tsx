@@ -1,5 +1,4 @@
 import { IconCloudFilled, IconCloudRain, IconRotateClockwise, IconSunFilled } from '@tabler/icons-react';
-import { useWeather } from '../../hooks/useWeather';
 import { Location, WeatherInfo } from '../../types/api-types';
 import styles from './WeatherCard.module.css';
 
@@ -13,8 +12,11 @@ const determineWeather = (data: WeatherInfo) => {
   return [<IconSunFilled className={styles.svg} />, 'Sunny'];
 };
 
-const WeatherCard = (location: Location) => {
-  const { data } = useWeather(location);
+interface WeatherCardProps {
+  location: Location;
+  data: WeatherInfo | null;
+}
+const WeatherCard: React.FC<WeatherCardProps> = ({ location, data }) => {
   return (
     <div className={styles.card}>
       {data ? determineWeather(data)[0] : <IconRotateClockwise className={`${styles.rotating} ${styles.svg}`} />}
