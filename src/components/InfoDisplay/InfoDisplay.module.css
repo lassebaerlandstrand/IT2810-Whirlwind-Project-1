@@ -18,6 +18,7 @@
   height: 2rem;
   border-radius: 100%;
   background-color: var(--tertiary-color);
+  transition: 'transform 2s';
   svg {
     stroke: #ffffff;
     stroke-width: 1;
