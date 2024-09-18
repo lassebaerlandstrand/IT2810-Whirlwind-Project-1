@@ -7,6 +7,7 @@ const LOCATIONS: Location[] = [
   {city_name: 'Paris', country_name: 'France', latitude: '48.8566', longitude: '2.3522'},
   {city_name: 'Berlin', country_name: 'Germany', latitude: '52.5200', longitude: '13.4050'},
   {city_name: 'Tokyo', country_name: 'Japan', latitude: '35.6895', longitude: '139.6917'},
+  {city_name: 'Bergen', country_name: 'Norway', latitude: '60.3913', longitude: '5.3221'},
 ];
 
 export default LOCATIONS;

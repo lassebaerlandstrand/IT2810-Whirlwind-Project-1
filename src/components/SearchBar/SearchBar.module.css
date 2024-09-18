@@ -2,11 +2,12 @@
   display: flex;
   align-items: center;
   max-width: 12.5rem;
-  border: 1px solid #dddddd;
+  border: 1px solid var(--inactive-border);
   border-radius: 0.4rem;
   background-color: #ffffff;
   padding: 0.5rem 0.75rem;
   box-sizing: border-box;
+  /* min-height: 3rem; */
 }
 
 .searchInput {
@@ -28,4 +29,8 @@
   justify-content: center;
   align-items: center;
   color: #999999;
+}
+
+.label {
+  font-size: 0.85rem;
 }
