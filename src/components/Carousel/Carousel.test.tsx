@@ -1,7 +1,5 @@
-import {useQuery} from '@tanstack/react-query';
-import {render} from '@testing-library/react';
-import {MemoryRouter, Route, Routes} from 'react-router-dom';
-import {vi} from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { vi } from 'vitest';
 import LOCATIONS from '../../utils/locations';
 import Carousel from './Carousel';
 
@@ -11,99 +9,41 @@ vi.mock('@tanstack/react-query', () => ({
 }));
 
 describe('Carousel', () => {
-  beforeEach(() => {
-    // Mock useQuery before each test case
-    (useQuery as jest.Mock).mockReturnValue({
-      data: {locationName: LOCATIONS[0].city_name},
-      isLoading: false,
-      isError: false,
-    });
-  });
+  test('that it renders the WeatherCard component in the carousel properly', () => {
+    const data = {
+      air_pressure_at_sea_level: 0,
+      air_temperature: 10,
+      cloud_area_fraction: 0,
+      relative_humidity: 0,
+      wind_from_direction: 0,
+      wind_speed: 0,
+      precipitation_amount: 0,
+    };
+    render(<Carousel currentIndex={0} data={data} />);
 
-  test('renders the current location based on the URL parameter', () => {
-    const {getByText} = render(
-      <MemoryRouter initialEntries={['/location/' + LOCATIONS[0].city_name]}>
-        <Routes>
-          <Route path="/location/:locationName" element={<Carousel />} />
-        </Routes>
-      </MemoryRouter>,
-    );
-    expect(getByText(LOCATIONS[0].city_name + ', ' + LOCATIONS[0].country_name)).toBeInTheDocument();
+    expect(screen.getByText(LOCATIONS[0].city_name + ', ' + LOCATIONS[0].country_name)).toBeInTheDocument();
+    expect(screen.getByText('10°C')).toBeInTheDocument();
+    expect(screen.getByText('Sunny')).toBeInTheDocument();
   });
 
   test('renders the previous city link correctly', () => {
-    const {getByText} = render(
-      <MemoryRouter initialEntries={['/location/' + LOCATIONS[0].city_name]}>
-        <Routes>
-          <Route path="/location/:locationName" element={<Carousel />} />
-        </Routes>
-      </MemoryRouter>,
-    );
+    render(<Carousel currentIndex={0} data={undefined} />);
+
     const prevCity = LOCATIONS[LOCATIONS.length - 1].city_name;
-    expect(getByText(prevCity)).toBeInTheDocument();
+    expect(screen.getByText(prevCity)).toBeInTheDocument();
   });
 
   test('renders the next city link correctly', () => {
-    const {getByText} = render(
-      <MemoryRouter initialEntries={['/location/' + LOCATIONS[0].city_name]}>
-        <Routes>
-          <Route path="/location/:locationName" element={<Carousel />} />
-        </Routes>
-      </MemoryRouter>,
-    );
+    render(<Carousel currentIndex={0} data={undefined} />);
+
     const nextCity = LOCATIONS[1].city_name;
-    expect(getByText(nextCity)).toBeInTheDocument();
+    expect(screen.getByText(nextCity)).toBeInTheDocument();
   });
 
   test('renders the first city’s previous link correctly (wraps around)', () => {
-    const {getByText} = render(
-      <MemoryRouter initialEntries={['/location/' + LOCATIONS[0].city_name]}>
-        <Routes>
-          <Route path="/location/:locationName" element={<Carousel />} />
-        </Routes>
-      </MemoryRouter>,
-    );
-    const prevCity = LOCATIONS[LOCATIONS.length - 1].city_name;
-    expect(getByText(prevCity)).toBeInTheDocument();
-  });
+    render(<Carousel currentIndex={LOCATIONS.length - 1} data={undefined} />);
 
-  test('renders the last city’s next link correctly (wraps around)', () => {
-    const {getByText} = render(
-      <MemoryRouter initialEntries={['/location/' + LOCATIONS[LOCATIONS.length - 1].city_name]}>
-        <Routes>
-          <Route path="/location/:locationName" element={<Carousel />} />
-        </Routes>
-      </MemoryRouter>,
-    );
-    const nextCity = LOCATIONS[0].city_name;
-    expect(getByText(nextCity)).toBeInTheDocument();
-  });
-
-  test('renders WeatherCard with correct location data', () => {
-    const {getByText} = render(
-      <MemoryRouter initialEntries={['/location/' + LOCATIONS[0].city_name]}>
-        <Routes>
-          <Route path="/location/:locationName" element={<Carousel />} />
-        </Routes>
-      </MemoryRouter>,
-    );
-    expect(getByText(LOCATIONS[0].city_name + ', ' + LOCATIONS[0].country_name)).toBeInTheDocument(); // Assuming WeatherCard shows the city name
-  });
-
-  test('handles loading state correctly', () => {
-    (useQuery as jest.Mock).mockReturnValue({
-      data: null,
-      isLoading: true,
-      isError: false,
-    });
-
-    const {getByText} = render(
-      <MemoryRouter initialEntries={['/location/' + LOCATIONS[0].city_name]}>
-        <Routes>
-          <Route path="/location/:locationName" element={<Carousel />} />
-        </Routes>
-      </MemoryRouter>,
-    );
-    expect(getByText('Loading...')).toBeInTheDocument(); // Assuming you have a loading state
+    const prevCity = LOCATIONS[0].city_name;
+    expect(screen.getByText(prevCity)).toBeInTheDocument();
   });
 });
