@@ -14,11 +14,17 @@ const DropDownList = ({ open, options, onSelected }: DropDownListProps) => {
       <ul
         className={`${styles.dropDownList} ${open ? styles.listOpen : ''}`}
         aria-expanded={open}
-        aria-controls="dropdown-button"
+        aria-labelledby="dropdown-button"
         role="listbox"
       >
         {options.map((option) => (
-          <li key={option} className={styles.dropDownItem} onClick={() => onSelected(option)} role="option">
+          <li
+            key={option}
+            className={styles.dropDownItem}
+            onClick={() => onSelected(option)}
+            role="option"
+            aria-selected="false"
+          >
             {option}
           </li>
         ))}
@@ -39,10 +45,14 @@ const DropDownButton = ({ open, toggleOpen, selectedOption }: DropDownButtonProp
       className={`${styles.dropDownButton} ${open ? styles.buttonOpen : ''}`}
       onClick={toggleOpen}
       aria-expanded={open}
-      aria-describedby="dropdown-button"
-      data-testid="dropdown-button"
+      aria-controls="dropdown-list"
+      id="dropdown-button"
+      aria-haspopup="listbox"
     >
-      {selectedOption} <span className={styles.iconSpan}>{open ? <IconChevronUp /> : <IconChevronDown />}</span>
+      {selectedOption}{' '}
+      <span className={styles.iconSpan}>
+        {open ? <IconChevronUp aria-hidden="true" /> : <IconChevronDown aria-hidden="true" />}
+      </span>
     </button>
   );
 };
@@ -77,7 +87,9 @@ const DropDown = ({ selectedOption, options, setSelectedOption, label }: DropDow
 
   return (
     <menu className={styles.container} ref={dropDownRef}>
-      <label className={styles.label}>{label}</label>
+      <label className={styles.label} htmlFor="dropdown-button">
+        {label}
+      </label>
       <DropDownButton open={open} toggleOpen={toggleOpen} selectedOption={selectedOption} />
       <DropDownList
         open={open}

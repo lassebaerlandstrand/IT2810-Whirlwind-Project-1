@@ -13,12 +13,12 @@ import styles from './WeatherCard.module.css';
 
 const determineWeather = (data: WeatherInfo) => {
   if (data.precipitation_amount > 0) {
-    return [<IconCloudRain className={styles.svg} />, 'Rainy'];
+    return [<IconCloudRain className={styles.svg} aria-hidden="true" />, 'Rainy'];
   }
   if (data.cloud_area_fraction > 0.5) {
-    return [<IconCloudFilled className={styles.svg} />, 'Cloudy'];
+    return [<IconCloudFilled className={styles.svg} aria-hidden="true" />, 'Cloudy'];
   }
-  return [<IconSunFilled className={styles.svg} />, 'Sunny'];
+  return [<IconSunFilled className={styles.svg} aria-hidden="true" />, 'Sunny'];
 };
 
 interface WeatherCardProps {
@@ -40,18 +40,37 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ location, data }) => {
 
   return (
     <div className={styles.card}>
-      {/* Favorite Icon */}
-      <button className={styles.favoriteIcon} onClick={handleFavoriteClick}>
-        {isFavorite ? <IconHeartFilled /> : <IconHeart />}
+      {/* Favorite Icon with ARIA */}
+      <button
+        className={styles.favoriteIcon}
+        onClick={handleFavoriteClick}
+        aria-label={
+          isFavorite ? `Remove ${location.city_name} from favorites` : `Add ${location.city_name} to favorites`
+        }
+      >
+        {isFavorite ? <IconHeartFilled aria-hidden="true" /> : <IconHeart aria-hidden="true" />}
       </button>
-      {data ? determineWeather(data)[0] : <IconRotateClockwise className={`${styles.rotating} ${styles.svg}`} />}
+
+      {data ? (
+        determineWeather(data)[0]
+      ) : (
+        <IconRotateClockwise className={`${styles.rotating} ${styles.svg}`} aria-hidden="true" />
+      )}
+
       <div className={styles.informationContainer}>
         <div className={styles.locationContainer}>
           <h3>{location.city_name}</h3>
-          <span className={styles.commaSeparator}>, </span>
+          <span className={styles.commaSeparator} aria-hidden="true">
+            ,{' '}
+          </span>
           <h4>{location.country_name}</h4>
         </div>
-        <p className={styles.temperature}>{data ? data.air_temperature : '---'}°C</p>
+        <p
+          className={styles.temperature}
+          aria-label={`Temperature in ${location.city_name}: ${data ? data.air_temperature : 'loading'}`}
+        >
+          {data ? data.air_temperature : '---'}°C
+        </p>
         <p>{data ? determineWeather(data)[1] : 'Loading...'}</p>
       </div>
     </div>
