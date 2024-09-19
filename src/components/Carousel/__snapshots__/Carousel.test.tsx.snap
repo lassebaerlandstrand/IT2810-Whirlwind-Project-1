@@ -61,7 +61,7 @@ exports[`Carousel > should match snapshot 1`] = `
   >
     <a
       class="_a_cc4f54"
-      href="/location/Bergen"
+      href="/location/Kringla"
     >
       <svg
         class="tabler-icon tabler-icon-arrow-left _svg_cc4f54"
@@ -85,11 +85,11 @@ exports[`Carousel > should match snapshot 1`] = `
           d="M5 12l6 -6"
         />
       </svg>
-      Bergen
+      Kringla
     </a>
     <a
       class="_a_cc4f54"
-      href="/location/London"
+      href="/location/Stavanger"
     >
       <svg
         class="tabler-icon tabler-icon-arrow-right _svg_cc4f54"
@@ -113,7 +113,7 @@ exports[`Carousel > should match snapshot 1`] = `
           d="M13 6l6 6"
         />
       </svg>
-      London
+      Stavanger
     </a>
   </div>
 </DocumentFragment>

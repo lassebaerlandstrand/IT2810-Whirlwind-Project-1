@@ -40,11 +40,9 @@ const Location = () => {
     (location) => location.city_name?.toLowerCase() === locationName?.toLowerCase(),
   );
 
-  const { data, error } = useWeather(LOCATIONS[currentIndex]);
+  const { data, isLoading, error } = useWeather(LOCATIONS[currentIndex]);
 
   const [infos, setInfos] = useState(updateInfos(data));
-
-  if (error) return <p>Error fetching API data</p>;
 
   useEffect(() => {
     setInfos(updateInfos(data));
@@ -54,8 +52,17 @@ const Location = () => {
     <main className={styles.locationContainer}>
       <Header />
       <HomeButton />
-      <Carousel currentIndex={currentIndex} data={data} />
-      <InfoDisplay infos={infos} />
+      {!isLoading && error ? (
+        <>
+          <p className={styles.error}>{error.name}: Something went wrong! Try reloading the page.</p>
+          {console.error(error)}
+        </>
+      ) : (
+        <>
+          <Carousel currentIndex={currentIndex} data={data} />
+          <InfoDisplay infos={infos} />
+        </>
+      )}
     </main>
   );
 };
