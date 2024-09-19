@@ -20,11 +20,15 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ location, data }) => {
   return (
     <div className={styles.card}>
       {data ? determineWeather(data)[0] : <IconRotateClockwise className={`${styles.rotating} ${styles.svg}`} />}
-      <p className={styles.city}>
-        {location.city_name}, {location.country_name}
-      </p>
-      <p className={styles.temperature}>{data ? data.air_temperature : '---'}°C</p>
-      <p>{data ? determineWeather(data)[1] : 'Loading...'}</p>
+      <div className={styles.informationContainer}>
+        <div className={styles.locationContainer}>
+          <h3>{location.city_name}</h3>
+          <span className={styles.commaSeparator}>, </span>
+          <h4>{location.country_name}</h4>
+        </div>
+        <p className={styles.temperature}>{data ? data.air_temperature : '---'}°C</p>
+        <p>{data ? determineWeather(data)[1] : 'Loading...'}</p>
+      </div>
     </div>
   );
 };

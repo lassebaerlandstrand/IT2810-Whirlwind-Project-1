@@ -6,6 +6,7 @@
   margin: auto;
   gap: 1rem;
   align-items: center;
+  box-sizing: border-box;
 }
 
 /* Cannot use CSS variables in media query. Therefore have to specify --breakpoint-md explicitly */

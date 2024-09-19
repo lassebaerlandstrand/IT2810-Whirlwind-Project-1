@@ -45,6 +45,7 @@
 .title {
   font-size: 1.3rem;
   font-weight: normal;
+  min-width: 6rem;
 }
 
 .titleContainer {

@@ -10,6 +10,8 @@
   font-size: 1rem;
   text-align: center;
   text-decoration: none;
+  min-width: 6.25rem;
+  box-sizing: border-box;
 
   h3 {
     margin: 0;
@@ -35,6 +37,7 @@
   display: flex;
   justify-content: center;
   gap: 2rem;
+  width: 100%;
 }
 
 .additionalInfo {
@@ -49,6 +52,7 @@
 
 /* Cannot use CSS variables in media query. Therefore have to specify --breakpoint-md explicitly */
 @media screen and (min-width: 768px) {
-  .link {
+  .buttonContainer {
+    justify-content: space-between;
   }
 }

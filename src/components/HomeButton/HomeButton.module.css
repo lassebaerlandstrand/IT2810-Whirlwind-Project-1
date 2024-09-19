@@ -29,3 +29,10 @@
   background-color: var(--primary-color);
   color: var(--secondary-color);
 }
+
+/* Cannot use CSS variables in media query. Therefore have to specify --breakpoint-md explicitly */
+@media screen and (min-width: 768px) {
+  .link {
+    align-self: self-start;
+  }
+}
