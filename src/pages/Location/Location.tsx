@@ -43,8 +43,6 @@ const Location = () => {
 
   const [infos, setInfos] = useState(updateInfos(data));
 
-  if (error) return <p>Error fetching API data</p>;
-
   useEffect(() => {
     setInfos(updateInfos(data));
   }, [data]);
@@ -52,21 +50,30 @@ const Location = () => {
   return (
     <>
       <HomeButton />
-      <Carousel currentIndex={currentIndex} data={data} />
-      <ul className={styles.weatherDetailsContainer}>
-        {infos.map((item, index) => (
-          <li key={index}>
-            <InfoDisplay
-              icon={item.icon}
-              infoText={item.infoText}
-              amount={item.amount}
-              unit={item.unit}
-              rotation={item.rotation}
-              key={index}
-            />
-          </li>
-        ))}
-      </ul>
+      {!isLoading && error ? (
+        <>
+          <p className={styles.error}>{error.name}: Something went wrong! Try reloading the page.</p>
+          {console.error(error)}
+        </>
+      ) : (
+        <>
+          <Carousel currentIndex={currentIndex} data={data} />
+          <ul className={styles.weatherDetailsContainer}>
+            {infos.map((item, index) => (
+              <li key={index}>
+                <InfoDisplay
+                  icon={item.icon}
+                  infoText={item.infoText}
+                  amount={item.amount}
+                  unit={item.unit}
+                  rotation={item.rotation}
+                  key={index}
+                />
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
     </>
   );
 };
