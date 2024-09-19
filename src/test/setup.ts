@@ -1,6 +1,10 @@
 import '@testing-library/jest-dom';
 import { vi } from 'vitest';
 
+vi.mock('../contexts/FavoritesContext', () => ({
+  useFavorites: vi.fn(() => ({ favorites: ['mockItem1', 'mockItem2'] })),
+}));
+
 // Mock the useWeatherQuery hook globally
 vi.mock('../api/clients/weatherClient', () => ({
   fetchWeather: vi.fn().mockResolvedValue({
