@@ -20,7 +20,7 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  background-color: var(--background-highlight);
+  background-color: var(--secondary-color);
   border-radius: 1rem;
   flex-wrap: wrap;
   padding: 0.5rem 0.5rem 3rem 0.5rem;
@@ -80,4 +80,13 @@
 
 .infoUnit {
   font-size: 1rem;
+}
+
+/* Cannot use CSS variables in media query. Therefore have to specify --breakpoint-md explicitly */
+@media screen and (min-width: 768px) {
+  .weatherDetailsContainer {
+    width: 100%;
+    margin: 3rem 0 0 0;
+    justify-content: space-between;
+  }
 }

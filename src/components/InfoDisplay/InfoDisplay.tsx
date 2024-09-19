@@ -8,7 +8,7 @@ interface InfoDisplayItemProps {
   rotation: number | undefined;
 }
 
-const InfoDisplayItem = ({ icon, infoText, amount, unit, rotation }: InfoDisplayItemProps) => {
+export const InfoDisplayItem = ({ icon, infoText, amount, unit, rotation }: InfoDisplayItemProps) => {
   return (
     <div className={styles.container}>
       <div className={styles.titleContainer}>

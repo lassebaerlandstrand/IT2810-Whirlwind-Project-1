@@ -9,7 +9,7 @@ describe('WeatherCard', () => {
 
     // Check if loading spinner is displayed
     expect(screen.getByText('Loading...')).toBeInTheDocument();
-    expect(screen.getByText('New York, USA')).toBeInTheDocument();
+    expect(screen.getByText('New York')).toBeInTheDocument();
     expect(screen.getByText('---°C')).toBeInTheDocument();
   });
 

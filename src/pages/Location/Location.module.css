@@ -9,10 +9,6 @@
   box-sizing: border-box;
 }
 
-/* Cannot use CSS variables in media query. Therefore have to specify --breakpoint-md explicitly */
-@media screen and (min-width: 768px) {
-}
-
 .error {
   color: var(--primary-color);
   font-size: 1.5rem;
