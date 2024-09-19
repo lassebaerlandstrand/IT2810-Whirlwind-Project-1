@@ -19,7 +19,7 @@ export const useWeatherQuery = (lat: string, lon: string) => {
           precipitation_amount: data.properties.timeseries[0].data.next_1_hours.details.precipitation_amount,
         }),
       ),
-    staleTime: 1000 * 60 * 15, // 5 minutes
+    staleTime: 1000 * 60 * 15, // 15 minutes
     gcTime: 1000 * 60 * 15, //Stop garbage collection from happening after 5 minutes
   });
 };
