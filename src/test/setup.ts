@@ -1,9 +1,23 @@
 import '@testing-library/jest-dom';
 import { vi } from 'vitest';
 
-vi.mock('../contexts/FavoritesContext', () => ({
-  useFavorites: vi.fn(() => ({ favorites: ['mockItem1', 'mockItem2'] })),
-}));
+// Mock useFavorites context globally
+vi.mock('../contexts/FavoritesContext', async (importOriginal) => {
+  const actual = await importOriginal();
+
+  // Just to keep TypeScript happy
+  if (typeof actual !== 'object' || actual === null) {
+    throw new Error('Expected an object');
+  }
+
+  return {
+    ...actual,
+    useFavorites: vi.fn(() => ({
+      favorites: [],
+      toggleFavorite: vi.fn(),
+    })),
+  };
+});
 
 // Mock the useWeatherQuery hook globally
 vi.mock('../api/clients/weatherClient', () => ({
