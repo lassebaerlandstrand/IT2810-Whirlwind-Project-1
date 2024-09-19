@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { vi } from 'vitest';
 
-// Mock the useWeatherQuery hook globally
+// Mock fetchWeather globally
 vi.mock('../api/clients/weatherClient', () => ({
   fetchWeather: vi.fn().mockResolvedValue({
     properties: {
