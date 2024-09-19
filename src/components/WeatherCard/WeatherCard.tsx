@@ -41,9 +41,9 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ location, data }) => {
   return (
     <div className={styles.card}>
       {/* Favorite Icon */}
-      <div className={styles.favoriteIcon} onClick={handleFavoriteClick}>
-        {isFavorite ? <IconHeartFilled color="white" /> : <IconHeart />}
-      </div>
+      <button className={styles.favoriteIcon} onClick={handleFavoriteClick}>
+        {isFavorite ? <IconHeartFilled /> : <IconHeart />}
+      </button>
       {data ? determineWeather(data)[0] : <IconRotateClockwise className={`${styles.rotating} ${styles.svg}`} />}
       <div className={styles.informationContainer}>
         <div className={styles.locationContainer}>

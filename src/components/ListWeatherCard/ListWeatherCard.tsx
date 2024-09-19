@@ -27,7 +27,8 @@ const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
   );
 
   const handleFavoriteClick = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevent card click
+    // e.stopPropagation(); // Prevent card click
+    e.preventDefault(); // Prevent link click
     toggleFavorite(location);
   };
 
@@ -68,13 +69,14 @@ const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
 
   return (
     <Link to={`/location/${location.city_name}`} className={styles.weatherCard} data-testid="link-button">
-      {/* Favorite Icon */}
-      <div className={styles.favoriteIcon} onClick={handleFavoriteClick}>
-        {isFavorite ? <IconHeartFilled color="white" /> : <IconHeart />}
-      </div>
       <div className={styles.weatherTop}>
         <div className={styles.locationInfo}>
-          <h2>{location.city_name}</h2>
+          <div className={styles.cityNameAndFavorite}>
+            <h2>{location.city_name}</h2>
+            <button className={styles.favoriteIcon} onClick={handleFavoriteClick}>
+              {isFavorite ? <IconHeartFilled /> : <IconHeart />}
+            </button>
+          </div>
           <h3>{location.country_name}</h3>
         </div>
         {data ? renderWeatherIcon(weatherDescription) : <IconRotateClockwise className={styles.rotating} />}

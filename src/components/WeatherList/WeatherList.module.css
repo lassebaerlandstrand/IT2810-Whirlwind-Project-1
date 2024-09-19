@@ -1,16 +1,20 @@
 .weatherList {
   display: flex;
   flex-direction: column;
-  /* gap: 2.5rem; */
   padding: 1rem;
   justify-content: center;
-  /* align-items: center; */
   width: 100%;
-  margin-top: 1.5rem;
 }
 
 .section {
+  margin-bottom: 3rem;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 2.5rem;
 }
