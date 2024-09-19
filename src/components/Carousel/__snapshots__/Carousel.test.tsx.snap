@@ -42,25 +42,39 @@ exports[`Carousel > should match snapshot 1`] = `
         d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z"
       />
     </svg>
-    <p
-      class="_city_8ab24e"
+    <div
+      class="_informationContainer_8ab24e"
     >
-      New York, USA
-    </p>
-    <p
-      class="_temperature_8ab24e"
-    >
-      25°C
-    </p>
-    <p>
-      Sunny
-    </p>
+      <div
+        class="_locationContainer_8ab24e"
+      >
+        <h3>
+          New York
+        </h3>
+        <span
+          class="_commaSeparator_8ab24e"
+        >
+          , 
+        </span>
+        <h4>
+          USA
+        </h4>
+      </div>
+      <p
+        class="_temperature_8ab24e"
+      >
+        25°C
+      </p>
+      <p>
+        Sunny
+      </p>
+    </div>
   </div>
   <div
     class="_buttonContainer_cc4f54"
   >
     <a
-      class="_a_cc4f54"
+      class="_link_cc4f54 _leftLink_cc4f54"
       href="/location/Kringla"
     >
       <svg
@@ -85,10 +99,12 @@ exports[`Carousel > should match snapshot 1`] = `
           d="M5 12l6 -6"
         />
       </svg>
-      Kringla
+      <h3>
+        Kringla
+      </h3>
     </a>
     <a
-      class="_a_cc4f54"
+      class="_link_cc4f54 _rightLink_cc4f54"
       href="/location/Stavanger"
     >
       <svg
@@ -113,7 +129,9 @@ exports[`Carousel > should match snapshot 1`] = `
           d="M13 6l6 6"
         />
       </svg>
-      Stavanger
+      <h3>
+        Stavanger
+      </h3>
     </a>
   </div>
 </DocumentFragment>
