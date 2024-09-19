@@ -1,8 +1,9 @@
 import { fireEvent, render, renderHook, screen } from '@testing-library/react';
 import { vi } from 'vitest';
-import { FavoritesProvider, useFavorites } from './FavoritesContext';
+import { FavoritesProvider } from './FavoritesContext';
+import { useFavorites } from './FavoritesFunctions';
 
-vi.unmock('../contexts/FavoritesContext');
+vi.unmock('../contexts/FavoritesFunctions');
 
 describe('useFavorites', () => {
   it('throws an error when used outside of FavoritesProvider', () => {

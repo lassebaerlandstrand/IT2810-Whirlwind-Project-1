@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { vi } from 'vitest';
 
 // Mock useFavorites context globally
-vi.mock('../contexts/FavoritesContext', async (importOriginal) => {
+vi.mock('../contexts/FavoritesFunctions', async (importOriginal) => {
   const actual = await importOriginal();
 
   // Just to keep TypeScript happy

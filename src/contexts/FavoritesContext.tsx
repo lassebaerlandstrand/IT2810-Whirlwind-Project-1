@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react';
+import React, { createContext, ReactNode, useEffect, useState } from 'react';
 import { Location } from '../types/api-types';
 
 interface FavoritesContextProps {
@@ -6,15 +6,7 @@ interface FavoritesContextProps {
   toggleFavorite: (location: Location) => void;
 }
 
-const FavoritesContext = createContext<FavoritesContextProps | undefined>(undefined);
-
-export const useFavorites = () => {
-  const context = useContext(FavoritesContext);
-  if (!context) {
-    throw new Error('useFavorites must be used within a FavoritesProvider');
-  }
-  return context;
-};
+export const FavoritesContext = createContext<FavoritesContextProps | undefined>(undefined);
 
 export const FavoritesProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [favorites, setFavorites] = useState<Location[]>(() => {

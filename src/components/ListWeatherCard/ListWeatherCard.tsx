@@ -9,7 +9,7 @@ import {
 } from '@tabler/icons-react';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useFavorites } from '../../contexts/FavoritesContext';
+import { useFavorites } from '../../contexts/FavoritesFunctions';
 import { useWeather } from '../../hooks/useWeather';
 import { Location } from '../../types/api-types';
 import styles from './ListWeatherCard.module.css';

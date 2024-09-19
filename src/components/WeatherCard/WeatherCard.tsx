@@ -7,7 +7,7 @@ import {
   IconSunFilled,
 } from '@tabler/icons-react';
 import React from 'react';
-import { useFavorites } from '../../contexts/FavoritesContext';
+import { useFavorites } from '../../contexts/FavoritesFunctions';
 import { Location, WeatherInfo } from '../../types/api-types';
 import styles from './WeatherCard.module.css';
 

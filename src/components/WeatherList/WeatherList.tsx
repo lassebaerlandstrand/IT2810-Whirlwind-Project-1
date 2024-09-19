@@ -1,5 +1,5 @@
 import React from 'react';
-import { useFavorites } from '../../contexts/FavoritesContext';
+import { useFavorites } from '../../contexts/FavoritesFunctions';
 import { Location } from '../../types/api-types';
 import ListWeatherCard from '../ListWeatherCard/ListWeatherCard';
 import styles from './WeatherList.module.css';
