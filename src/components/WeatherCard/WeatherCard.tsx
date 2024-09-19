@@ -40,7 +40,6 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ location, data }) => {
 
   return (
     <div className={styles.card}>
-      {/* Favorite Icon with ARIA */}
       <button
         className={styles.favoriteIcon}
         onClick={handleFavoriteClick}
