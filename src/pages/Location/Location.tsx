@@ -43,8 +43,6 @@ const Location = () => {
 
   const [infos, setInfos] = useState(updateInfos(data));
 
-  if (error) return <p>Error fetching API data</p>;
-
   useEffect(() => {
     setInfos(updateInfos(data));
   }, [data]);
