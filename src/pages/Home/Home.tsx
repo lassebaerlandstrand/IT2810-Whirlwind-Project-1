@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import Header from '../../components/Header/Header';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import SortDropDown from '../../components/SortDropDown/SortDropDown';
 import WeatherList from '../../components/WeatherList/WeatherList';
@@ -33,13 +34,14 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className={styles.homeContainer}>
+    <main className={styles.homeContainer}>
+      <Header />
       <div className={styles.searchSortContainer}>
         <SearchBar onSearch={handleSearch} />
         <SortDropDown setSortCondition={handleSort} />
       </div>
       <WeatherList locations={filteredCities} />
-    </div>
+    </main>
   );
 };
 

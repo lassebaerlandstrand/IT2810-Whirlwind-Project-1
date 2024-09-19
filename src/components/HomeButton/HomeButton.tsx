@@ -4,7 +4,7 @@ import styles from './HomeButton.module.css';
 
 const HomeButton = () => {
   return (
-    <Link className={styles.a} to="/">
+    <Link className={styles.link} to="/">
       <IconList className={styles.icon} />
       Go back to list
     </Link>

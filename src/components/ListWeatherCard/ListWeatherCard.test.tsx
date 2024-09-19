@@ -1,28 +1,24 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { useNavigate } from 'react-router-dom';
-import { vi } from 'vitest'; // Correct import for vi
+import { createMemoryHistory } from 'history';
+import { MemoryRouter, Router } from 'react-router-dom';
+import { vi } from 'vitest';
 import { useWeather } from '../../hooks/useWeather';
 import LOCATIONS from '../../utils/locations';
 import ListWeatherCard from './ListWeatherCard';
-
-vi.mock('react-router-dom', () => ({
-  useNavigate: vi.fn(),
-}));
 
 vi.mock('../../hooks/useWeather');
 
 const location = LOCATIONS[0];
 
 describe('ListWeatherCard', () => {
-  const mockNavigate = vi.fn();
-  beforeEach(() => {
-    (useNavigate as jest.Mock).mockReturnValue(mockNavigate);
-  });
-
   it('renders loading state', () => {
     (useWeather as jest.Mock).mockReturnValue({ isLoading: true });
 
-    render(<ListWeatherCard location={location} />);
+    render(
+      <MemoryRouter>
+        <ListWeatherCard location={location} />
+      </MemoryRouter>,
+    );
 
     expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
@@ -38,7 +34,11 @@ describe('ListWeatherCard', () => {
       error: false,
     });
 
-    render(<ListWeatherCard location={location} />);
+    render(
+      <MemoryRouter>
+        <ListWeatherCard location={location} />
+      </MemoryRouter>,
+    );
 
     expect(screen.getByText('Sunny')).toBeInTheDocument();
     expect(screen.getByText('20°C')).toBeInTheDocument();
@@ -47,7 +47,11 @@ describe('ListWeatherCard', () => {
   it('renders error state', () => {
     (useWeather as jest.Mock).mockReturnValue({ error: true });
 
-    render(<ListWeatherCard location={location} />);
+    render(
+      <MemoryRouter>
+        <ListWeatherCard location={location} />
+      </MemoryRouter>,
+    );
 
     expect(screen.getByText(`Error fetching data for ${location.city_name}`)).toBeInTheDocument();
   });
@@ -63,11 +67,17 @@ describe('ListWeatherCard', () => {
       error: false,
     });
 
-    render(<ListWeatherCard location={location} />);
+    const history = createMemoryHistory();
 
-    const weatherCard = screen.getByRole('button');
+    render(
+      <Router location={history.location} navigator={history}>
+        <ListWeatherCard location={location} />
+      </Router>,
+    );
+
+    const weatherCard = screen.getByTestId('link-button');
     fireEvent.click(weatherCard);
 
-    expect(mockNavigate).toHaveBeenCalledWith(`/location/${location.city_name}`);
+    expect(history.location.pathname).toBe(`/location/${location.city_name}`);
   });
 });

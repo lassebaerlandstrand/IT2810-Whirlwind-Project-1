@@ -5,8 +5,28 @@ exports[`WeatherCard > should match snapshot 1`] = `
   <div
     class="_card_8ab24e"
   >
+    <button
+      class="_favoriteIcon_8ab24e"
+    >
+      <svg
+        class="tabler-icon tabler-icon-heart "
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"
+        />
+      </svg>
+    </button>
     <svg
-      class="tabler-icon tabler-icon-sun-filled "
+      class="tabler-icon tabler-icon-sun-filled _svg_8ab24e"
       fill="currentColor"
       height="24"
       stroke="none"
@@ -42,19 +62,33 @@ exports[`WeatherCard > should match snapshot 1`] = `
         d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z"
       />
     </svg>
-    <p
-      class="_city_8ab24e"
+    <div
+      class="_informationContainer_8ab24e"
     >
-      New York, USA
-    </p>
-    <p
-      class="_temperature_8ab24e"
-    >
-      25°C
-    </p>
-    <p>
-      Sunny
-    </p>
+      <div
+        class="_locationContainer_8ab24e"
+      >
+        <h3>
+          New York
+        </h3>
+        <span
+          class="_commaSeparator_8ab24e"
+        >
+          , 
+        </span>
+        <h4>
+          USA
+        </h4>
+      </div>
+      <p
+        class="_temperature_8ab24e"
+      >
+        25°C
+      </p>
+      <p>
+        Sunny
+      </p>
+    </div>
   </div>
 </DocumentFragment>
 `;

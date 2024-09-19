@@ -1,0 +1,123 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`InfoDisplay tests > should match snapshot 1`] = `
+<DocumentFragment>
+  <ul
+    class="_weatherDetailsContainer_7869c2"
+  >
+    <li
+      class="_listItemContainer_7869c2"
+    >
+      <div
+        class="_container_7869c2"
+      >
+        <div
+          class="_titleContainer_7869c2"
+        >
+          <div
+            class="_iconContainer_7869c2"
+            style="transform: rotate(34deg); transition: transform 2s;"
+          >
+            <svg
+              class="tabler-icon tabler-icon-wind "
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 8h8.5a2.5 2.5 0 1 0 -2.34 -3.24"
+              />
+              <path
+                d="M3 12h15.5a2.5 2.5 0 1 1 -2.34 3.24"
+              />
+              <path
+                d="M4 16h5.5a2.5 2.5 0 1 1 -2.34 3.24"
+              />
+            </svg>
+          </div>
+          <h3
+            class="_title_7869c2"
+          >
+            Wind (NA)
+          </h3>
+        </div>
+        <div
+          class="_infoContainer_7869c2"
+        >
+          <p
+            class="_infoText_7869c2"
+          >
+            5
+          </p>
+          <p
+            class="_infoUnit_7869c2"
+          >
+            m/s
+          </p>
+        </div>
+      </div>
+    </li>
+    <li
+      class="_listItemContainer_7869c2"
+    >
+      <div
+        class="_container_7869c2"
+      >
+        <div
+          class="_titleContainer_7869c2"
+        >
+          <div
+            class="_iconContainer_7869c2"
+            style="transform: rotate(0deg); transition: transform 2s;"
+          >
+            <svg
+              class="tabler-icon tabler-icon-cloud-rain "
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 18a4.6 4.4 0 0 1 0 -9a5 4.5 0 0 1 11 2h1a3.5 3.5 0 0 1 0 7"
+              />
+              <path
+                d="M11 13v2m0 3v2m4 -5v2m0 3v2"
+              />
+            </svg>
+          </div>
+          <h3
+            class="_title_7869c2"
+          >
+            Rain
+          </h3>
+        </div>
+        <div
+          class="_infoContainer_7869c2"
+        >
+          <p
+            class="_infoText_7869c2"
+          >
+            4
+          </p>
+          <p
+            class="_infoUnit_7869c2"
+          >
+            mm/h
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</DocumentFragment>
+`;

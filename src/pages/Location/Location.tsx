@@ -2,6 +2,7 @@ import { IconCloudRain, IconWind } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Carousel from '../../components/Carousel/Carousel';
+import Header from '../../components/Header/Header';
 import HomeButton from '../../components/HomeButton/HomeButton';
 import InfoDisplay from '../../components/InfoDisplay/InfoDisplay';
 import { useWeather } from '../../hooks/useWeather';
@@ -48,7 +49,8 @@ const Location = () => {
   }, [data]);
 
   return (
-    <>
+    <main className={styles.locationContainer}>
+      <Header />
       <HomeButton />
       {!isLoading && error ? (
         <>
@@ -58,23 +60,10 @@ const Location = () => {
       ) : (
         <>
           <Carousel currentIndex={currentIndex} data={data} />
-          <ul className={styles.weatherDetailsContainer}>
-            {infos.map((item, index) => (
-              <li key={index}>
-                <InfoDisplay
-                  icon={item.icon}
-                  infoText={item.infoText}
-                  amount={item.amount}
-                  unit={item.unit}
-                  rotation={item.rotation}
-                  key={index}
-                />
-              </li>
-            ))}
-          </ul>
+          <InfoDisplay infos={infos} />
         </>
       )}
-    </>
+    </main>
   );
 };
 
