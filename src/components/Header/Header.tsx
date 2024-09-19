@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header>
       <Link to="/" className={styles.header}>
-        <img src="/src/assets/Whirlwind Logo.png" alt="Whirlwind Logo" className={styles.img} />
+        <img src="/project1/src/assets/Whirlwind Logo.png" alt="Whirlwind Logo" className={styles.img} />
         <div>
           <h1>Whirlwind</h1>
           <h6>Weather Forecast</h6>
