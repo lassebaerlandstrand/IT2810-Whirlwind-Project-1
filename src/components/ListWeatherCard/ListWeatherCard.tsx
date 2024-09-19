@@ -27,7 +27,6 @@ const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
   );
 
   const handleFavoriteClick = (e: React.MouseEvent) => {
-    // e.stopPropagation(); // Prevent card click
     e.preventDefault(); // Prevent link click
     toggleFavorite(location);
   };
