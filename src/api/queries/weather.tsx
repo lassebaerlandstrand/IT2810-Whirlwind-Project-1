@@ -1,7 +1,7 @@
-import {useQuery} from '@tanstack/react-query';
-import {WeatherInfo} from '../../types/api-types';
+import { useQuery } from '@tanstack/react-query';
+import { WeatherInfo } from '../../types/api-types';
 
-import {fetchWeather} from '../clients/weatherClient';
+import { fetchWeather } from '../clients/weatherClient';
 
 // Custom hook using the query key
 export const useWeatherQuery = (lat: string, lon: string) => {
@@ -19,5 +19,7 @@ export const useWeatherQuery = (lat: string, lon: string) => {
           precipitation_amount: data.properties.timeseries[0].data.next_1_hours.details.precipitation_amount,
         }),
       ),
+    staleTime: 1000 * 60 * 15, // 5 minutes
+    gcTime: 1000 * 60 * 15, //Stop garbage collection from happening after 5 minutes
   });
 };
