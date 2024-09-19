@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
+        <BrowserRouter basename='/project1'>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/location/:locationName" element={<Location />} />
