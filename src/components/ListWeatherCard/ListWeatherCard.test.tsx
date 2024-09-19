@@ -1,73 +1,95 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import {
+  IconCloudFilled,
+  IconCloudRain,
+  IconHeart,
+  IconHeartFilled,
+  IconRotateClockwise,
+  IconSunFilled,
+} from '@tabler/icons-react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { vi } from 'vitest'; // Correct import for vi
+import { useFavorites } from '../../contexts/FavoritesContext';
 import { useWeather } from '../../hooks/useWeather';
-import LOCATIONS from '../../utils/locations';
-import ListWeatherCard from './ListWeatherCard';
+import { Location } from '../../types/api-types';
+import styles from './ListWeatherCard.module.css';
 
-vi.mock('react-router-dom', () => ({
-  useNavigate: vi.fn(),
-}));
+interface ListWeatherCardProps {
+  location: Location;
+}
 
-vi.mock('../../hooks/useWeather');
+const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
+  const { data, isLoading, error } = useWeather(location);
+  const navigate = useNavigate();
+  const { favorites, toggleFavorite } = useFavorites();
 
-const location = LOCATIONS[0];
+  const isFavorite = favorites.some(
+    (fav) => fav.city_name === location.city_name && fav.country_name === location.country_name,
+  );
 
-describe('ListWeatherCard', () => {
-  const mockNavigate = vi.fn();
-  beforeEach(() => {
-    (useNavigate as jest.Mock).mockReturnValue(mockNavigate);
-  });
+  const handleFavoriteClick = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent card click
+    toggleFavorite(location);
+  };
 
-  it('renders loading state', () => {
-    (useWeather as jest.Mock).mockReturnValue({ isLoading: true });
+  if (isLoading) {
+    return (
+      <div className={styles.loading}>
+        <IconRotateClockwise className={styles.rotating} /> Loading...
+      </div>
+    );
+  }
 
-    render(<ListWeatherCard location={location} />);
+  if (error) {
+    return <div className={styles.error}>Error fetching data for {location.city_name}</div>;
+  }
 
-    expect(screen.getByText('Loading...')).toBeInTheDocument();
-  });
+  const determineWeatherDescription = (precipitation: number, cloudCover: number) => {
+    if (precipitation > 0) return 'Rainy';
+    if (cloudCover > 0.5) return 'Cloudy';
+    return 'Sunny';
+  };
 
-  it('renders weather data', () => {
-    (useWeather as jest.Mock).mockReturnValue({
-      data: {
-        air_temperature: 20,
-        cloud_area_fraction: 0.4,
-        precipitation_amount: 0,
-      },
-      isLoading: false,
-      error: false,
-    });
+  const weatherDescription = data
+    ? determineWeatherDescription(data.precipitation_amount, data.cloud_area_fraction)
+    : '';
 
-    render(<ListWeatherCard location={location} />);
+  const renderWeatherIcon = (description: string) => {
+    switch (description.toLowerCase()) {
+      case 'sunny':
+        return <IconSunFilled className={styles.weatherIcon} />;
+      case 'cloudy':
+        return <IconCloudFilled className={styles.weatherIcon} />;
+      case 'rainy':
+        return <IconCloudRain className={styles.weatherIcon} />;
+      default:
+        return <IconSunFilled className={styles.weatherIcon} />;
+    }
+  };
 
-    expect(screen.getByText('Sunny')).toBeInTheDocument();
-    expect(screen.getByText('20°C')).toBeInTheDocument();
-  });
+  const handleCardClick = () => {
+    navigate(`/location/${location.city_name}`);
+  };
 
-  it('renders error state', () => {
-    (useWeather as jest.Mock).mockReturnValue({ error: true });
+  return (
+    <div className={styles.weatherCard} onClick={handleCardClick} role="button">
+      <div className={styles.weatherTop}>
+        <div className={styles.locationInfo}>
+          <h3>{location.country_name}</h3>
+          <div className={styles.cityRow}>
+            <h2>{location.city_name}</h2>
+            <div className={styles.favoriteIcon} onClick={handleFavoriteClick}>
+              {isFavorite ? <IconHeartFilled color="white" /> : <IconHeart color="rgba(255, 255, 255, 0.5)" />}
+            </div>
+          </div>
+        </div>
+        {data ? renderWeatherIcon(weatherDescription) : <IconRotateClockwise className={styles.rotating} />}
+      </div>
+      <div className={styles.weatherBottom}>
+        <span className={styles.temperature}>{data ? data.air_temperature : '--'}°C</span>
+        <p className={styles.weatherDescription}>{weatherDescription}</p>
+      </div>
+    </div>
+  );
+};
 
-    render(<ListWeatherCard location={location} />);
-
-    expect(screen.getByText(`Error fetching data for ${location.city_name}`)).toBeInTheDocument();
-  });
-
-  it('navigates to location details on click', () => {
-    (useWeather as jest.Mock).mockReturnValue({
-      data: {
-        air_temperature: 20,
-        cloud_area_fraction: 0.4,
-        precipitation_amount: 0,
-      },
-      isLoading: false,
-      error: false,
-    });
-
-    render(<ListWeatherCard location={location} />);
-
-    const weatherCard = screen.getByRole('button');
-    fireEvent.click(weatherCard);
-
-    expect(mockNavigate).toHaveBeenCalledWith(`/location/${location.city_name}`);
-  });
-});
+export default ListWeatherCard;

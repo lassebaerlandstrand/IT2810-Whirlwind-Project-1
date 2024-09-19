@@ -16,3 +16,7 @@
     gap: 0.5rem;
   }
 }
+.section {
+  display: flex;
+  flex-wrap: wrap;
+}

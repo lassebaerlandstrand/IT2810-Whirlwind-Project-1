@@ -1,6 +1,14 @@
-import { IconCloudFilled, IconCloudRain, IconRotateClockwise, IconSunFilled } from '@tabler/icons-react';
+import {
+  IconCloudFilled,
+  IconCloudRain,
+  IconHeart,
+  IconHeartFilled,
+  IconRotateClockwise,
+  IconSunFilled,
+} from '@tabler/icons-react';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useFavorites } from '../../contexts/FavoritesContext';
 import { useWeather } from '../../hooks/useWeather';
 import { Location } from '../../types/api-types';
 import styles from './ListWeatherCard.module.css';
@@ -12,6 +20,16 @@ interface ListWeatherCardProps {
 const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
   const { data, isLoading, error } = useWeather(location);
   const navigate = useNavigate();
+  const { favorites, toggleFavorite } = useFavorites();
+
+  const isFavorite = favorites.some(
+    (fav) => fav.city_name === location.city_name && fav.country_name === location.country_name,
+  );
+
+  const handleFavoriteClick = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent card click
+    toggleFavorite(location);
+  };
 
   if (isLoading) {
     return (
@@ -54,6 +72,10 @@ const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
 
   return (
     <div className={styles.weatherCard} onClick={handleCardClick} role="button">
+      {/* Favorite Icon */}
+      <div className={styles.favoriteIcon} onClick={handleFavoriteClick}>
+        {isFavorite ? <IconHeartFilled color="white" /> : <IconHeart />}
+      </div>
       <div className={styles.weatherTop}>
         <div className={styles.locationInfo}>
           <h3>{location.country_name}</h3>
