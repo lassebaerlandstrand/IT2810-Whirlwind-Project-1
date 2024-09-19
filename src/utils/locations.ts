@@ -2,12 +2,12 @@ import { Location } from '../types/api-types';
 
 // TODO: Use real locations and correct coordinates
 const LOCATIONS: Location[] = [
+  { city_name: 'New York', country_name: 'USA', latitude: '40.741895', longitude: '-73.989308' },
   { city_name: 'Stavanger', country_name: 'Norway', latitude: '58.969975', longitude: '5.733107' },
   { city_name: 'Bergen', country_name: 'Norway', latitude: '60.391262', longitude: '5.322054' },
   { city_name: 'Tønsberg', country_name: 'Norway', latitude: '59.270889', longitude: '10.418220' },
   { city_name: 'Trondheim', country_name: 'Norway', latitude: '63.430515', longitude: '10.395053' },
   { city_name: 'Steinkjer', country_name: 'Norway', latitude: '64.014892', longitude: '11.495704' },
-  { city_name: 'New York', country_name: 'USA', latitude: '40.741895', longitude: '-73.989308' },
   { city_name: 'London', country_name: 'UK', latitude: '51.4893335', longitude: '-0.1440551' },
   { city_name: 'Hundvåg', country_name: 'Norway', latitude: '58.997502', longitude: '5.7300202' },
   { city_name: 'Bømlo', country_name: 'Norway', latitude: '59.8011502', longitude: '5.1866408' },
