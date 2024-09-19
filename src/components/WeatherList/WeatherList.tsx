@@ -25,21 +25,21 @@ const WeatherList: React.FC<WeatherListProps> = ({ locations }) => {
       {favoritedLocations.length > 0 && (
         <>
           <h2>Favorited Locations</h2>
-          <div className={styles.section}>
+          <section className={styles.section}>
             {favoritedLocations.map((location, index) => (
               <ListWeatherCard key={`fav-${index}`} location={location} />
             ))}
-          </div>
+          </section>
         </>
       )}
       {nonFavoritedLocations.length > 0 && (
         <>
           <h2>Other Locations</h2>
-          <div className={styles.section}>
+          <section className={styles.section}>
             {nonFavoritedLocations.map((location, index) => (
               <ListWeatherCard key={`nonfav-${index}`} location={location} />
             ))}
-          </div>
+          </section>
         </>
       )}
     </div>

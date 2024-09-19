@@ -1,4 +1,5 @@
 import {
+  IconArrowRight,
   IconCloudFilled,
   IconCloudRain,
   IconHeart,
@@ -19,7 +20,6 @@ interface ListWeatherCardProps {
 
 const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
   const { data, isLoading, error } = useWeather(location);
-  const navigate = useNavigate();
   const { favorites, toggleFavorite } = useFavorites();
 
   const isFavorite = favorites.some(
