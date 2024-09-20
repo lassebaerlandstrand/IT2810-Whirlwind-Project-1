@@ -203,4 +203,14 @@ We have also manually tested how the application looks on different web-browsers
 - Firefox (desktop)
 - Safari (desktop)
 - Edge (desktop)
-- ... **(add more here)**
+
+## Warning when running the application
+
+When running the tests, you may encounter the following warning the console:
+
+```
+[DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+```
+
+This warning is not harmful and can be safely ignored. Downgrading Node.js could resolve the issue, but that would go against the project requirements.
