@@ -21,6 +21,7 @@ const LOCATIONS: Location[] = [
   { city_name: 'Kautokeino', country_name: 'Norge', latitude: '69.1325609', longitude: '23.5782998' },
   { city_name: 'Hell', country_name: 'Norway', latitude: '63.4449171', longitude: '10.9127178' },
   { city_name: 'Vear', country_name: 'Norway', latitude: '59.2627986', longitude: '10.3627871' },
+  { city_name: 'Mawsynram', country_name: 'India', latitude: '25.2988', longitude: '91.5824' },
   { city_name: 'Kringla', country_name: 'Norway', latitude: '63.960957', longitude: '11.447209' },
 ];
 

@@ -13,12 +13,12 @@ import styles from './WeatherCard.module.css';
 
 const determineWeather = (data: WeatherInfo) => {
   if (data.precipitation_amount > 0) {
-    return [<IconCloudRain className={styles.svg} />, 'Rainy'];
+    return [<IconCloudRain className={styles.svg} />, 'Wet'];
   }
   if (data.cloud_area_fraction > 0.5) {
     return [<IconCloudFilled className={styles.svg} />, 'Cloudy'];
   }
-  return [<IconSunFilled className={styles.svg} />, 'Sunny'];
+  return [<IconSunFilled className={styles.svg} />, 'Clear'];
 };
 
 interface WeatherCardProps {

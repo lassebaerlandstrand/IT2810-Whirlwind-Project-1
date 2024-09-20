@@ -40,7 +40,7 @@ describe('ListWeatherCard', () => {
       </MemoryRouter>,
     );
 
-    expect(screen.getByText('Sunny')).toBeInTheDocument();
+    expect(screen.getByText('Clear')).toBeInTheDocument();
     expect(screen.getByText('20°C')).toBeInTheDocument();
   });
 

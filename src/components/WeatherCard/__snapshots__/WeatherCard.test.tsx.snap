@@ -86,7 +86,7 @@ exports[`WeatherCard > should match snapshot 1`] = `
         25°C
       </p>
       <p>
-        Sunny
+        Clear
       </p>
     </div>
   </div>
