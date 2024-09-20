@@ -94,40 +94,6 @@ Here is a cutout of the response we get from the above base-URL which shows all 
 [...]
 ```
 
-**Mocking the API**
-
-The first thing we did when setting up the tests, was to (globally) mock the fetchWeather-function that fetched data from the API. That way we made sure that the tests never needlessly called the API during testing. This however came with the downside that we never actually test the applications call to the actual API, meaning it will be more difficult to spot changes in the APIs response-format through just using tests. However, if the API stops working, all pages in the application will print error messages relating to the API. This means that it is still easy to spot problems with the API itself, all though it requires manual testing.
-
-```javascript
-vi.mock('../api/clients/weatherClient', () => ({
-  fetchWeather: vi.fn().mockResolvedValue({
-    properties: {
-      timeseries: [
-        {
-          data: {
-            instant: {
-              details: {
-                air_pressure_at_sea_level: 10,
-                air_temperature: 10,
-                cloud_area_fraction: 10,
-                relative_humidity: 10,
-                wind_from_direction: 10,
-                wind_speed: 10,
-              },
-            },
-            next_1_hours: {
-              details: {
-                precipitation_amount: 10,
-              },
-            },
-          },
-        },
-      ],
-    },
-  }),
-}));
-```
-
 **Caching the API responses**
 
 The standard settings of TanStack useQuery is a staleTime of 0 and a garbage-collection of 5 minutes. To reduce API calls we changed both these variables to 15 minutes. That way we will at most call the API once for every city every 15 minutes (unless the page is refreshed)
@@ -182,10 +148,55 @@ Another thing we did to ensure cohesive design, was to (loosely) follow that des
 ## Test coverage
 
 ### Testing
+
 **Snapshot tests**
 
 Snapshot tests are a simple way to ensure no unexpected changes are made to components. We are using snapshot tests for most of our components to ensure that we avoid unexpected changes in the generated html.
 
 **Unit tests**
 
-We have unit tests for most of our components, the useWeather hook and the API-related code. In these tests we check important attributes and functionalities.
+We have unit tests for most of our components, the useWeather hook and the API-related code (with mocking). In these tests we check important attributes and functionalities. We however do not test the different pages, as the pages mainly just consist of components which are already well tested by unit tests.
+
+**Mocking the API**
+
+The first thing we did when setting up the tests, was to (globally) mock the fetchWeather-function that fetched data from the API. That way we made sure that the tests never needlessly called the API during testing. This however came with the downside that we never actually test the applications call to the actual API, meaning it will be more difficult to spot changes in the APIs response-format through just using tests. However, if the API stops working, all pages in the application will print error messages relating to the API. This means that it is still easy to spot problems with the API itself, all though it requires manual testing.
+
+```javascript
+vi.mock('../api/clients/weatherClient', () => ({
+  fetchWeather: vi.fn().mockResolvedValue({
+    properties: {
+      timeseries: [
+        {
+          data: {
+            instant: {
+              details: {
+                air_pressure_at_sea_level: 10,
+                air_temperature: 10,
+                cloud_area_fraction: 10,
+                relative_humidity: 10,
+                wind_from_direction: 10,
+                wind_speed: 10,
+              },
+            },
+            next_1_hours: {
+              details: {
+                precipitation_amount: 10,
+              },
+            },
+          },
+        },
+      ],
+    },
+  }),
+}));
+```
+
+**Manual testing**
+
+We have also manually tested how the application looks on different web-browsers and mobile devices. We have tested the application on:
+
+- Chrome (desktop)
+- Firefox (desktop)
+- Safari (desktop)
+- Edge (desktop)
+- ... **(add more here)**
