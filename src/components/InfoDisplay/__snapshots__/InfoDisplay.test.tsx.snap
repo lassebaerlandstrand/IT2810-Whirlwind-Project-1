@@ -99,7 +99,7 @@ exports[`InfoDisplay tests > should match snapshot 1`] = `
           <h3
             class="_title_7869c2"
           >
-            Rain
+            Precipitation
           </h3>
         </div>
         <div

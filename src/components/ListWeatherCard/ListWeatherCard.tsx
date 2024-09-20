@@ -44,9 +44,9 @@ const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
   }
 
   const determineWeatherDescription = (precipitation: number, cloudCover: number) => {
-    if (precipitation > 0) return 'Rainy';
+    if (precipitation > 0) return 'Wet';
     if (cloudCover > 0.5) return 'Cloudy';
-    return 'Sunny';
+    return 'Clear';
   };
 
   const weatherDescription = data
@@ -55,11 +55,11 @@ const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
 
   const renderWeatherIcon = (description: string) => {
     switch (description.toLowerCase()) {
-      case 'sunny':
+      case 'clear':
         return <IconSunFilled className={styles.weatherIcon} />;
       case 'cloudy':
         return <IconCloudFilled className={styles.weatherIcon} />;
-      case 'rainy':
+      case 'wet':
         return <IconCloudRain className={styles.weatherIcon} />;
       default:
         return <IconSunFilled className={styles.weatherIcon} />;
