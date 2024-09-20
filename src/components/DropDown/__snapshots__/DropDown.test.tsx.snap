@@ -7,17 +7,17 @@ exports[`DropDown Component > should match snapshot 1`] = `
   >
     <label
       class="_label_20b9ed"
-      for=":r4:"
+      for=":r8:"
     >
       Sort by:
     </label>
     <button
-      aria-controls="dropdown-list"
+      aria-controls=":r9:"
       aria-expanded="false"
       aria-haspopup="listbox"
       class="_dropDownButton_20b9ed "
       data-testid="dropdown-button"
-      id=":r4:"
+      id=":r8:"
     >
       Option 1 
       <span
@@ -42,6 +42,28 @@ exports[`DropDown Component > should match snapshot 1`] = `
         </svg>
       </span>
     </button>
+    <ul
+      aria-labelledby=":r8:"
+      class="_dropDownList_20b9ed "
+      data-open="false"
+      id=":r9:"
+      role="listbox"
+    >
+      <li
+        aria-selected="false"
+        class="_dropDownItem_20b9ed"
+        role="option"
+      >
+        Option 2
+      </li>
+      <li
+        aria-selected="false"
+        class="_dropDownItem_20b9ed"
+        role="option"
+      >
+        Option 3
+      </li>
+    </ul>
   </menu>
 </DocumentFragment>
 `;
