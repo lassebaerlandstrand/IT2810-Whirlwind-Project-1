@@ -1,6 +1,15 @@
-import { IconCloudFilled, IconCloudRain, IconRotateClockwise, IconSunFilled } from '@tabler/icons-react';
+import {
+  IconArrowRight,
+  IconCloudFilled,
+  IconCloudRain,
+  IconHeart,
+  IconHeartFilled,
+  IconRotateClockwise,
+  IconSunFilled,
+} from '@tabler/icons-react';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useFavorites } from '../../contexts/FavoritesFunctions';
 import { useWeather } from '../../hooks/useWeather';
 import { Location } from '../../types/api-types';
 import styles from './ListWeatherCard.module.css';
@@ -11,7 +20,16 @@ interface ListWeatherCardProps {
 
 const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
   const { data, isLoading, error } = useWeather(location);
-  const navigate = useNavigate();
+  const { favorites, toggleFavorite } = useFavorites();
+
+  const isFavorite = favorites.some(
+    (fav) => fav.city_name === location.city_name && fav.country_name === location.country_name,
+  );
+
+  const handleFavoriteClick = (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent link click
+    toggleFavorite(location);
+  };
 
   if (isLoading) {
     return (
@@ -48,24 +66,28 @@ const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
     }
   };
 
-  const handleCardClick = () => {
-    navigate(`/location/${location.city_name}`);
-  };
-
   return (
-    <div className={styles.weatherCard} onClick={handleCardClick} role="button">
+    <Link to={`/location/${location.city_name}`} className={styles.weatherCard} data-testid="link-button">
       <div className={styles.weatherTop}>
         <div className={styles.locationInfo}>
+          <div className={styles.cityNameAndFavorite}>
+            <h2>{location.city_name}</h2>
+            <button className={styles.favoriteIcon} onClick={handleFavoriteClick}>
+              {isFavorite ? <IconHeartFilled /> : <IconHeart />}
+            </button>
+          </div>
           <h3>{location.country_name}</h3>
-          <h2>{location.city_name}</h2>
         </div>
         {data ? renderWeatherIcon(weatherDescription) : <IconRotateClockwise className={styles.rotating} />}
       </div>
       <div className={styles.weatherBottom}>
-        <span className={styles.temperature}>{data ? data.air_temperature : '--'}°C</span>
-        <p className={styles.weatherDescription}>{weatherDescription}</p>
+        <div>
+          <span className={styles.temperature}>{data ? data.air_temperature : '--'}°C</span>
+          <p className={styles.weatherDescription}>{weatherDescription}</p>
+        </div>
+        <IconArrowRight />
       </div>
-    </div>
+    </Link>
   );
 };
 

@@ -1,8 +1,24 @@
+.weatherDetailsContainer {
+  display: flex;
+  justify-content: space-around;
+  margin: 3rem auto;
+  flex-wrap: wrap;
+  padding: 1rem;
+  gap: 1rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  list-style: none;
+}
+
+.listItemContainer {
+  flex: 1 1 12rem;
+  min-width: 12rem;
+  max-width: 20rem;
+}
+
 .container {
   display: flex;
   justify-content: center;
-  min-width: 20rem;
-  max-width: 20rem;
   margin: 0 auto;
   background-color: var(--secondary-color);
   border-radius: 1rem;
@@ -29,6 +45,7 @@
 .title {
   font-size: 1.3rem;
   font-weight: normal;
+  min-width: 6rem;
 }
 
 .titleContainer {
@@ -63,4 +80,13 @@
 
 .infoUnit {
   font-size: 1rem;
+}
+
+/* Cannot use CSS variables in media query. Therefore have to specify --breakpoint-md explicitly */
+@media screen and (min-width: 768px) {
+  .weatherDetailsContainer {
+    width: 100%;
+    margin: 3rem 0 0 0;
+    justify-content: space-between;
+  }
 }
