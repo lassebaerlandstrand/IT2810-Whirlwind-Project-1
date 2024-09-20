@@ -72,7 +72,12 @@ const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
         <div className={styles.locationInfo}>
           <div className={styles.cityNameAndFavorite}>
             <h2>{location.city_name}</h2>
-            <button className={styles.favoriteIcon} onClick={handleFavoriteClick}>
+            <button
+              className={styles.favoriteIcon}
+              onClick={handleFavoriteClick}
+              aria-pressed={isFavorite}
+              aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+            >
               {isFavorite ? <IconHeartFilled /> : <IconHeart />}
             </button>
           </div>

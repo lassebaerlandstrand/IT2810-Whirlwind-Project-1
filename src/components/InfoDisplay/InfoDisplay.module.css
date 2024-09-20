@@ -33,12 +33,11 @@
   width: 2rem;
   height: 2rem;
   border-radius: 100%;
-  background-color: var(--tertiary-color);
+  background-color: var(--primary-color);
   transition: 'transform 2s';
   svg {
     stroke: #ffffff;
-    stroke-width: 1;
-    fill: #c1d6db;
+    stroke-width: 1.5;
   }
 }
 
