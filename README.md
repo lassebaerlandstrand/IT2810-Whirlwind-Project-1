@@ -26,7 +26,7 @@ Please read the [DEVELOPER_GUIDE.md](./DEVELOPER_GUIDE.md) to learn how you can 
 
 ### Type of application to create
 
-All group members are familiar with weather forecasting services like [YR.no](https://www.yr.no/nb). We created an application for weather forecasts because we believed it would be a good way of fulfilling the functional and technical criteria given to us.
+All group members are familiar with weather forecasting services like [Yr.no](https://www.yr.no/nb). We created an application for weather forecasts because we believed it would be a good way of fulfilling the functional and technical criteria given to us.
 
 ### Design
 

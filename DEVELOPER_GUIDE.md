@@ -55,7 +55,7 @@ Our development process follows the trunk-based development workflow to maintain
 
 ## Issues
 
-You will find all issues in the issue board on GitHub (under Projects). We use issues to monitor our progress and we have split the issue board into five parts: `Product Backlog`, `Current Sprint` (Sprint backlog), `In Progress`, `Under review` and `Closed`.
+You will find all issues on the issue board on GitHub (under Projects). We use issues to monitor our progress and we have split the issue board into five parts: `Product Backlog`, `Current Sprint` (Sprint backlog), `In Progress`, `Under review` and `Closed`.
 
 When you are creating a new issue remember to do the following:
 
