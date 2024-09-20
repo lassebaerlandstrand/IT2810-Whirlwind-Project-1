@@ -1,41 +1,70 @@
-TODO: What needs to change in this document
-
-- Move prerequisites to README.md
-- Rewrite Document to fit to GitHub (this document was previously written for GitLab)
-- Which workflow should we use
-
 # Developer guide
 
 This document is intended to provide information about the project structure, best practices and other useful information for contributors.
 
-## Prerequisites (should be moved to README.md)
+## Prerequisites
 
 - Node v22.7
 - NPM v10.8
 
-## Workflow (this needs to be discussed)
+# Getting started
 
-Our development process follows the Gitflow workflow to maintain a structured and stable codebase. We utilize three main types of branches:
+Clone the repository to your local machine by running the following command in your terminal:
 
-- `main`-branch: This is a protected branch (you cannot commit directly to it), which should always be in working condition. You can consider this to be the "production"-branch. After a sprint, we will merge the `dev`-branch into the `main`-branch.
-- `dev`-branch: This is the branch we are working on under a sprint (also protected). You will branch out of `dev` and do a merge request to merge back into `dev`.
-- Feature branches: This is the name of the branches that you are actively working on. When you are branching out of `dev`, you are creating a feature branch.
-  The name of a feature branch should follow this format `issue-number/short-description-of-task`. Example: `43/implement-searching-functionality`.
+```
+git clone https://git.ntnu.no/IT2810-H24/T05-Project-1.git
+```
 
-During a sprint, you will only need to consider the `dev`-branch and the feature branches. More on branches further down the guide.
+Navigate to the project directory:
+
+```
+cd T05-Project-1
+```
+
+Install the required dependencies by running:
+
+```
+npm install
+```
+
+Run the application locally by using:
+
+```
+npm run dev
+```
+
+Run tests with
+
+```
+npm run test
+```
+
+Update snapshot tests with
+
+```
+npm run update-test
+```
+
+## Workflow
+
+Our development process follows the trunk-based development workflow to maintain a structured and stable codebase. We utilize two main types of branches:
+
+- `main`-branch: This is a protected branch (you cannot commit directly to it), which should always be in working condition. You can consider this to be the "production"-branch.
+- Feature branches: This is the name of the branches that you are actively working on. When you are branching out of `main`, you are creating a feature branch.
+  The name of a feature branch should follow this format `issue-number-short-description-of-task`. Example: `43-implement-searching-functionality`.
 
 ## Issues
 
-You will find all issues in the [issue boards](https://pug48.atlassian.net/jira/software/projects/KAN/boards/1) on Jira. We use issues to monitor our progress in a sprint and we have split the issue board into five parts: `Product Backlog`, `Current Sprint` (Sprint backlog), `In Progress`, `Under review` and `Closed`. During a sprint, you only need to consider the last three.
+You will find all issues on the issue board on GitHub (under Projects). We use issues to monitor our progress and we have split the issue board into five parts: `Product Backlog`, `Current Sprint` (Sprint backlog), `In Progress`, `Under review` and `Closed`.
 
 When you are creating a new issue remember to do the following:
 
 - Create a title which briefly explains the issue (example: `Implement filter functionality`)
 - [Optional] Provide more information on the issue in the description
 - Assign labels
-- Assign milestone (sprint iteration)
+- Assign milestone
 
-When moving an issue from the `Sprint Backlog` to `In Progress` remember to:
+When moving an issue from the `Product Backlog` to `In Progress` remember to:
 
 - Assign it to someone (like yourself)
 - [Optional] Update the description with how you plan to solve the issue
@@ -62,13 +91,13 @@ Here is a brief list of essential Git commands (Remember all these commands are 
 
 ## Branching
 
-When you plan to start on a new issue, you need to create a new branch (never make changes directly to `dev` or `main`). The branch name should be the issue number followed by a short description of the issue. For example, if you are working on issue #1, you should create a branch named `1/implementing-new-feature`. This will ensure that the branch is automatically linked to that issue, and add some QOL improvements when creating merge requests.
+When you plan to start on a new issue, you need to create a new branch (never make changes directly to `main`). The branch name should be the issue number followed by a short description of the issue. For example, if you are working on issue #1, you should create a branch named `1-implementing-new-feature`. This will ensure that the branch is automatically linked to that issue, and add some QOL improvements when creating merge requests.
 
 ### Creating a new branch
 
 This is a step by step guide on how to create a new branch.
 
-1. First you need to be on the `dev`-branch (or the branch you want to branch out from). You can see which branch you are on by running `git branch` and you will be on the branch with the star next to it (or check the bottom left corner in VSCode). If you are on the wrong branch, use `git checkout <name-of-branch>` to change branch.
+1. First you need to be on the `main`-branch (or the branch you want to branch out from). You can see which branch you are on by running `git branch` and you will be on the branch with the star next to it (or check the bottom left corner in VSCode). If you are on the wrong branch, use `git checkout <name-of-branch>` to change branch.
 
 ```
 (See which branch you are currently on)
@@ -81,24 +110,24 @@ This is a step by step guide on how to create a new branch.
 2. Now you can branch out into your own feature branch. Do this by running this command in your terminal. This will create a new branch with the name you specified, and automatically switch to that branch. You can now make changes to the code, and commit them to the branch.
 
 ```
-git checkout -b "issue-number/new-branch-name"
+git checkout -b "issue-number-new-branch-name"
 ```
 
-### Updating a branch with content in `dev`
+### Updating a branch with content in `main`
 
-Before you create a merge request, you should make sure that your branch is up to date with the `dev` branch. This is to ensure that there are no merge conflicts when you create the merge request. \
-The code block below assumes you start on your own branch and want to update it with `dev`.
+Before you create a merge request, you should make sure that your branch is up to date with the `main` branch. This is to ensure that there are no merge conflicts when you create the merge request. \
+The code block below assumes you start on your own branch and want to update it with `main`.
 
 ```
 (Assuming you are on your own branch)
-> git checkout dev
-(Now you are on the dev branch)
+> git checkout main
+(Now you are on the main branch)
 
 > git pull
 > git checkout <your-branch-name>
 (Now you are on your own branch again)
 
-> git merge dev
+> git merge main
 
 (There may be merge conflicts here, if so, resolve them (resolving them in VSCode is recommended))
 
@@ -106,21 +135,17 @@ The code block below assumes you start on your own branch and want to update it 
 > git push
 ```
 
-## Merge requests (or pull requests)
+## Pull request
 
-When you are done with your changes, and want to merge your branch into `dev`, you will need to create a Merge Request. This is done by going to the "Merge requests" tab on GitLab, and clicking the "New merge request" button. Then you will be redirected to a new page where you can select the branch you want to merge into (which is `dev`), and the branch you want to merge from (your branch). You can then click the "Create merge request" button. You will then be presented with a page where you can write a description of the changes you have made. If this PR closes an issue add this in the description: `Closes #issue-number`, this will automatically close the issue when the merge request is merged.
+When you are done with your changes, and want to merge your branch into `main`, you will need to create a pull request. If this PR closes an issue add this in the description: `Closes #issue-number`, this will automatically close the issue when the merge request is merged.
 
-A pipeline will start to run on the merge request, which will run tests and check that your project follows the styling format. The pipeline needs to be successful before you are allowed to merge.
+Before you are allowed to merge, you will need approval of one other team member. Assign at least one other team member, or notify them in another way that your pull request is ready for review.
 
-Before you are allowed to merge, you will need approval of one other team member. Assign at least one other team member, or notify them in another way that your Merge Request is ready for review.
-
-When the review is done, you are ready to merge into `dev`. Click the "Merge pull request" button, and then the "Confirm merge" button (pick the default option (not squash merge)). Congratulations, you have now merged into `dev` and contributed to the project 🚀.
+When the review is done, you are ready to merge into `main`. Click the "Merge" button, and then the "Confirm merge" button (pick the default option (not squash merge)). Congratulations, you have now merged into `main` and contributed to the project 🚀.
 
 ## Milestones
 
-We will use milestones to track sprint iterations. For each sprint iteration, we will have new milestone in GitLab. Utilizing milestones allows us to set specific goals, plans and allocate tasks, and monitor the overall advancement of our project.
-
-Additionally, milestones serve as pivotal markers for sprint planning, enabling the team to delineate targeted objectives for development efforts within defined timeframes. This structured approach enhances coordination and facilitates cohesive workflow management throughout the project lifecycle.
+We will use milestones to track our progress. Utilizing milestones allows us to set specific goals, plans and allocate tasks, and monitor the overall advancement of our project.
 
 Active engagement with milestones is encouraged, including regular progress updates, task completion, and addressing any obstacles encountered. By leveraging milestones, we enhance coordination, facilitate communication, and ensure project success.
 
