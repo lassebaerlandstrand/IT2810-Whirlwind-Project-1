@@ -12,11 +12,15 @@ You can then run the application locally by using `npm run dev`. This will make 
 
 ### Running the tests
 
-You can run the tests by using `npm run tests`. This will run all the tests, including snapshot and unit tests.
+You can run the tests by using `npm run test`. This will run all the tests, including snapshot and unit tests.
 
 ### Accessing the application through the VM
 
 If you are connected to an NTNU-associated network or if you are using the NTNU-distributed VPN, you can access the app at [http://it2810-05.idi.ntnu.no/project1](http://it2810-05.idi.ntnu.no/project1).
+
+## How to contribute
+
+Please read the [DEVELOPER_GUIDE.md](./DEVELOPER_GUIDE.md) to learn how you can contribute to the project.
 
 ## About
 
@@ -116,7 +120,7 @@ The query key for the caching was chosen to be the latitude and longitude as it 
 
 **CSS modules**
 
-CSS modules allows each component to have its own CSS file. The upside is clear; its easier to write CSS to design 1 component, than it is to write CSS for The downside to this is that it is more difficult to reuse CSS and thus makes it more difficult to have a cohesive design. To combat this we introduced global CSS variables for colors we use in `index.css`. That way we could use these variables in the individual components to make sure every component used the same color palette
+CSS modules allows each component to have its own dedicated CSS file, which simplifies the styling process. This approach allows us to not worry about class name collisions, as each class is scoped to its own component. Additionally, it becomes easier to name classes, as they only need to be unique within the component and not the whole website. The downside to this is that it is more difficult to reuse CSS and thus makes it more difficult to have a cohesive design. To combat this we introduced global CSS variables for colors we use in `index.css`. That way we could use these variables in the individual components to make sure every component used the same color palette.
 
 Colors defined in `Index.css`:
 
