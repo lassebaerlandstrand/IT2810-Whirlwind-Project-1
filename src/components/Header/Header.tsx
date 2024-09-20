@@ -9,7 +9,7 @@ const Header = () => {
         <img src={logo} alt="Whirlwind Logo" className={styles.img} />
         <div>
           <h1>Whirlwind</h1>
-          <h6>Weather Forecast</h6>
+          <h2>Weather Forecast</h2>
         </div>
       </Link>
     </header>

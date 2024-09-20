@@ -32,11 +32,16 @@ const Carousel: React.FC<CarouselProps> = ({ currentIndex, data }) => {
         <Link
           className={`${styles.link} ${styles.leftLink}`}
           to={'/location/' + getPreviousCity(currentIndex).city_name}
+          aria-label={`Previous city: ${getPreviousCity(currentIndex).city_name}`}
         >
           <IconArrowLeft className={styles.svg} />
           <h3>{getPreviousCity(currentIndex).city_name}</h3>
         </Link>
-        <Link className={`${styles.link} ${styles.rightLink}`} to={'/location/' + getNextCity(currentIndex).city_name}>
+        <Link
+          className={`${styles.link} ${styles.rightLink}`}
+          to={'/location/' + getNextCity(currentIndex).city_name}
+          aria-label={`Next city: ${getNextCity(currentIndex).city_name}`}
+        >
           <IconArrowRight className={styles.svg} />
           <h3>{getNextCity(currentIndex).city_name}</h3>
         </Link>
