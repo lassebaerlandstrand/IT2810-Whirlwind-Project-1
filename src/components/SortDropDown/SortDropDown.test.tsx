@@ -39,13 +39,13 @@ describe('SortDropDown Component', () => {
   it('should open and close the dropdown menu when clicked', () => {
     render(<SortDropDown setSortCondition={mockSetSortCondition} />);
 
-    const button = screen.getByRole('button', { name: 'City Name' });
+    const button = screen.getByTestId('dropdown-button');
 
     fireEvent.click(button);
-    expect(screen.getByRole('listbox')).toBeInTheDocument();
+    expect(screen.getByRole('listbox')).toHaveAttribute('data-open', 'true');
 
     fireEvent.click(button);
-    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    expect(screen.queryByRole('listbox')).toHaveAttribute('data-open', 'false');
   });
 
   it('should match snapshot', () => {

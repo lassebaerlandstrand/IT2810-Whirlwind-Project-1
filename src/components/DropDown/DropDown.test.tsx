@@ -22,13 +22,15 @@ describe('DropDown Component', () => {
       <DropDown selectedOption="Option 1" options={options} setSelectedOption={setSelectedOptionMock} label={label} />,
     );
 
+    expect(screen.queryByRole('listbox')).toHaveAttribute('data-open', 'false');
+
     const button = screen.getByRole('button');
     fireEvent.click(button);
 
-    expect(screen.getByRole('listbox')).toBeInTheDocument();
+    expect(screen.getByRole('listbox')).toHaveAttribute('data-open', 'true');
 
     fireEvent.click(button);
-    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    expect(screen.queryByRole('listbox')).toHaveAttribute('data-open', 'false');
   });
 
   it('should change the selected option when an item is clicked', () => {
@@ -50,10 +52,10 @@ describe('DropDown Component', () => {
     );
 
     fireEvent.click(screen.getByRole('button'));
-    expect(screen.getByRole('listbox')).toBeInTheDocument();
+    expect(screen.getByRole('listbox')).toHaveAttribute('data-open', 'true');
 
     fireEvent.click(document.body);
-    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    expect(screen.queryByRole('listbox')).toHaveAttribute('data-open', 'false');
   });
 
   it('should match snapshot', () => {

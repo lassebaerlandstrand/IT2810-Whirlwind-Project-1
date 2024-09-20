@@ -26,7 +26,7 @@ const updateInfos = (data: WeatherInfo | null) => {
 
     {
       icon: <IconCloudRain />,
-      infoText: 'Rain',
+      infoText: 'Precipitation',
       amount: data?.precipitation_amount,
       unit: 'mm/h',
       rotation: 0,

@@ -13,7 +13,7 @@ describe('WeatherCard', () => {
     expect(screen.getByText('---°C')).toBeInTheDocument();
   });
 
-  it('renders sunny weather', () => {
+  it('renders clear weather', () => {
     render(
       <WeatherCard
         location={LOCATIONS[0]}
@@ -29,8 +29,8 @@ describe('WeatherCard', () => {
       />,
     );
 
-    // Check if sunny icon and text are displayed
-    expect(screen.getByText('Sunny')).toBeInTheDocument();
+    // Check if proper text is displayed
+    expect(screen.getByText('Clear')).toBeInTheDocument();
     expect(screen.getByText('25°C')).toBeInTheDocument();
   });
 
@@ -55,7 +55,7 @@ describe('WeatherCard', () => {
     expect(screen.getByText('15°C')).toBeInTheDocument();
   });
 
-  it('renders rainy weather', () => {
+  it('renders wet weather', () => {
     render(
       <WeatherCard
         location={LOCATIONS[0]}
@@ -71,8 +71,8 @@ describe('WeatherCard', () => {
       />,
     );
 
-    // Check if rainy icon and text are displayed
-    expect(screen.getByText('Rainy')).toBeInTheDocument();
+    // Check if proper text are displayed
+    expect(screen.getByText('Wet')).toBeInTheDocument();
     expect(screen.getByText('10°C')).toBeInTheDocument();
   });
 

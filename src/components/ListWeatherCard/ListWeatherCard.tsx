@@ -44,9 +44,9 @@ const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
   }
 
   const determineWeatherDescription = (precipitation: number, cloudCover: number) => {
-    if (precipitation > 0) return 'Rainy';
+    if (precipitation > 0) return 'Wet';
     if (cloudCover > 0.5) return 'Cloudy';
-    return 'Sunny';
+    return 'Clear';
   };
 
   const weatherDescription = data
@@ -55,11 +55,11 @@ const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
 
   const renderWeatherIcon = (description: string) => {
     switch (description.toLowerCase()) {
-      case 'sunny':
+      case 'clear':
         return <IconSunFilled className={styles.weatherIcon} />;
       case 'cloudy':
         return <IconCloudFilled className={styles.weatherIcon} />;
-      case 'rainy':
+      case 'wet':
         return <IconCloudRain className={styles.weatherIcon} />;
       default:
         return <IconSunFilled className={styles.weatherIcon} />;
@@ -72,8 +72,15 @@ const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
         <div className={styles.locationInfo}>
           <div className={styles.cityNameAndFavorite}>
             <h2>{location.city_name}</h2>
-            <button className={styles.favoriteIcon} onClick={handleFavoriteClick}>
-              {isFavorite ? <IconHeartFilled /> : <IconHeart />}
+            <button
+              className={styles.favoriteIcon}
+              onClick={handleFavoriteClick}
+              aria-pressed={isFavorite}
+              aria-label={
+                isFavorite ? `Remove ${location.city_name} from favorites` : `Add ${location.city_name} to favorites`
+              }
+            >
+              {isFavorite ? <IconHeartFilled aria-hidden="true" /> : <IconHeart aria-hidden="true" />}
             </button>
           </div>
           <h3>{location.country_name}</h3>
