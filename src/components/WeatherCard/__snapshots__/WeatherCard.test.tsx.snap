@@ -6,9 +6,11 @@ exports[`WeatherCard > should match snapshot 1`] = `
     class="_card_8ab24e"
   >
     <button
+      aria-label="Add New York to favorites"
       class="_favoriteIcon_8ab24e"
     >
       <svg
+        aria-hidden="true"
         class="tabler-icon tabler-icon-heart "
         fill="none"
         height="24"
@@ -26,6 +28,7 @@ exports[`WeatherCard > should match snapshot 1`] = `
       </svg>
     </button>
     <svg
+      aria-hidden="true"
       class="tabler-icon tabler-icon-sun-filled _svg_8ab24e"
       fill="currentColor"
       height="24"
@@ -72,6 +75,7 @@ exports[`WeatherCard > should match snapshot 1`] = `
           New York
         </h3>
         <span
+          aria-hidden="true"
           class="_commaSeparator_8ab24e"
         >
           , 
@@ -81,6 +85,7 @@ exports[`WeatherCard > should match snapshot 1`] = `
         </h4>
       </div>
       <p
+        aria-label="Temperature in New York: 25"
         class="_temperature_8ab24e"
       >
         25°C

@@ -46,8 +46,8 @@ const DropDownButton = ({ open, toggleOpen, selectedOption, ...rest }: DropDownB
       onClick={toggleOpen}
       aria-expanded={open}
       aria-controls="dropdown-list"
-      id="dropdown-button"
       aria-haspopup="listbox"
+      data-testid="dropdown-button"
       {...rest}
     >
       {selectedOption}{' '}

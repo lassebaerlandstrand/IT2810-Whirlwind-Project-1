@@ -39,7 +39,7 @@ describe('SortDropDown Component', () => {
   it('should open and close the dropdown menu when clicked', () => {
     render(<SortDropDown setSortCondition={mockSetSortCondition} />);
 
-    const button = screen.getByRole('button', { name: 'City Name' });
+    const button = screen.getByTestId('dropdown-button');
 
     fireEvent.click(button);
     expect(screen.getByRole('listbox')).toBeInTheDocument();

@@ -7,20 +7,24 @@ exports[`SortDropDown Component > should match snapshot 1`] = `
   >
     <label
       class="_label_20b9ed"
+      for=":r4:"
     >
       Sort by:
     </label>
     <button
-      aria-describedby="dropdown-button"
+      aria-controls="dropdown-list"
       aria-expanded="false"
+      aria-haspopup="listbox"
       class="_dropDownButton_20b9ed "
       data-testid="dropdown-button"
+      id=":r4:"
     >
       City Name 
       <span
         class="_iconSpan_20b9ed"
       >
         <svg
+          aria-hidden="true"
           class="tabler-icon tabler-icon-chevron-down "
           fill="none"
           height="24"
