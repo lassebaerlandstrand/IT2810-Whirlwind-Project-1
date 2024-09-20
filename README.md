@@ -40,7 +40,7 @@ It is very easy to start designing an application for desktop, only to then late
 
 **Accessability**
 
-We have used a fairly high-contrast color pallette in order to make the application more accessible for people with weak eyesight. We have also been cautious about using divs and we have preferred using other tags such as button, span etc. when it has been appropriate to do so.
+We have used a high-contrast color palette to make the application more accessible for people with visual impairments. Additionally, we utilized the Contrast Checker Bookmarklet to ensure that all text and background combinations meet the WCAG 2.0 minimum contrast ratio of 4.5:1. We've also been cautious about the use of div elements, opting for more semantic HTML tags such as button and span where appropriate, to further improve accessibility and ensure screen readers correctly interpret the page structure.
 
 ### API
 
