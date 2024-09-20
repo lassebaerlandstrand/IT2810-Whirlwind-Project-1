@@ -1,29 +1,28 @@
 import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
-import { useEffect, useRef, useState } from 'react';
+import { ButtonHTMLAttributes, HTMLAttributes, useEffect, useId, useRef, useState } from 'react';
 import styles from './DropDown.module.css';
 
 type DropDownListProps = {
   open: boolean;
   options: string[];
   onSelected: (option: string) => void;
-};
+} & HTMLAttributes<HTMLUListElement>;
 
-const DropDownList = ({ open, options, onSelected }: DropDownListProps) => {
+const DropDownList = ({ open, options, onSelected, ...rest }: DropDownListProps) => {
   return (
-    open && (
-      <ul
-        className={`${styles.dropDownList} ${open ? styles.listOpen : ''}`}
-        aria-expanded={open}
-        aria-controls="dropdown-button"
-        role="listbox"
-      >
-        {options.map((option) => (
-          <li key={option} className={styles.dropDownItem} onClick={() => onSelected(option)} role="option">
-            {option}
-          </li>
-        ))}
-      </ul>
-    )
+    <ul className={`${styles.dropDownList} ${open ? styles.listOpen : ''}`} role="listbox" {...rest} data-open={open}>
+      {options.map((option) => (
+        <li
+          key={option}
+          className={styles.dropDownItem}
+          onClick={() => onSelected(option)}
+          role="option"
+          aria-selected="false"
+        >
+          {option}
+        </li>
+      ))}
+    </ul>
   );
 };
 
@@ -31,18 +30,20 @@ type DropDownButtonProps = {
   open: boolean;
   toggleOpen: () => void;
   selectedOption: string;
-};
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
-const DropDownButton = ({ open, toggleOpen, selectedOption }: DropDownButtonProps) => {
+const DropDownButton = ({ open, toggleOpen, selectedOption, ...rest }: DropDownButtonProps) => {
   return (
     <button
       className={`${styles.dropDownButton} ${open ? styles.buttonOpen : ''}`}
       onClick={toggleOpen}
-      aria-expanded={open}
-      aria-describedby="dropdown-button"
       data-testid="dropdown-button"
+      {...rest}
     >
-      {selectedOption} <span className={styles.iconSpan}>{open ? <IconChevronUp /> : <IconChevronDown />}</span>
+      {selectedOption}{' '}
+      <span className={styles.iconSpan}>
+        {open ? <IconChevronUp aria-hidden="true" /> : <IconChevronDown aria-hidden="true" />}
+      </span>
     </button>
   );
 };
@@ -57,6 +58,8 @@ type DropDownProps = {
 const DropDown = ({ selectedOption, options, setSelectedOption, label }: DropDownProps) => {
   const [open, setOpen] = useState<boolean>(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
+  const dropDownButtonId = useId();
+  const dropDownListId = useId();
 
   const toggleOpen = () => setOpen(!open);
 
@@ -77,12 +80,24 @@ const DropDown = ({ selectedOption, options, setSelectedOption, label }: DropDow
 
   return (
     <menu className={styles.container} ref={dropDownRef}>
-      <label className={styles.label}>{label}</label>
-      <DropDownButton open={open} toggleOpen={toggleOpen} selectedOption={selectedOption} />
+      <label className={styles.label} htmlFor={dropDownButtonId}>
+        {label}
+      </label>
+      <DropDownButton
+        open={open}
+        toggleOpen={toggleOpen}
+        selectedOption={selectedOption}
+        id={dropDownButtonId}
+        aria-controls={dropDownListId}
+        aria-expanded={open}
+        aria-haspopup="listbox"
+      />
       <DropDownList
         open={open}
         options={options.filter((option) => option !== selectedOption)}
         onSelected={handleSelectedOption}
+        id={dropDownListId}
+        aria-labelledby={dropDownButtonId}
       />
     </menu>
   );
