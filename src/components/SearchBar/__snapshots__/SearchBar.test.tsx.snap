@@ -5,7 +5,7 @@ exports[`SearchBar Component > should match snapshot 1`] = `
   <label
     class="_label_ea9aeb"
   >
-    Search:
+    Search cities:
     <div
       class="_searchBarContainer_ea9aeb"
       role="search"
@@ -36,7 +36,7 @@ exports[`SearchBar Component > should match snapshot 1`] = `
       </span>
       <input
         class="_searchInput_ea9aeb"
-        placeholder="Search here..."
+        placeholder="City Name..."
         type="text"
         value=""
       />

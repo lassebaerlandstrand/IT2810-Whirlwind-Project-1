@@ -20,14 +20,14 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
 
   return (
     <label className={styles.label}>
-      Search:
+      Search cities:
       <div className={styles.searchBarContainer} role="search">
         <span className={styles.searchIcon} data-testid="search-icon">
           {<IconSearch />}
         </span>
         <input
           type="text"
-          placeholder="Search here..."
+          placeholder="City Name..."
           value={searchQuery}
           onChange={handleChange}
           className={styles.searchInput}

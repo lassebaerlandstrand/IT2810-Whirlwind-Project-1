@@ -19,7 +19,7 @@ describe('SearchBar Component', () => {
     const onSearchMock = vi.fn();
     render(<SearchBar onSearch={onSearchMock} />);
 
-    const searchInput = screen.getByPlaceholderText('Search here...');
+    const searchInput = screen.getByPlaceholderText('City Name...');
     const searchIcon = screen.getByTestId('search-icon');
 
     expect(searchInput).toBeInTheDocument();
@@ -30,7 +30,7 @@ describe('SearchBar Component', () => {
     const onSearchMock = vi.fn();
     render(<SearchBar onSearch={onSearchMock} />);
 
-    const searchInput = screen.getByPlaceholderText('Search here...');
+    const searchInput = screen.getByPlaceholderText('City Name...');
     fireEvent.change(searchInput, { target: { value: 'test' } });
 
     expect(onSearchMock).toHaveBeenCalledWith('test');
@@ -40,7 +40,7 @@ describe('SearchBar Component', () => {
     const onSearchMock = vi.fn();
     render(<SearchBar onSearch={onSearchMock} />);
 
-    const searchInput = screen.getByPlaceholderText('Search here...');
+    const searchInput = screen.getByPlaceholderText('City Name...');
     fireEvent.change(searchInput, { target: { value: 'test' } });
     fireEvent.change(searchInput, { target: { value: '' } });
 
