@@ -16,9 +16,9 @@ exports[`Header tests > should match snapshot 1`] = `
         <h1>
           Whirlwind
         </h1>
-        <h6>
+        <h2>
           Weather Forecast
-        </h6>
+        </h2>
       </div>
     </a>
   </header>

@@ -7,6 +7,7 @@ exports[`WeatherCard > should match snapshot 1`] = `
   >
     <button
       aria-label="Add New York to favorites"
+      aria-pressed="false"
       class="_favoriteIcon_8ab24e"
     >
       <svg
