@@ -1,5 +1,5 @@
 import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
-import { useEffect, useRef, useState } from 'react';
+import { ButtonHTMLAttributes, useEffect, useId, useRef, useState } from 'react';
 import styles from './DropDown.module.css';
 
 type DropDownListProps = {
@@ -37,9 +37,9 @@ type DropDownButtonProps = {
   open: boolean;
   toggleOpen: () => void;
   selectedOption: string;
-};
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
-const DropDownButton = ({ open, toggleOpen, selectedOption }: DropDownButtonProps) => {
+const DropDownButton = ({ open, toggleOpen, selectedOption, ...rest }: DropDownButtonProps) => {
   return (
     <button
       className={`${styles.dropDownButton} ${open ? styles.buttonOpen : ''}`}
@@ -48,6 +48,7 @@ const DropDownButton = ({ open, toggleOpen, selectedOption }: DropDownButtonProp
       aria-controls="dropdown-list"
       id="dropdown-button"
       aria-haspopup="listbox"
+      {...rest}
     >
       {selectedOption}{' '}
       <span className={styles.iconSpan}>
@@ -67,6 +68,7 @@ type DropDownProps = {
 const DropDown = ({ selectedOption, options, setSelectedOption, label }: DropDownProps) => {
   const [open, setOpen] = useState<boolean>(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
+  const dropDownId = useId();
 
   const toggleOpen = () => setOpen(!open);
 
@@ -87,10 +89,10 @@ const DropDown = ({ selectedOption, options, setSelectedOption, label }: DropDow
 
   return (
     <menu className={styles.container} ref={dropDownRef}>
-      <label className={styles.label} htmlFor="dropdown-button">
+      <label className={styles.label} htmlFor={dropDownId}>
         {label}
       </label>
-      <DropDownButton open={open} toggleOpen={toggleOpen} selectedOption={selectedOption} />
+      <DropDownButton open={open} toggleOpen={toggleOpen} selectedOption={selectedOption} id={dropDownId} />
       <DropDownList
         open={open}
         options={options.filter((option) => option !== selectedOption)}
