@@ -203,6 +203,8 @@ We have also manually tested how the application looks on different web-browsers
 - Firefox (desktop)
 - Safari (desktop)
 - Edge (desktop)
+- Chrome (mobile)
+- Firefox (mobile)
 
 ## Warning when running the application
 
