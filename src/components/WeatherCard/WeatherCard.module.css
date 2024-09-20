@@ -49,8 +49,8 @@
 }
 
 .svg {
-  width: 100%;
-  height: 100%;
+  width: 10rem;
+  height: 10rem;
 }
 
 p {
@@ -127,6 +127,8 @@ p {
   }
 
   .svg {
+    width: 100%;
+    height: 100%;
     max-width: 15rem;
     max-height: 15rem;
   }
