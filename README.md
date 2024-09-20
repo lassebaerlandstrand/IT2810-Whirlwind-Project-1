@@ -4,9 +4,11 @@
 
 ## How to run
 
+Before running the application or any tests, make sure you are in the project's root directory. After that you have to run `npm install`.
+
 ### Running the application
 
-The first thing you have to do is to run `npm install`. You can then run the application locally by using `npm run dev`. This will make the application accessible at localhost.
+You can then run the application locally by using `npm run dev`. This will make the application accessible at localhost.
 
 ### Running the tests
 
@@ -44,22 +46,23 @@ We have used a fairly high-contrast color pallette in order to make the applicat
 
 **What Rest API we chose**
 
-[We chose the API provided by YR for developers](https://api.met.no/weatherapi/locationforecast/2.0/documentation). We chose this API because we already knew about it as the proud Norwegians we are, and because its super simple to get weather information from different locations, just paste in the latitude and longitude coordinates into the base-URL, and in response you get all the weather information you require about that location:
+[We chose the API provided by Meteorologisk Institutt (MET) for developers](https://api.met.no/weatherapi/locationforecast/2.0/documentation). We chose this API because we already knew about it as the proud Norwegians we are, and because its super simple to get weather information from different locations, just paste in the latitude and longitude coordinates into the base-URL, and in response you get all the weather information you require about that location:
 
 > [https://api.met.no/weatherapi/locationforecast/2.0/compact?**lat=60.10**&**lon=9.58**](https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=60.10&lon=9.58)
 
-YR also provides several different methods for getting differing amounts of information.
+MET also provides several different methods for getting differing amounts of information:
 
-- compact
-- classic
-- complete
+- Compact
+- Classic
+- Complete
 
-Because of the relatively short deadline, we chose to implement an application using the **compact** method. This gave us an easier and simpler API to work with, but in turn we got a reduced amount of information, meaning we for example did not get the UV of the different location.
+Because of the relatively short deadline, we chose to implement an application using the **compact** method. This gave us an easier and simpler API to work with, but in turn we got a reduced amount of information, meaning we for example did not get the UV of the different locations.
 
 Here is a cutout of the response we get from the above base-URL which shows all the information we use in the application (we don't use all of this information, but most of it):
 
 ```JSON
-...
+[...]
+
 
     "timeseries": [
       {
@@ -76,7 +79,7 @@ Here is a cutout of the response we get from the above base-URL which shows all 
             }
           },
 
-...
+[...]
 
           },
           "next_1_hours": {
@@ -88,12 +91,12 @@ Here is a cutout of the response we get from the above base-URL which shows all 
             }
           },
 
-...
+[...]
 ```
 
 **Mocking the API**
 
-The first thing we did when setting up the tests, was to (globally) mock the fetchWeather-function that fetched data from the API. That way we made sure that the tests never needlessly called the API during testing. This however came with the downside that we never actually test the applications call to the actual API, meaning it will be more difficult to spot changes in the APIs response format through just using tests; however, if the API stop working, all pages in the application will print error messages relating to the API, meaning it still is easy to spot problems with the API itself.
+The first thing we did when setting up the tests, was to (globally) mock the fetchWeather-function that fetched data from the API. That way we made sure that the tests never needlessly called the API during testing. This however came with the downside that we never actually test the applications call to the actual API, meaning it will be more difficult to spot changes in the APIs response-format through just using tests. However, if the API stops working, all pages in the application will print error messages relating to the API. This means that it is still easy to spot problems with the API itself, all though it requires manual testing.
 
 ```javascript
 vi.mock('../api/clients/weatherClient', () => ({
@@ -129,7 +132,7 @@ vi.mock('../api/clients/weatherClient', () => ({
 
 The standard settings of TanStack useQuery is a staleTime of 0 and a garbage-collection of 5 minutes. To reduce API calls we changed both these variables to 15 minutes. That way we will at most call the API once for every city every 15 minutes (unless the page is refreshed)
 
-```JSON
+```javascript
 export const useWeatherQuery = (lat: string, lon: string) => {
   return useQuery({
     queryKey: [lat, lon], // Query key for caching
@@ -174,7 +177,9 @@ An example of use in `WeatherCard.module.css`
 }
 ```
 
-Another thing we did to ensure cohesive design, was to (loosely) follow that design in figma when we wrote the code and css for the different components.## Test coverage
+Another thing we did to ensure cohesive design, was to (loosely) follow that design in figma when we wrote the code and css for the different components.
+
+## Test coverage
 
 ### Testing
 **Snapshot tests**
