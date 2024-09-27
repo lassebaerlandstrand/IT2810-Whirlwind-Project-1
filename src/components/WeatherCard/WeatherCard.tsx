@@ -71,7 +71,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ location, data }) => {
         >
           {data ? data.air_temperature : '---'}°C
         </p>
-        <p>{data ? determineWeather(data)[1] : 'Loading...'}</p>
+        <p className={styles.weatherType}>{data ? determineWeather(data)[1] : 'Loading...'}</p>
       </div>
     </div>
   );
