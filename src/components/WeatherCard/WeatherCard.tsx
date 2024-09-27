@@ -39,7 +39,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ location, data }) => {
   };
 
   return (
-    <div className={styles.card}>
+    <div className={`${styles.card} ${data && data.air_temperature > 0 ? styles.warmCard : styles.coldCard}`}>
       <button
         className={styles.favoriteIcon}
         onClick={handleFavoriteClick}
@@ -66,7 +66,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ location, data }) => {
           <h4>{location.country_name}</h4>
         </div>
         <p
-          className={styles.temperature}
+          className={`${styles.temperature} ${data && data.air_temperature > 0 ? styles.warmTemp : styles.coldTemp}`}
           aria-label={`Temperature in ${location.city_name}: ${data ? data.air_temperature : 'loading'}`}
         >
           {data ? data.air_temperature : '---'}°C
