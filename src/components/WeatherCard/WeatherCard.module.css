@@ -22,16 +22,20 @@
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: var(--primary-color);
   color: var(--secondary-color);
   border-radius: 2rem;
-  padding: 1rem 3rem;
+  padding: 1rem 1rem;
   margin: 1rem auto;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
   max-width: fit-content;
   text-align: center;
-  min-width: 10rem;
+  min-width: 12rem;
   position: relative;
+  gap: 1rem;
 }
 
 @keyframes rotating {
@@ -49,29 +53,44 @@
 }
 
 .svg {
-  width: 10rem;
-  height: 10rem;
+  width: 100%;
+  height: 100%;
 }
 
 p {
   margin: 0;
 }
 
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  width: 10rem;
+  height: 10rem;
+  /* margin: 1rem 0; */
+}
+
 .favoriteIcon {
   position: absolute;
-  top: 1.5rem;
-  right: 2rem;
+  top: 1rem;
+  right: 1rem;
 
   display: flex;
   align-items: center;
+  justify-content: center;
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
   color: white;
+  width: 3rem;
+  height: 3rem;
 
   svg {
     transition: transform 0.1s;
+    width: 60%;
+    height: 60%;
   }
 
   &:hover svg {
@@ -82,7 +101,7 @@ p {
 /* Cannot use CSS variables in media query. Therefore have to specify --breakpoint-md explicitly */
 @media screen and (min-width: 768px) {
   .card {
-    display: flex;
+    flex-direction: row;
     width: 100%;
     min-width: none;
     max-width: none;
@@ -126,7 +145,20 @@ p {
     }
   }
 
-  .svg {
+  .favoriteIcon {
+    top: 1.5rem;
+    right: 2rem;
+    width: 3rem;
+    height: 3rem;
+
+    svg {
+      transition: transform 0.1s;
+      width: 70%;
+      height: 70%;
+    }
+  }
+
+  .iconContainer {
     width: 100%;
     height: 100%;
     max-width: 15rem;

@@ -51,11 +51,13 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ location, data }) => {
         {isFavorite ? <IconHeartFilled aria-hidden="true" /> : <IconHeart aria-hidden="true" />}
       </button>
 
-      {data ? (
-        determineWeather(data)[0]
-      ) : (
-        <IconRotateClockwise className={`${styles.rotating} ${styles.svg}`} aria-hidden="true" />
-      )}
+      <figure className={styles.iconContainer}>
+        {data ? (
+          determineWeather(data)[0]
+        ) : (
+          <IconRotateClockwise className={`${styles.rotating} ${styles.svg}`} aria-hidden="true" />
+        )}
+      </figure>
 
       <div className={styles.informationContainer}>
         <div className={styles.locationContainer}>
