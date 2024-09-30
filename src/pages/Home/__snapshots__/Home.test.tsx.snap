@@ -125,528 +125,523 @@ exports[`Home > should match snapshot 1`] = `
         </ul>
       </menu>
     </div>
-    <div
-      class="_weatherList_4fc390"
-      data-testid="weather-list"
+    <section
+      class="_section_4fc390"
     >
-      <section
-        class="_section_4fc390"
+      <h2>
+        Locations
+      </h2>
+      <ul
+        class="_list_4fc390"
       >
-        <h2>
-          Other Locations
-        </h2>
-        <ul
-          class="_list_4fc390"
-        >
-          <li>
-            <div
-              class="_loading_2ba686"
+        <li>
+          <div
+            class="_loading_2ba686"
+          >
+            <svg
+              class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
-                />
-              </svg>
-               Loading...
-            </div>
-          </li>
-          <li>
-            <div
-              class="_loading_2ba686"
+              <path
+                d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+              />
+            </svg>
+             Loading...
+          </div>
+        </li>
+        <li>
+          <div
+            class="_loading_2ba686"
+          >
+            <svg
+              class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
-                />
-              </svg>
-               Loading...
-            </div>
-          </li>
-          <li>
-            <div
-              class="_loading_2ba686"
+              <path
+                d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+              />
+            </svg>
+             Loading...
+          </div>
+        </li>
+        <li>
+          <div
+            class="_loading_2ba686"
+          >
+            <svg
+              class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
-                />
-              </svg>
-               Loading...
-            </div>
-          </li>
-          <li>
-            <div
-              class="_loading_2ba686"
+              <path
+                d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+              />
+            </svg>
+             Loading...
+          </div>
+        </li>
+        <li>
+          <div
+            class="_loading_2ba686"
+          >
+            <svg
+              class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
-                />
-              </svg>
-               Loading...
-            </div>
-          </li>
-          <li>
-            <div
-              class="_loading_2ba686"
+              <path
+                d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+              />
+            </svg>
+             Loading...
+          </div>
+        </li>
+        <li>
+          <div
+            class="_loading_2ba686"
+          >
+            <svg
+              class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
-                />
-              </svg>
-               Loading...
-            </div>
-          </li>
-          <li>
-            <div
-              class="_loading_2ba686"
+              <path
+                d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+              />
+            </svg>
+             Loading...
+          </div>
+        </li>
+        <li>
+          <div
+            class="_loading_2ba686"
+          >
+            <svg
+              class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
-                />
-              </svg>
-               Loading...
-            </div>
-          </li>
-          <li>
-            <div
-              class="_loading_2ba686"
+              <path
+                d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+              />
+            </svg>
+             Loading...
+          </div>
+        </li>
+        <li>
+          <div
+            class="_loading_2ba686"
+          >
+            <svg
+              class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
-                />
-              </svg>
-               Loading...
-            </div>
-          </li>
-          <li>
-            <div
-              class="_loading_2ba686"
+              <path
+                d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+              />
+            </svg>
+             Loading...
+          </div>
+        </li>
+        <li>
+          <div
+            class="_loading_2ba686"
+          >
+            <svg
+              class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
-                />
-              </svg>
-               Loading...
-            </div>
-          </li>
-          <li>
-            <div
-              class="_loading_2ba686"
+              <path
+                d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+              />
+            </svg>
+             Loading...
+          </div>
+        </li>
+        <li>
+          <div
+            class="_loading_2ba686"
+          >
+            <svg
+              class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
-                />
-              </svg>
-               Loading...
-            </div>
-          </li>
-          <li>
-            <div
-              class="_loading_2ba686"
+              <path
+                d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+              />
+            </svg>
+             Loading...
+          </div>
+        </li>
+        <li>
+          <div
+            class="_loading_2ba686"
+          >
+            <svg
+              class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
-                />
-              </svg>
-               Loading...
-            </div>
-          </li>
-          <li>
-            <div
-              class="_loading_2ba686"
+              <path
+                d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+              />
+            </svg>
+             Loading...
+          </div>
+        </li>
+        <li>
+          <div
+            class="_loading_2ba686"
+          >
+            <svg
+              class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
-                />
-              </svg>
-               Loading...
-            </div>
-          </li>
-          <li>
-            <div
-              class="_loading_2ba686"
+              <path
+                d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+              />
+            </svg>
+             Loading...
+          </div>
+        </li>
+        <li>
+          <div
+            class="_loading_2ba686"
+          >
+            <svg
+              class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
-                />
-              </svg>
-               Loading...
-            </div>
-          </li>
-          <li>
-            <div
-              class="_loading_2ba686"
+              <path
+                d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+              />
+            </svg>
+             Loading...
+          </div>
+        </li>
+        <li>
+          <div
+            class="_loading_2ba686"
+          >
+            <svg
+              class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
-                />
-              </svg>
-               Loading...
-            </div>
-          </li>
-          <li>
-            <div
-              class="_loading_2ba686"
+              <path
+                d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+              />
+            </svg>
+             Loading...
+          </div>
+        </li>
+        <li>
+          <div
+            class="_loading_2ba686"
+          >
+            <svg
+              class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
-                />
-              </svg>
-               Loading...
-            </div>
-          </li>
-          <li>
-            <div
-              class="_loading_2ba686"
+              <path
+                d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+              />
+            </svg>
+             Loading...
+          </div>
+        </li>
+        <li>
+          <div
+            class="_loading_2ba686"
+          >
+            <svg
+              class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
-                />
-              </svg>
-               Loading...
-            </div>
-          </li>
-          <li>
-            <div
-              class="_loading_2ba686"
+              <path
+                d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+              />
+            </svg>
+             Loading...
+          </div>
+        </li>
+        <li>
+          <div
+            class="_loading_2ba686"
+          >
+            <svg
+              class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
-                />
-              </svg>
-               Loading...
-            </div>
-          </li>
-          <li>
-            <div
-              class="_loading_2ba686"
+              <path
+                d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+              />
+            </svg>
+             Loading...
+          </div>
+        </li>
+        <li>
+          <div
+            class="_loading_2ba686"
+          >
+            <svg
+              class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
-                />
-              </svg>
-               Loading...
-            </div>
-          </li>
-          <li>
-            <div
-              class="_loading_2ba686"
+              <path
+                d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+              />
+            </svg>
+             Loading...
+          </div>
+        </li>
+        <li>
+          <div
+            class="_loading_2ba686"
+          >
+            <svg
+              class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
-                />
-              </svg>
-               Loading...
-            </div>
-          </li>
-          <li>
-            <div
-              class="_loading_2ba686"
+              <path
+                d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+              />
+            </svg>
+             Loading...
+          </div>
+        </li>
+        <li>
+          <div
+            class="_loading_2ba686"
+          >
+            <svg
+              class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
-                />
-              </svg>
-               Loading...
-            </div>
-          </li>
-          <li>
-            <div
-              class="_loading_2ba686"
+              <path
+                d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+              />
+            </svg>
+             Loading...
+          </div>
+        </li>
+        <li>
+          <div
+            class="_loading_2ba686"
+          >
+            <svg
+              class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
-                />
-              </svg>
-               Loading...
-            </div>
-          </li>
-          <li>
-            <div
-              class="_loading_2ba686"
+              <path
+                d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+              />
+            </svg>
+             Loading...
+          </div>
+        </li>
+        <li>
+          <div
+            class="_loading_2ba686"
+          >
+            <svg
+              class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
-                />
-              </svg>
-               Loading...
-            </div>
-          </li>
-          <li>
-            <div
-              class="_loading_2ba686"
+              <path
+                d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+              />
+            </svg>
+             Loading...
+          </div>
+        </li>
+        <li>
+          <div
+            class="_loading_2ba686"
+          >
+            <svg
+              class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="tabler-icon tabler-icon-rotate-clockwise _rotating_2ba686"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
-                />
-              </svg>
-               Loading...
-            </div>
-          </li>
-        </ul>
-      </section>
-    </div>
+              <path
+                d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+              />
+            </svg>
+             Loading...
+          </div>
+        </li>
+      </ul>
+    </section>
   </main>
 </DocumentFragment>
 `;

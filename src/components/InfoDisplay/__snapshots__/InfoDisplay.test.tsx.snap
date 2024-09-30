@@ -8,13 +8,13 @@ exports[`InfoDisplay tests > should match snapshot 1`] = `
     <li
       class="_listItemContainer_7869c2"
     >
-      <div
+      <article
         class="_container_7869c2"
       >
-        <div
+        <header
           class="_titleContainer_7869c2"
         >
-          <div
+          <figure
             class="_iconContainer_7869c2"
             style="transform: rotate(34deg); transition: transform 2s;"
           >
@@ -40,14 +40,14 @@ exports[`InfoDisplay tests > should match snapshot 1`] = `
                 d="M4 16h5.5a2.5 2.5 0 1 1 -2.34 3.24"
               />
             </svg>
-          </div>
+          </figure>
           <h3
             class="_title_7869c2"
           >
             Wind (NA)
           </h3>
-        </div>
-        <div
+        </header>
+        <section
           class="_infoContainer_7869c2"
         >
           <p
@@ -60,19 +60,19 @@ exports[`InfoDisplay tests > should match snapshot 1`] = `
           >
             m/s
           </p>
-        </div>
-      </div>
+        </section>
+      </article>
     </li>
     <li
       class="_listItemContainer_7869c2"
     >
-      <div
+      <article
         class="_container_7869c2"
       >
-        <div
+        <header
           class="_titleContainer_7869c2"
         >
-          <div
+          <figure
             class="_iconContainer_7869c2"
             style="transform: rotate(0deg); transition: transform 2s;"
           >
@@ -95,14 +95,14 @@ exports[`InfoDisplay tests > should match snapshot 1`] = `
                 d="M11 13v2m0 3v2m4 -5v2m0 3v2"
               />
             </svg>
-          </div>
+          </figure>
           <h3
             class="_title_7869c2"
           >
             Precipitation
           </h3>
-        </div>
-        <div
+        </header>
+        <section
           class="_infoContainer_7869c2"
         >
           <p
@@ -115,8 +115,8 @@ exports[`InfoDisplay tests > should match snapshot 1`] = `
           >
             mm/h
           </p>
-        </div>
-      </div>
+        </section>
+      </article>
     </li>
   </ul>
 </DocumentFragment>

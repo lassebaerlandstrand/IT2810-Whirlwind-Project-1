@@ -11,7 +11,6 @@ describe('WeatherList', () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          {' '}
           <WeatherList locations={LOCATIONS} />
         </MemoryRouter>
       </QueryClientProvider>,
@@ -28,13 +27,12 @@ describe('WeatherList', () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          {' '}
           <WeatherList locations={[]} />
         </MemoryRouter>
       </QueryClientProvider>,
     );
 
-    const weatherList = screen.getByTestId('weather-list');
-    expect(weatherList).toBeEmptyDOMElement();
+    const weatherList = screen.queryByTestId('weather-list');
+    expect(weatherList).toBeNull();
   });
 });
