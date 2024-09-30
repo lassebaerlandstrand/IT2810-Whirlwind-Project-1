@@ -1,3 +1,329 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Location > should match snapshot 1`] = `<DocumentFragment />`;
+exports[`Location > should match snapshot 1`] = `
+<DocumentFragment>
+  <main
+    class="_locationContainer_d3c209"
+  >
+    <header>
+      <a
+        class="_header_63c2ea"
+        href="/"
+      >
+        <img
+          alt="Whirlwind Logo"
+          class="_img_63c2ea"
+          src="/project1/src/assets/Whirlwind_Logo.png"
+        />
+        <div>
+          <h1>
+            Whirlwind
+          </h1>
+          <h2>
+            Weather Forecast
+          </h2>
+        </div>
+      </a>
+    </header>
+    <a
+      class="_link_1cdd9b"
+      href="/"
+    >
+      <svg
+        class="tabler-icon tabler-icon-list _icon_1cdd9b"
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M9 6l11 0"
+        />
+        <path
+          d="M9 12l11 0"
+        />
+        <path
+          d="M9 18l11 0"
+        />
+        <path
+          d="M5 6l0 .01"
+        />
+        <path
+          d="M5 12l0 .01"
+        />
+        <path
+          d="M5 18l0 .01"
+        />
+      </svg>
+      Go back to list
+    </a>
+    <div
+      class="_card_8ab24e _coldCard_8ab24e null"
+    >
+      <button
+        aria-label="Add New York to favorites"
+        aria-pressed="false"
+        class="_favoriteIcon_8ab24e"
+      >
+        <svg
+          aria-hidden="true"
+          class="tabler-icon tabler-icon-heart "
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"
+          />
+        </svg>
+      </button>
+      <figure
+        class="_iconContainer_8ab24e"
+      >
+        <svg
+          aria-hidden="true"
+          class="tabler-icon tabler-icon-rotate-clockwise _rotating_8ab24e _svg_8ab24e"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"
+          />
+        </svg>
+      </figure>
+      <div
+        class="_informationContainer_8ab24e"
+      >
+        <div
+          class="_locationContainer_8ab24e"
+        >
+          <h3>
+            New York
+          </h3>
+          <span
+            aria-hidden="true"
+            class="_commaSeparator_8ab24e"
+          >
+            , 
+          </span>
+          <h4>
+            USA
+          </h4>
+        </div>
+        <p
+          aria-label="Temperature in New York: loading"
+          class="_temperature_8ab24e _coldTemp_8ab24e"
+        >
+          ---°C
+        </p>
+        <p
+          class="_weatherType_8ab24e"
+        >
+          Loading...
+        </p>
+      </div>
+    </div>
+    <div
+      class="_buttonContainer_cc4f54"
+    >
+      <a
+        aria-label="Previous city: Santa"
+        class="_link_cc4f54 _leftLink_cc4f54"
+        href="/location/Santa"
+      >
+        <svg
+          class="tabler-icon tabler-icon-arrow-left _svg_cc4f54"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5 12l14 0"
+          />
+          <path
+            d="M5 12l6 6"
+          />
+          <path
+            d="M5 12l6 -6"
+          />
+        </svg>
+        <h3>
+          Santa
+        </h3>
+      </a>
+      <a
+        aria-label="Next city: Stavanger"
+        class="_link_cc4f54 _rightLink_cc4f54"
+        href="/location/Stavanger"
+      >
+        <svg
+          class="tabler-icon tabler-icon-arrow-right _svg_cc4f54"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5 12l14 0"
+          />
+          <path
+            d="M13 18l6 -6"
+          />
+          <path
+            d="M13 6l6 6"
+          />
+        </svg>
+        <h3>
+          Stavanger
+        </h3>
+      </a>
+    </div>
+    <ul
+      class="_weatherDetailsContainer_7869c2"
+    >
+      <li
+        class="_listItemContainer_7869c2"
+      >
+        <div
+          class="_container_7869c2"
+        >
+          <div
+            class="_titleContainer_7869c2"
+          >
+            <div
+              class="_iconContainer_7869c2"
+              style="transform: rotate(0deg); transition: transform 2s;"
+            >
+              <svg
+                class="tabler-icon tabler-icon-wind "
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5 8h8.5a2.5 2.5 0 1 0 -2.34 -3.24"
+                />
+                <path
+                  d="M3 12h15.5a2.5 2.5 0 1 1 -2.34 3.24"
+                />
+                <path
+                  d="M4 16h5.5a2.5 2.5 0 1 1 -2.34 3.24"
+                />
+              </svg>
+            </div>
+            <h3
+              class="_title_7869c2"
+            >
+              Wind (NA)
+            </h3>
+          </div>
+          <div
+            class="_infoContainer_7869c2"
+          >
+            <p
+              class="_infoText_7869c2"
+            >
+              --.-
+            </p>
+            <p
+              class="_infoUnit_7869c2"
+            >
+              m/s
+            </p>
+          </div>
+        </div>
+      </li>
+      <li
+        class="_listItemContainer_7869c2"
+      >
+        <div
+          class="_container_7869c2"
+        >
+          <div
+            class="_titleContainer_7869c2"
+          >
+            <div
+              class="_iconContainer_7869c2"
+              style="transform: rotate(0deg); transition: transform 2s;"
+            >
+              <svg
+                class="tabler-icon tabler-icon-cloud-rain "
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7 18a4.6 4.4 0 0 1 0 -9a5 4.5 0 0 1 11 2h1a3.5 3.5 0 0 1 0 7"
+                />
+                <path
+                  d="M11 13v2m0 3v2m4 -5v2m0 3v2"
+                />
+              </svg>
+            </div>
+            <h3
+              class="_title_7869c2"
+            >
+              Precipitation
+            </h3>
+          </div>
+          <div
+            class="_infoContainer_7869c2"
+          >
+            <p
+              class="_infoText_7869c2"
+            >
+              --.-
+            </p>
+            <p
+              class="_infoUnit_7869c2"
+            >
+              mm/h
+            </p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </main>
+</DocumentFragment>
+`;
