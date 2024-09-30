@@ -38,6 +38,14 @@ We decided to design the application in figma before coding the different compon
 | :------------------------------: |
 |       The design in figma        |
 
+| ![In app design](media/inapp.png) |
+| :-------------------------------: |
+|       The design in the app       |
+
+| ![Desktop design](media/desktop.png) |
+| :----------------------------------: |
+|        The design for desktop        |
+
 **Mobile first design**
 
 It is very easy to start designing an application for desktop, only to then later realize that what is on desktop does not fit on mobile form factors. For this reason we have been practicing mobile first design, meaning we have initially designed the application for mobile form factors. After having established the mobile design, we have moved on to optimizing the design for desktop as well.
@@ -216,3 +224,16 @@ When running the tests, you may encounter the following warning the console:
 ```
 
 This warning is not harmful and can be safely ignored. Downgrading Node.js could resolve the issue, but that would go against the project requirements.
+
+## Changes after first delivery
+
+After reviewing the feedback on the first delivery we created a list of critiques that we should do something with to improve our application. Here is the list of critiques, and the issues we created to fix them:
+| Critique | Solved in |
+| -------- | --------- |
+| Some divs could be exchanged with more semantic elements | **#66** Remove unnecessary divs |
+| Lack of color in the application | **#63** Add color to the weathercard depending on temperature |
+| Lack of pictures of the actual application in README | **#68** Add images to docs |
+| A weird scaling issue was happening on the location page with the infoDisplay component on small screens | **#64** Change min-width of infoDisplay |
+| That the "Other locations" title on the home page should just say "Locations" when no locations are favourited | **#62** Change title of Location section |
+| Some icons, like the heart-icon, were too small | **#61** Adjust icon sizes |
+| When scrolling down on the home-page, and clicking on a location, you were taken to the bottom of the location page, instead of top. | **#67** Fix scroll issue between pages |
