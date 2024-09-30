@@ -3,7 +3,7 @@
 exports[`WeatherCard > should match snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="_card_8ab24e"
+    class="_card_8ab24e _warmCard_8ab24e null"
   >
     <button
       aria-label="Add New York to favorites"
@@ -87,11 +87,13 @@ exports[`WeatherCard > should match snapshot 1`] = `
       </div>
       <p
         aria-label="Temperature in New York: 25"
-        class="_temperature_8ab24e"
+        class="_temperature_8ab24e _warmTemp_8ab24e"
       >
         25°C
       </p>
-      <p>
+      <p
+        class="_weatherType_8ab24e"
+      >
         Clear
       </p>
     </div>
