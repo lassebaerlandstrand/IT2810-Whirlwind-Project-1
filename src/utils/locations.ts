@@ -22,6 +22,7 @@ const LOCATIONS: Location[] = [
   { city_name: 'Vear', country_name: 'Norway', latitude: '59.2627', longitude: '10.3627' },
   { city_name: 'Mawsynram', country_name: 'India', latitude: '25.2988', longitude: '91.5824' },
   { city_name: 'Kringla', country_name: 'Norway', latitude: '63.9609', longitude: '11.4472' },
+  { city_name: 'Santa', country_name: 'North Pole', latitude: '90', longitude: '0' },
 ];
 
 export default LOCATIONS;
