@@ -104,12 +104,17 @@ p {
 
   svg {
     transition: transform 0.1s;
+    transition: scale 0.1s;
     width: 60%;
     height: 60%;
   }
 
   &:hover svg {
     transform: translateY(-0.15rem);
+  }
+
+  &:active svg {
+    transform: scale(1.1) translateY(-0.15rem);
   }
 }
 
