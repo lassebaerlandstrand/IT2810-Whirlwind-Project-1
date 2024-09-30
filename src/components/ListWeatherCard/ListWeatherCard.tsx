@@ -68,8 +68,8 @@ const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
 
   return (
     <Link to={`/location/${location.city_name}`} className={styles.weatherCard} data-testid="link-button">
-      <div className={styles.weatherTop}>
-        <div className={styles.locationInfo}>
+      <header className={styles.weatherTop}>
+        <section className={styles.locationInfo}>
           <div className={styles.cityNameAndFavorite}>
             <h2>{location.city_name}</h2>
             <button
@@ -84,16 +84,16 @@ const ListWeatherCard: React.FC<ListWeatherCardProps> = ({ location }) => {
             </button>
           </div>
           <h3>{location.country_name}</h3>
-        </div>
+        </section>
         {data ? renderWeatherIcon(weatherDescription) : <IconRotateClockwise className={styles.rotating} />}
-      </div>
-      <div className={styles.weatherBottom}>
-        <div>
+      </header>
+      <footer className={styles.weatherBottom}>
+        <section>
           <span className={styles.temperature}>{data ? data.air_temperature : '--'}°C</span>
           <p className={styles.weatherDescription}>{weatherDescription}</p>
-        </div>
+        </section>
         <IconArrowRight />
-      </div>
+      </footer>
     </Link>
   );
 };
