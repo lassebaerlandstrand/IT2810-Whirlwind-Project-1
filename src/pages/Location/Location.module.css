@@ -15,3 +15,11 @@
   text-align: center;
   padding: 1rem;
 }
+
+/* Cannot use CSS variables in media query. Therefore have to specify --breakpoint-md explicitly */
+@media screen and (min-width: 768px) {
+  .locationContainer {
+    width: 90%;
+    max-width: calc(var(--breakpoint-md) + 50px);
+  }
+}
