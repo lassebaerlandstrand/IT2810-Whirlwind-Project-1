@@ -102,20 +102,24 @@
 
 .cityNameAndFavorite {
   display: flex;
-  gap: 0.5rem;
 }
 
 .favoriteIcon {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: center;
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
   color: white;
+  width: 3rem;
+  height: 2rem;
 
   svg {
     transition: transform 0.1s;
+    width: 80%;
+    height: 80%;
   }
 
   &:hover svg {

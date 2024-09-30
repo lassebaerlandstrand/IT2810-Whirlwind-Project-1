@@ -22,16 +22,36 @@
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: var(--primary-color);
   color: var(--secondary-color);
   border-radius: 2rem;
-  padding: 1rem 3rem;
+  padding: 1rem 1rem;
   margin: 1rem auto;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
   max-width: fit-content;
   text-align: center;
-  min-width: 10rem;
+  min-width: 12rem;
   position: relative;
+  gap: 1rem;
+}
+.warmCard {
+  box-shadow: 0 0 1.5rem rgba(255, 0, 0, 0.5);
+}
+
+.coldCard {
+  box-shadow: 0 0 1.5rem rgba(113, 175, 206, 1);
+}
+
+.warmTemp {
+  border-bottom: 5px solid rgba(255, 107, 75, 0.8);
+  border-radius: 5%;
+}
+
+.coldTemp {
+  border-bottom: 5px solid rgba(113, 175, 206, 1);
+  border-radius: 5%;
 }
 
 @keyframes rotating {
@@ -49,40 +69,63 @@
 }
 
 .svg {
-  width: 10rem;
-  height: 10rem;
+  width: 100%;
+  height: 100%;
 }
 
 p {
   margin: 0;
 }
 
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  width: 10rem;
+  height: 10rem;
+}
+
 .favoriteIcon {
   position: absolute;
-  top: 1.5rem;
-  right: 2rem;
+  top: 1rem;
+  right: 1rem;
 
   display: flex;
   align-items: center;
+  justify-content: center;
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
   color: white;
+  width: 3rem;
+  height: 3rem;
 
   svg {
     transition: transform 0.1s;
+    transition: scale 0.1s;
+    width: 60%;
+    height: 60%;
   }
 
   &:hover svg {
     transform: translateY(-0.15rem);
   }
+
+  &:active svg {
+    transform: scale(1.1) translateY(-0.15rem);
+  }
+}
+
+.weatherType {
+  padding-top: 1rem;
 }
 
 /* Cannot use CSS variables in media query. Therefore have to specify --breakpoint-md explicitly */
 @media screen and (min-width: 768px) {
   .card {
-    display: flex;
+    flex-direction: row;
     width: 100%;
     min-width: none;
     max-width: none;
@@ -126,10 +169,44 @@ p {
     }
   }
 
-  .svg {
+  .favoriteIcon {
+    top: 1.5rem;
+    right: 2rem;
+    width: 3rem;
+    height: 3rem;
+
+    svg {
+      transition: transform 0.1s;
+      width: 70%;
+      height: 70%;
+    }
+  }
+
+  .iconContainer {
     width: 100%;
     height: 100%;
     max-width: 15rem;
     max-height: 15rem;
   }
+
+  .weatherType {
+    padding-top: 0;
+  }
+}
+
+.santa > .svg {
+  background-image: linear-gradient(
+    45deg,
+    red 0%,
+    red 20%,
+    #00aa00 20%,
+    #00aa00 40%,
+    red 40%,
+    red 60%,
+    #00aa00 60%,
+    #00aa00 80%,
+    red 80%,
+    red 100%
+  );
+  border-radius: 2rem;
 }
