@@ -206,6 +206,13 @@ We have also manually tested how the application looks on different web-browsers
 - Chrome (mobile)
 - Firefox (mobile)
 
+**Coverage**
+
+| ![Test coverage report](media/coverage.png) |
+| :-----------------------------------------: |
+|       The test coverage report        |
+
+
 ## Warning when running the application
 
 When running the tests, you may encounter the following warning the console:

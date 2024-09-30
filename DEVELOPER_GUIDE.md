@@ -45,6 +45,12 @@ Update snapshot tests with
 npm run update-test
 ```
 
+Check test coverage with
+
+```
+npx vitest --coverage
+```
+
 ## Workflow
 
 Our development process follows the trunk-based development workflow to maintain a structured and stable codebase. We utilize two main types of branches:
