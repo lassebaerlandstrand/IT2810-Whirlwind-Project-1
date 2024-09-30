@@ -3,7 +3,7 @@
 exports[`Carousel > should match snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="_card_8ab24e"
+    class="_card_8ab24e _warmCard_8ab24e null"
   >
     <button
       aria-label="Add New York to favorites"
@@ -87,11 +87,13 @@ exports[`Carousel > should match snapshot 1`] = `
       </div>
       <p
         aria-label="Temperature in New York: 25"
-        class="_temperature_8ab24e"
+        class="_temperature_8ab24e _warmTemp_8ab24e"
       >
         25°C
       </p>
-      <p>
+      <p
+        class="_weatherType_8ab24e"
+      >
         Clear
       </p>
     </div>
@@ -100,9 +102,9 @@ exports[`Carousel > should match snapshot 1`] = `
     class="_buttonContainer_cc4f54"
   >
     <a
-      aria-label="Previous city: Kringla"
+      aria-label="Previous city: Santa"
       class="_link_cc4f54 _leftLink_cc4f54"
-      href="/location/Kringla"
+      href="/location/Santa"
     >
       <svg
         class="tabler-icon tabler-icon-arrow-left _svg_cc4f54"
@@ -127,7 +129,7 @@ exports[`Carousel > should match snapshot 1`] = `
         />
       </svg>
       <h3>
-        Kringla
+        Santa
       </h3>
     </a>
     <a
