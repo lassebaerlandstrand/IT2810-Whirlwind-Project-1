@@ -38,9 +38,9 @@ We decided to design the application in figma before coding the different compon
 | :------------------------------: |
 |       The design in figma        |
 
-| ![In app design](media/inapp.png) |
+| ![In app design](media/inApp.png) |
 | :-------------------------------: |
-|       The design in the app       |
+|   The design for mobile/tablet    |
 
 | ![Desktop design](media/desktop.png) |
 | :----------------------------------: |
@@ -224,6 +224,18 @@ When running the tests, you may encounter the following warning the console:
 ```
 
 This warning is not harmful and can be safely ignored. Downgrading Node.js could resolve the issue, but that would go against the project requirements.
+
+## Lighthouse analysis of the application
+
+["Lighthouse is an open-source, automated tool for improving the quality of web pages"](https://developer.chrome.com/docs/lighthouse/overview) Here are the results we got from analasys of our two pages; home (aka the list view) and location:
+
+| ![Analysis of home](media/home.png) |
+| :---------------------------------: |
+|          Analysis of home           |
+
+| ![Analysis of location](media/location.png) |
+| :-----------------------------------------: |
+|            Analysis of location             |
 
 ## Changes after first delivery
 
