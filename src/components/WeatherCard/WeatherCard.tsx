@@ -39,8 +39,8 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ location, data }) => {
   };
 
   return (
-    <div
-      className={`${styles.card} ${data && data.air_temperature > 0 ? styles.warmCard : styles.coldCard} ${location.city_name == 'Santa' ? styles.santa : null}`}
+    <article
+      className={`${styles.card} ${data && data.air_temperature > 0 ? styles.warmCard : styles.coldCard} ${location.city_name === 'Santa' ? styles.santa : ''}`}
     >
       <button
         className={styles.favoriteIcon}
@@ -61,14 +61,14 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ location, data }) => {
         )}
       </figure>
 
-      <div className={styles.informationContainer}>
-        <div className={styles.locationContainer}>
+      <section className={styles.informationContainer}>
+        <header className={styles.locationContainer}>
           <h3>{location.city_name}</h3>
           <span className={styles.commaSeparator} aria-hidden="true">
             ,{' '}
           </span>
           <h4>{location.country_name}</h4>
-        </div>
+        </header>
         <p
           className={`${styles.temperature} ${data && data.air_temperature > 0 ? styles.warmTemp : styles.coldTemp}`}
           aria-label={`Temperature in ${location.city_name}: ${data ? data.air_temperature : 'loading'}`}
@@ -76,8 +76,8 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ location, data }) => {
           {data ? data.air_temperature : '---'}°C
         </p>
         <p className={styles.weatherType}>{data ? determineWeather(data)[1] : 'Loading...'}</p>
-      </div>
-    </div>
+      </section>
+    </article>
   );
 };
 

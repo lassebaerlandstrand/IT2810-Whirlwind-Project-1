@@ -21,14 +21,14 @@ const WeatherList: React.FC<WeatherListProps> = ({ locations }) => {
   );
 
   return (
-    <div className={styles.weatherList} data-testid="weather-list">
+    <>
       {favoritedLocations.length > 0 && (
         <section className={styles.section}>
           <h2>Favorited Locations</h2>
           <ul className={styles.list}>
             {favoritedLocations.map((location, index) => (
               <li key={`fav-${index}`}>
-                <ListWeatherCard key={`fav-${index}`} location={location} />
+                <ListWeatherCard location={location} />
               </li>
             ))}
           </ul>
@@ -36,17 +36,17 @@ const WeatherList: React.FC<WeatherListProps> = ({ locations }) => {
       )}
       {nonFavoritedLocations.length > 0 && (
         <section className={styles.section}>
-          <h2>Other Locations</h2>
+          <h2>{favorites.length > 0 ? 'Other Locations' : 'Locations'}</h2>
           <ul className={styles.list}>
             {nonFavoritedLocations.map((location, index) => (
               <li key={`nonfav-${index}`}>
-                <ListWeatherCard key={`nonfav-${index}`} location={location} />
+                <ListWeatherCard location={location} />
               </li>
             ))}
           </ul>
         </section>
       )}
-    </div>
+    </>
   );
 };
 

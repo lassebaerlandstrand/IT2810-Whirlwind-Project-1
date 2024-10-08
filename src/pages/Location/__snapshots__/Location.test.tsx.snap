@@ -62,8 +62,8 @@ exports[`Location > should match snapshot 1`] = `
       </svg>
       Go back to list
     </a>
-    <div
-      class="_card_8ab24e _coldCard_8ab24e null"
+    <article
+      class="_card_8ab24e _coldCard_8ab24e "
     >
       <button
         aria-label="Add New York to favorites"
@@ -109,10 +109,10 @@ exports[`Location > should match snapshot 1`] = `
           />
         </svg>
       </figure>
-      <div
+      <section
         class="_informationContainer_8ab24e"
       >
-        <div
+        <header
           class="_locationContainer_8ab24e"
         >
           <h3>
@@ -127,7 +127,7 @@ exports[`Location > should match snapshot 1`] = `
           <h4>
             USA
           </h4>
-        </div>
+        </header>
         <p
           aria-label="Temperature in New York: loading"
           class="_temperature_8ab24e _coldTemp_8ab24e"
@@ -139,8 +139,8 @@ exports[`Location > should match snapshot 1`] = `
         >
           Loading...
         </p>
-      </div>
-    </div>
+      </section>
+    </article>
     <div
       class="_buttonContainer_cc4f54"
     >
@@ -213,13 +213,13 @@ exports[`Location > should match snapshot 1`] = `
       <li
         class="_listItemContainer_7869c2"
       >
-        <div
+        <article
           class="_container_7869c2"
         >
-          <div
+          <header
             class="_titleContainer_7869c2"
           >
-            <div
+            <figure
               class="_iconContainer_7869c2"
               style="transform: rotate(0deg); transition: transform 2s;"
             >
@@ -245,14 +245,14 @@ exports[`Location > should match snapshot 1`] = `
                   d="M4 16h5.5a2.5 2.5 0 1 1 -2.34 3.24"
                 />
               </svg>
-            </div>
+            </figure>
             <h3
               class="_title_7869c2"
             >
               Wind (NA)
             </h3>
-          </div>
-          <div
+          </header>
+          <section
             class="_infoContainer_7869c2"
           >
             <p
@@ -265,19 +265,19 @@ exports[`Location > should match snapshot 1`] = `
             >
               m/s
             </p>
-          </div>
-        </div>
+          </section>
+        </article>
       </li>
       <li
         class="_listItemContainer_7869c2"
       >
-        <div
+        <article
           class="_container_7869c2"
         >
-          <div
+          <header
             class="_titleContainer_7869c2"
           >
-            <div
+            <figure
               class="_iconContainer_7869c2"
               style="transform: rotate(0deg); transition: transform 2s;"
             >
@@ -300,14 +300,14 @@ exports[`Location > should match snapshot 1`] = `
                   d="M11 13v2m0 3v2m4 -5v2m0 3v2"
                 />
               </svg>
-            </div>
+            </figure>
             <h3
               class="_title_7869c2"
             >
               Precipitation
             </h3>
-          </div>
-          <div
+          </header>
+          <section
             class="_infoContainer_7869c2"
           >
             <p
@@ -320,8 +320,8 @@ exports[`Location > should match snapshot 1`] = `
             >
               mm/h
             </p>
-          </div>
-        </div>
+          </section>
+        </article>
       </li>
     </ul>
   </main>

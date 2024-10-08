@@ -10,9 +10,9 @@ interface InfoDisplayItemProps {
 
 export const InfoDisplayItem = ({ icon, infoText, amount, unit, rotation }: InfoDisplayItemProps) => {
   return (
-    <div className={styles.container}>
-      <div className={styles.titleContainer}>
-        <div
+    <article className={styles.container}>
+      <header className={styles.titleContainer}>
+        <figure
           className={styles.iconContainer}
           style={{
             transform: `rotate(${rotation !== undefined ? rotation : 0}deg)`,
@@ -20,14 +20,14 @@ export const InfoDisplayItem = ({ icon, infoText, amount, unit, rotation }: Info
           }}
         >
           {icon}
-        </div>
+        </figure>
         <h3 className={styles.title}>{infoText}</h3>
-      </div>
-      <div className={styles.infoContainer}>
+      </header>
+      <section className={styles.infoContainer}>
         <p className={styles.infoText}>{amount !== undefined ? amount.toString() : '--.-'}</p>
         <p className={styles.infoUnit}>{unit}</p>
-      </div>
-    </div>
+      </section>
+    </article>
   );
 };
 
@@ -46,7 +46,6 @@ const InfoDisplay = ({ infos }: InfoDisplayProps) => {
             amount={item.amount}
             unit={item.unit}
             rotation={item.rotation}
-            key={index}
           />
         </li>
       ))}

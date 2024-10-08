@@ -2,8 +2,8 @@
 
 exports[`WeatherCard > should match snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="_card_8ab24e _warmCard_8ab24e null"
+  <article
+    class="_card_8ab24e _warmCard_8ab24e "
   >
     <button
       aria-label="Add New York to favorites"
@@ -70,10 +70,10 @@ exports[`WeatherCard > should match snapshot 1`] = `
         />
       </svg>
     </figure>
-    <div
+    <section
       class="_informationContainer_8ab24e"
     >
-      <div
+      <header
         class="_locationContainer_8ab24e"
       >
         <h3>
@@ -88,7 +88,7 @@ exports[`WeatherCard > should match snapshot 1`] = `
         <h4>
           USA
         </h4>
-      </div>
+      </header>
       <p
         aria-label="Temperature in New York: 25"
         class="_temperature_8ab24e _warmTemp_8ab24e"
@@ -100,7 +100,7 @@ exports[`WeatherCard > should match snapshot 1`] = `
       >
         Clear
       </p>
-    </div>
-  </div>
+    </section>
+  </article>
 </DocumentFragment>
 `;

@@ -1,12 +1,9 @@
-.weatherList {
+.section {
   display: flex;
   flex-direction: column;
   padding: 1rem;
   justify-content: center;
   width: 100%;
-}
-
-.section {
   margin-bottom: 3rem;
 }
 
