@@ -1,4 +1,5 @@
 import React, { createContext, ReactNode, useCallback, useContext, useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Location } from '../types/api-types';
 import LOCATIONS from '../utils/locations';
 import { useFavorites } from './FavoritesFunctions';
@@ -26,9 +27,11 @@ export const LocationProvider: React.FC<{ children: ReactNode }> = ({ children }
     () => sessionStorage.getItem('SortingOption') || Object.keys(sortingOptions)[0],
   );
 
+  const location = useLocation();
+
   // Every time the sortKey changes, sort the locations. Sort first by favorites, then by the selected sort option.
   const sortLocations = useCallback(() => {
-    if (sortKey) {
+    if (location.pathname == '/' && sortKey) {
       let sortedData = [...LOCATIONS];
       sortedData.sort((first, second) => {
         const isFirstFavorited = favorites.some((fav) => fav.city_name === first.city_name);
@@ -42,11 +45,11 @@ export const LocationProvider: React.FC<{ children: ReactNode }> = ({ children }
       });
       setSortedLocations(sortedData);
     }
-  }, [sortKey]);
+  }, [sortKey, JSON.stringify(favorites), location.pathname]);
 
   useEffect(() => {
     sortLocations();
-  }, [sortKey, sortLocations]);
+  }, [sortKey, sortLocations, JSON.stringify(favorites)]);
 
   return <LocationContext.Provider value={{ sortedLocations, setSortKey }}>{children}</LocationContext.Provider>;
 };

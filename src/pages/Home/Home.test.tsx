@@ -10,13 +10,13 @@ describe('Home', () => {
   test('should match snapshot', () => {
     const { asFragment } = render(
       <QueryClientProvider client={queryClient}>
-        <LocationProvider>
-          <MemoryRouter>
+        <MemoryRouter>
+          <LocationProvider>
             <Routes>
               <Route path="/" element={<Home />} />
             </Routes>
-          </MemoryRouter>
-        </LocationProvider>
+          </LocationProvider>
+        </MemoryRouter>
       </QueryClientProvider>,
     );
     expect(asFragment()).toMatchSnapshot();

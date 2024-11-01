@@ -22,13 +22,13 @@ describe('Location', () => {
 
     const { asFragment } = render(
       <QueryClientProvider client={queryClient}>
-        <LocationProvider>
-          <MemoryRouter initialEntries={[`/location/${LOCATIONS[0].city_name}`]}>
+        <MemoryRouter initialEntries={[`/location/${LOCATIONS[0].city_name}`]}>
+          <LocationProvider>
             <Routes>
               <Route path="/location/:city_name" element={<Location />} />
             </Routes>
-          </MemoryRouter>
-        </LocationProvider>
+          </LocationProvider>
+        </MemoryRouter>
       </QueryClientProvider>,
     );
 

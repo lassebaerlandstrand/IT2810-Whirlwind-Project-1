@@ -14,9 +14,12 @@ const router = createBrowserRouter(
       path: '/',
       element: (
         <>
-          {/* ScrollRestoration will reset scroll position on navigation */}
-          <ScrollRestoration />
-          <Home />
+          {/* Need to put the LocationProvider here as it is dependent on the Router */}
+          <LocationProvider>
+            {/* ScrollRestoration will reset scroll position on navigation */}
+            <ScrollRestoration />
+            <Home />
+          </LocationProvider>
         </>
       ),
     },
@@ -24,8 +27,10 @@ const router = createBrowserRouter(
       path: '/location/:locationName',
       element: (
         <>
-          <ScrollRestoration />
-          <Location />
+          <LocationProvider>
+            <ScrollRestoration />
+            <Location />
+          </LocationProvider>
         </>
       ),
     },
@@ -39,9 +44,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <FavoritesProvider>
-        <LocationProvider>
-          <RouterProvider router={router} />
-        </LocationProvider>
+        <RouterProvider router={router} />
       </FavoritesProvider>
     </QueryClientProvider>
   );
