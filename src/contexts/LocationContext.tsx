@@ -1,6 +1,7 @@
-import React, { createContext, ReactNode, useContext, useState } from 'react';
+import React, { createContext, ReactNode, useCallback, useContext, useEffect, useState } from 'react';
 import { Location } from '../types/api-types';
 import LOCATIONS from '../utils/locations';
+import { useFavorites } from './FavoritesFunctions';
 
 type OptionsType = {
   [key: string]: (a: Location, b: Location) => number;
@@ -13,32 +14,41 @@ export const options: OptionsType = {
 
 interface LocationContextProps {
   sortedLocations: Location[];
-  setSortCondition: (sortCondition: () => (a: Location, b: Location) => number) => void;
+  setSortKey: (sortKey: keyof OptionsType) => void;
 }
 
 const LocationContext = createContext<LocationContextProps | undefined>(undefined);
 
 export const LocationProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [sortedLocations, setSortedLocations] = useState<Location[]>(LOCATIONS);
-  const [sortCondition, setSortCondition1] = useState<() => (a: Location, b: Location) => number>(
-    () => Object.values(options)[1],
+  const { favorites } = useFavorites();
+  const [sortKey, setSortKey] = useState<keyof OptionsType>(
+    () => sessionStorage.getItem('SortingOption') || Object.keys(options)[0],
   );
 
-  // const sortLocations = useCallback(() => {
-  //   let sortedData = [...LOCATIONS];
-  //   if (sortCondition) {
-  //     sortedData.sort(sortCondition());
-  //   }
-  //   setSortedLocations(sortedData);
-  // }, [sortCondition]);
+  // Every time the sortKey changes, sort the locations. Sort first by favorites, then by the selected sort option.
+  const sortLocations = useCallback(() => {
+    if (sortKey) {
+      let sortedData = [...LOCATIONS];
+      sortedData.sort((a, b) => {
+        const isAFavorited = favorites.some((fav) => fav.city_name === a.city_name);
+        const isBFavorited = favorites.some((fav) => fav.city_name === b.city_name);
 
-  // useEffect(() => {
-  //   sortLocations();
-  // }, [sortCondition, sortLocations]);
+        if (isAFavorited !== isBFavorited) {
+          return isAFavorited ? -1 : 1;
+        }
 
-  const setSortCondition = () => (sortCondition: (a: Location, b: Location) => number) => {};
+        return options[sortKey](a, b);
+      });
+      setSortedLocations(sortedData);
+    }
+  }, [sortKey]);
 
-  return <LocationContext.Provider value={{ sortedLocations, setSortCondition }}>{children}</LocationContext.Provider>;
+  useEffect(() => {
+    sortLocations();
+  }, [sortKey, sortLocations]);
+
+  return <LocationContext.Provider value={{ sortedLocations, setSortKey }}>{children}</LocationContext.Provider>;
 };
 
 export const useLocations = () => {

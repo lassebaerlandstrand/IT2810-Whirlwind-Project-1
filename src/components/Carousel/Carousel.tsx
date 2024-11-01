@@ -1,9 +1,11 @@
 import { IconArrowLeft, IconArrowRight } from '@tabler/icons-react';
 import { Link } from 'react-router-dom';
 import { Location, WeatherInfo } from '../../types/api-types';
-import LOCATIONS from '../../utils/locations';
 import WeatherCard from '../WeatherCard/WeatherCard';
 import styles from './Carousel.module.css';
+
+// Need to define this function as JavaScript's modulo operator doesn't work as expected for negative numbers
+const mod = (n: number, m: number) => ((n % m) + m) % m;
 
 interface CarouselProps {
   locations: Location[];
@@ -12,12 +14,12 @@ interface CarouselProps {
 }
 
 const Carousel: React.FC<CarouselProps> = ({ locations, currentIndex, data }) => {
-  const previousCityName = locations[(currentIndex - 1) % locations.length].city_name;
-  const nextCityName = locations[(currentIndex + 1) % locations.length].city_name;
+  const previousCityName = locations[mod(currentIndex - 1, locations.length)].city_name;
+  const nextCityName = locations[mod(currentIndex + 1, locations.length)].city_name;
 
   return (
     <>
-      <WeatherCard location={LOCATIONS[currentIndex]} data={data} />
+      <WeatherCard location={locations[currentIndex]} data={data} />
       <div className={styles.buttonContainer}>
         <Link
           className={`${styles.link} ${styles.leftLink}`}

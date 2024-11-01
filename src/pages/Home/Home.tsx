@@ -8,10 +8,8 @@ import { Location } from '../../types/api-types';
 import styles from './Home.module.css';
 
 const Home: React.FC = () => {
-  const { sortedLocations, setSortCondition } = useLocations();
+  const { sortedLocations, setSortKey } = useLocations();
   const [filteredCities, setFilteredCities] = useState<Location[]>(sortedLocations);
-
-  console.log(sortedLocations);
 
   const handleSearch = useCallback(
     (searchQuery: string) => {
@@ -33,7 +31,7 @@ const Home: React.FC = () => {
       <Header />
       <div className={styles.searchSortContainer}>
         <SearchBar onSearch={handleSearch} />
-        <SortDropDown setSortCondition={() => setSortCondition} />
+        <SortDropDown setSortKey={setSortKey} />
       </div>
       <WeatherList locations={filteredCities} />
     </main>
