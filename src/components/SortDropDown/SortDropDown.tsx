@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { options } from '../../contexts/LocationContext';
 import { Location } from '../../types/api-types';
 import DropDown from '../DropDown/DropDown';
-import { options } from './SortingOptions';
 
 type SortDropDownProps = {
   setSortCondition: (sortCondition: (a: Location, b: Location) => number) => void;
