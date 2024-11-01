@@ -145,9 +145,9 @@ exports[`Location > should match snapshot 1`] = `
       class="_buttonContainer_cc4f54"
     >
       <a
-        aria-label="Previous city: Santa"
+        aria-label="Previous city: Mawsynram"
         class="_link_cc4f54 _leftLink_cc4f54"
-        href="/location/Santa"
+        href="/location/Mawsynram"
       >
         <svg
           class="tabler-icon tabler-icon-arrow-left _svg_cc4f54"
@@ -172,13 +172,13 @@ exports[`Location > should match snapshot 1`] = `
           />
         </svg>
         <h3>
-          Santa
+          Mawsynram
         </h3>
       </a>
       <a
-        aria-label="Next city: Stavanger"
+        aria-label="Next city: Oslo"
         class="_link_cc4f54 _rightLink_cc4f54"
-        href="/location/Stavanger"
+        href="/location/Oslo"
       >
         <svg
           class="tabler-icon tabler-icon-arrow-right _svg_cc4f54"
@@ -203,7 +203,7 @@ exports[`Location > should match snapshot 1`] = `
           />
         </svg>
         <h3>
-          Stavanger
+          Oslo
         </h3>
       </a>
     </div>

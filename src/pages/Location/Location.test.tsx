@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render } from '@testing-library/react';
 import { MemoryRouter, Route, Routes, useParams } from 'react-router-dom';
 import { vi } from 'vitest';
+import { LocationProvider } from '../../contexts/LocationContext';
 import LOCATIONS from '../../utils/locations';
 import Location from './Location';
 
@@ -21,11 +22,13 @@ describe('Location', () => {
 
     const { asFragment } = render(
       <QueryClientProvider client={queryClient}>
-        <MemoryRouter initialEntries={[`/location/${LOCATIONS[0].city_name}`]}>
-          <Routes>
-            <Route path="/location/:city_name" element={<Location />} />
-          </Routes>
-        </MemoryRouter>
+        <LocationProvider>
+          <MemoryRouter initialEntries={[`/location/${LOCATIONS[0].city_name}`]}>
+            <Routes>
+              <Route path="/location/:city_name" element={<Location />} />
+            </Routes>
+          </MemoryRouter>
+        </LocationProvider>
       </QueryClientProvider>,
     );
 

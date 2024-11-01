@@ -7,7 +7,7 @@ type OptionsType = {
   [key: string]: (a: Location, b: Location) => number;
 };
 
-export const options: OptionsType = {
+export const sortingOptions: OptionsType = {
   'City Name': (a: Location, b: Location) => a.city_name.localeCompare(b.city_name),
   'Country Name': (a: Location, b: Location) => a.country_name.localeCompare(b.country_name),
 };
@@ -23,22 +23,22 @@ export const LocationProvider: React.FC<{ children: ReactNode }> = ({ children }
   const [sortedLocations, setSortedLocations] = useState<Location[]>(LOCATIONS);
   const { favorites } = useFavorites();
   const [sortKey, setSortKey] = useState<keyof OptionsType>(
-    () => sessionStorage.getItem('SortingOption') || Object.keys(options)[0],
+    () => sessionStorage.getItem('SortingOption') || Object.keys(sortingOptions)[0],
   );
 
   // Every time the sortKey changes, sort the locations. Sort first by favorites, then by the selected sort option.
   const sortLocations = useCallback(() => {
     if (sortKey) {
       let sortedData = [...LOCATIONS];
-      sortedData.sort((a, b) => {
-        const isAFavorited = favorites.some((fav) => fav.city_name === a.city_name);
-        const isBFavorited = favorites.some((fav) => fav.city_name === b.city_name);
+      sortedData.sort((first, second) => {
+        const isFirstFavorited = favorites.some((fav) => fav.city_name === first.city_name);
+        const isSecondFavorited = favorites.some((fav) => fav.city_name === second.city_name);
 
-        if (isAFavorited !== isBFavorited) {
-          return isAFavorited ? -1 : 1;
+        if (isFirstFavorited !== isSecondFavorited) {
+          return isFirstFavorited ? -1 : 1;
         }
 
-        return options[sortKey](a, b);
+        return sortingOptions[sortKey](first, second);
       });
       setSortedLocations(sortedData);
     }

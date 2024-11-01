@@ -1,10 +1,9 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import SortDropDown from './SortDropDown';
-import { options } from './SortingOptions';
 
 describe('SortDropDown Component', () => {
-  const mockSetSortCondition = vi.fn();
+  const mockSetSortKey = vi.fn();
 
   beforeEach(() => {
     sessionStorage.clear();
@@ -13,31 +12,31 @@ describe('SortDropDown Component', () => {
 
   it('should render with the default sorting option from session storage', () => {
     sessionStorage.setItem('SortingOption', 'Country Name');
-    render(<SortDropDown setSortCondition={mockSetSortCondition} />);
+    render(<SortDropDown setSortKey={mockSetSortKey} />);
 
     expect(screen.getByText('Country Name')).toBeInTheDocument();
-    expect(mockSetSortCondition).toHaveBeenCalledWith(options['Country Name']);
+    expect(mockSetSortKey).toHaveBeenCalledWith('Country Name');
   });
 
   it('should render with the default sorting option when session storage is empty', () => {
-    render(<SortDropDown setSortCondition={mockSetSortCondition} />);
+    render(<SortDropDown setSortKey={mockSetSortKey} />);
 
     expect(screen.getByText('City Name')).toBeInTheDocument();
-    expect(mockSetSortCondition).toHaveBeenCalledWith(options['City Name']);
+    expect(mockSetSortKey).toHaveBeenCalledWith('City Name');
   });
 
   it('should save the selected option to session storage and update the sorting method', () => {
-    render(<SortDropDown setSortCondition={mockSetSortCondition} />);
+    render(<SortDropDown setSortKey={mockSetSortKey} />);
 
     fireEvent.click(screen.getByRole('button'));
     fireEvent.click(screen.getByText('Country Name'));
 
     expect(sessionStorage.getItem('SortingOption')).toBe('Country Name');
-    expect(mockSetSortCondition).toHaveBeenCalledWith(options['Country Name']);
+    expect(mockSetSortKey).toHaveBeenCalledWith('Country Name');
   });
 
   it('should open and close the dropdown menu when clicked', () => {
-    render(<SortDropDown setSortCondition={mockSetSortCondition} />);
+    render(<SortDropDown setSortKey={mockSetSortKey} />);
 
     const button = screen.getByTestId('dropdown-button');
 
@@ -49,7 +48,7 @@ describe('SortDropDown Component', () => {
   });
 
   it('should match snapshot', () => {
-    const { asFragment } = render(<SortDropDown setSortCondition={vi.fn()} />);
+    const { asFragment } = render(<SortDropDown setSortKey={vi.fn()} />);
     expect(asFragment()).toMatchSnapshot();
   });
 });

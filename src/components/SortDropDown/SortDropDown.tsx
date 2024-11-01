@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { options } from '../../contexts/LocationContext';
+import { sortingOptions } from '../../contexts/LocationContext';
 import DropDown from '../DropDown/DropDown';
 
 type SortDropDownProps = {
@@ -8,7 +8,7 @@ type SortDropDownProps = {
 
 const SortDropDown: React.FC<SortDropDownProps> = ({ setSortKey }) => {
   const [selectedOption, setSelectedOption] = useState<string>(
-    () => sessionStorage.getItem('SortingOption') || Object.keys(options)[0],
+    () => sessionStorage.getItem('SortingOption') || Object.keys(sortingOptions)[0],
   );
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const SortDropDown: React.FC<SortDropDownProps> = ({ setSortKey }) => {
     setSortKey(selectedOption);
   }, [selectedOption, setSortKey]);
 
-  const optionList = Object.keys(options);
+  const optionList = Object.keys(sortingOptions);
 
   return (
     <DropDown

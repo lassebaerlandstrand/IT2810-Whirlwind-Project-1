@@ -12,6 +12,7 @@ describe('Carousel', () => {
             path="/location/:locationName"
             element={
               <Carousel
+                locations={LOCATIONS}
                 currentIndex={0}
                 data={{
                   air_pressure_at_sea_level: 0,
