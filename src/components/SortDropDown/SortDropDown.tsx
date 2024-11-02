@@ -1,24 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { Location } from '../../types/api-types';
+import { sortingOptions } from '../../contexts/LocationContext';
 import DropDown from '../DropDown/DropDown';
-import { options } from './SortingOptions';
 
 type SortDropDownProps = {
-  setSortCondition: (sortCondition: (a: Location, b: Location) => number) => void;
+  setSortKey: any;
 };
 
-const SortDropDown: React.FC<SortDropDownProps> = ({ setSortCondition }) => {
+const SortDropDown: React.FC<SortDropDownProps> = ({ setSortKey }) => {
   const [selectedOption, setSelectedOption] = useState<string>(
-    () => sessionStorage.getItem('SortingOption') || Object.keys(options)[0],
+    () => sessionStorage.getItem('SortingOption') || Object.keys(sortingOptions)[0],
   );
 
   useEffect(() => {
     sessionStorage.setItem('SortingOption', selectedOption);
-    const sortingMethod = options[selectedOption];
-    setSortCondition(sortingMethod);
-  }, [selectedOption, setSortCondition]);
+    setSortKey(selectedOption);
+  }, [selectedOption, setSortKey]);
 
-  const optionList = Object.keys(options);
+  const optionList = Object.keys(sortingOptions);
 
   return (
     <DropDown

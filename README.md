@@ -218,8 +218,7 @@ We have also manually tested how the application looks on different web-browsers
 
 | ![Test coverage report](media/coverage.png) |
 | :-----------------------------------------: |
-|       The test coverage report        |
-
+|          The test coverage report           |
 
 ## Warning when running the application
 
@@ -256,3 +255,4 @@ After reviewing the feedback on the first delivery we created a list of critique
 | That the "Other locations" title on the home page should just say "Locations" when no locations are favourited | **#62** Change title of Location section |
 | Some icons, like the heart-icon, were too small | **#61** Adjust icon sizes |
 | When scrolling down on the home-page, and clicking on a location, you were taken to the bottom of the location page, instead of top. | **#67** Fix scroll issue between pages |
+| The next and previous locations in the carousel do not follow the sorting on the home page | **#60** Have the sorted locations in context |

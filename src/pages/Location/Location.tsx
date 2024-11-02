@@ -5,9 +5,9 @@ import Carousel from '../../components/Carousel/Carousel';
 import Header from '../../components/Header/Header';
 import HomeButton from '../../components/HomeButton/HomeButton';
 import InfoDisplay from '../../components/InfoDisplay/InfoDisplay';
+import { useLocations } from '../../contexts/LocationContext';
 import { useWeather } from '../../hooks/useWeather';
 import { WeatherInfo } from '../../types/api-types';
-import LOCATIONS from '../../utils/locations';
 import styles from './Location.module.css';
 
 const translateDirection = (windDirection: number) => {
@@ -23,7 +23,6 @@ const updateInfos = (data: WeatherInfo | null) => {
       unit: 'm/s',
       rotation: data ? data.wind_from_direction + 90 : 0,
     },
-
     {
       icon: <IconCloudRain />,
       infoText: 'Precipitation',
@@ -36,11 +35,12 @@ const updateInfos = (data: WeatherInfo | null) => {
 
 const Location = () => {
   const { locationName } = useParams();
-  const currentIndex = LOCATIONS.findIndex(
+  const { sortedLocations } = useLocations();
+  const currentIndex = sortedLocations.findIndex(
     (location) => location.city_name?.toLowerCase() === locationName?.toLowerCase(),
   );
 
-  const { data, isLoading, error } = useWeather(LOCATIONS[currentIndex]);
+  const { data, isLoading, error } = useWeather(sortedLocations[currentIndex]);
 
   const [infos, setInfos] = useState(updateInfos(data));
 
@@ -59,7 +59,7 @@ const Location = () => {
         </>
       ) : (
         <>
-          <Carousel currentIndex={currentIndex} data={data} />
+          <Carousel locations={sortedLocations} currentIndex={currentIndex} data={data} />
           <InfoDisplay infos={infos} />
         </>
       )}

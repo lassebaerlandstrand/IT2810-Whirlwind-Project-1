@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createBrowserRouter, RouterProvider, ScrollRestoration } from 'react-router-dom';
 import './App.css';
 import { FavoritesProvider } from './contexts/FavoritesContext';
+import { LocationProvider } from './contexts/LocationContext';
 import Home from './pages/Home/Home';
 import Location from './pages/Location/Location';
 
@@ -13,9 +14,12 @@ const router = createBrowserRouter(
       path: '/',
       element: (
         <>
-          {/* ScrollRestoration will reset scroll position on navigation */}
-          <ScrollRestoration />
-          <Home />
+          {/* Need to put the LocationProvider here as it is dependent on the Router */}
+          <LocationProvider>
+            {/* ScrollRestoration will reset scroll position on navigation */}
+            <ScrollRestoration />
+            <Home />
+          </LocationProvider>
         </>
       ),
     },
@@ -23,8 +27,10 @@ const router = createBrowserRouter(
       path: '/location/:locationName',
       element: (
         <>
-          <ScrollRestoration />
-          <Location />
+          <LocationProvider>
+            <ScrollRestoration />
+            <Location />
+          </LocationProvider>
         </>
       ),
     },
@@ -36,11 +42,11 @@ const router = createBrowserRouter(
 
 function App() {
   return (
-    <FavoritesProvider>
-      <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
+      <FavoritesProvider>
         <RouterProvider router={router} />
-      </QueryClientProvider>
-    </FavoritesProvider>
+      </FavoritesProvider>
+    </QueryClientProvider>
   );
 }
 
